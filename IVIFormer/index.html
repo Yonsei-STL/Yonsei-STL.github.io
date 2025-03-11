@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Self-Evolving Depth-Supervised 3D Gaussian Splatting from Rendered Stereo Pairs">
+  <meta name="keywords" content="Depth Supervision, Gaussian Splatting, Gaussian">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Self-Evolving Depth-Supervised 3D Gaussian Splatting from Rendered Stereo Pairs</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍉</text></svg>">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/script.js"></script>
+
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+			<h1 class="title is-1 publication-title" style="margin-bottom: 0; font-size: 4rem"><strong>Self-Evolving Depth-Supervised</strong></h1>
+			<h1 class="title is-1 publication-title" style="font-size: 4rem; margin-top: 0; margin-bottom: 0"><strong>3D Gaussian Splatting from</strong></h1>
+			<h1 class="title is-1 publication-title" style="font-size: 4rem; margin-top: 0; margin-bottom: 0"><strong>Rendered Stereo Pairs</strong></h1>
+          <div class="is-size-4 publication-authors">
+                <span class="univerity-block" style="color: rgb(54, 54, 54); font-size: 2.5rem">BMVC 2024</span>
+          </div>
+		  <br>
+
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">
+				<a href="https://sadrasafa.github.io/">Sadra Safadoust</a><sup>1</sup>,</span>
+            <span class="author-block">
+				<a href="https://fabiotosi92.github.io/">Fabio Tosi</a><sup>2</sup>,</span>
+            <span class="author-block">
+				<a href="https://mysite.ku.edu.tr/fguney/">Fatma Güney</a><sup>1</sup>,</span>
+            <span class="author-block">
+				<a href="https://mattpoggi.github.io/">Matteo Poggi</a><sup>2</sup></span>
+          </div>
+
+		  <br>
+		  <table align=center width=750px>
+				<table align=center width=750px>
+					<tr>
+						<td align=center width=200px>
+							<center>
+								<span style="font-size:22px">KUIS AI Center, Koç University<sup>1</sup></span>
+							</center>
+						</td>
+						<td align=center width=200px>
+							<center>
+								<span style="font-size:22px">University of Bologna<sup>2</sup></span>
+							</center>
+						</td>
+					</tr>
+				</table>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2409.07456"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+	      <span class="link-block">
+                <a href="https://drive.google.com/file/d/1WGsyVrq-9QLxF5TXk_YNWafTshHuRv4k/view?usp=sharing"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Supplementary</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2409.07456"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/sadrasafa/StereoGS/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <div class="container is-max-desktop">
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <div class="content has-text-justified">
+            <img src="./static/images/teaser.png">
+            
+              <p>3D Gaussian Splatting (3DGS) struggles to model the underlying 3D geometry accurately, as is evident in the depth maps generated by 3DGS itself. Supervising 3DGS with depth obtained from images through Structure-from-Motion (SfM), Depth Completion (DC), Monocular Depth Estimation (MDE), or Multi-View Stereo (MVS) may soften the problem. However, any of these techniques have shortcomings in terms of accuracy or generalization ability.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+<hr>
+<!-- <section class="section"> -->
+    <div class="container is-max-desktop">
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Method</h2>
+          <div class="content has-text-justified">
+            <img src="./static/images/method.png">
+            
+              <p>We exploit 3DGS itself to render stereo pairs and process for more accurate depth supervision. Given a camera pose among those in the training set, we derive a corresponding right viewpoint in a fictitious stereo configuration according to an arbitrary stereo baseline. During training, for each image in the training set we render a corresponding right frame; we process the two through a stereo network to obtain depth. We train 3DGS by minimizing the difference between rendered and real images, as well as between rendered depth and the depth map obtained from stereo.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  <!-- </section> -->
+
+<hr>
+  <!-- <section class="section"> -->
+    <div class="container ">
+      <div class=" has-text-centered">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <p>
+
+          </p>
+        </div>
+        
+        <!-- First row -->
+        <div class="image-row" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+          <div id="example1" class="bal-container-small">
+            <div id="example1" class="bal-container-small">
+
+              <div class="bal-after">
+                <img src="./static/images/qual/facade_render_ours.png">
+                <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                  Ours (RGB)
+                </div>
+              </div>
+
+              <div class="bal-before" style="width:96.4968152866242%;">
+                <div class="bal-before-inset" style="width: 539px;">
+                  <img src="./static/images/qual/facade_render_baseline.png">
+                  <div class="bal-beforePosition beforeLabel">
+                    3DGS (RGB)
+                  </div>
+                </div>
+              </div>
+
+              <div class="bal-handle" style="left:96.4968152866242%;">
+                <span class=" handle-left-arrow"></span>
+                <span class="handle-right-arrow"></span>
+              </div>
+
+            </div>
+
+          </div>
+          <div id="example2" class="bal-container-small">
+            <div id="example2" class="bal-container-small">
+
+              <div class="bal-after">
+                <img src="./static/images/qual/courtyard_render_ours.png">
+                <div class="bal-afterPosition afterLabel">
+                  Ours (RGB)
+                </div>
+              </div>
+
+              <div class="bal-before" style="width: 50%;">
+                <div class="bal-before-inset" style="width: 539px;">
+                  <img src="./static/images/qual/courtyard_render_baseline.png">
+                  <div class="bal-beforePosition beforeLabel">
+                    3DGS (RGB)
+                  </div>
+                </div>
+              </div>
+
+              <div class="bal-handle" style="left: 50%;">
+                <span class=" handle-left-arrow"></span>
+                <span class="handle-right-arrow"></span>
+              </div>
+
+            </div>
+          </div>
+          <div id="example3" class="bal-container-small">
+            <div id="example3" class="bal-container-small">
+
+              <div class="bal-after">
+                <img src="./static/images/qual/blended1_render_ours.png">
+                <div class="bal-afterPosition afterLabel">
+                  Ours (RGB)
+                </div>
+              </div>
+
+              <div class="bal-before" style="width: 50%;">
+                <div class="bal-before-inset" style="width: 539px;">
+                  <img src="./static/images/qual/blended1_render_baseline.png">
+                  <div class="bal-beforePosition beforeLabel">
+                    3DGS (RGB)
+                  </div>
+                </div>
+              </div>
+
+              <div class="bal-handle" style="left: 50%;">
+                <span class=" handle-left-arrow"></span>
+                <span class="handle-right-arrow"></span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Second row -->
+        <div class="image-row" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+          <div id="example4" class="bal-container-small">
+            <!-- Content for example4 -->
+          </div>
+          <div id="example5" class="bal-container-small">
+            <!-- Content for example5 -->
+          </div>
+          <div id="example6" class="bal-container-small">
+            <!-- Content for example6 -->
+          </div>
+        </div>
+
+        <!-- Third row -->
+        <div class="image-row" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+          <div id="example7" class="bal-container-small">
+            <!-- Content for example7 -->
+          </div>
+          <div id="example8" class="bal-container-small">
+            <!-- Content for example8 -->
+          </div>
+          <div class="bal-container-small" style="visibility: hidden">
+            <!-- Empty placeholder for grid alignment -->
+          </div>
+
+
+
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <div class="columns is-centered">
+                <div class="column is-full-width">
+                  <div id="example1" class="bal-container-small">
+
+                    <div class="bal-after">
+                      <img src="./static/images/qual/facade_render_ours.png">
+                      <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                        Ours (RGB)
+                      </div>
+                    </div>
+
+                    <div class="bal-before" style="width:96.4968152866242%;">
+                      <div class="bal-before-inset" style="width: 539px;">
+                        <img src="./static/images/qual/facade_render_baseline.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          3DGS (RGB)
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bal-handle" style="left:96.4968152866242%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+
+                  </div>
+
+
+                  <div id="example2" class="bal-container-small">
+
+                    <div class="bal-after">
+                      <img src="./static/images/qual/courtyard_render_ours.png">
+                      <div class="bal-afterPosition afterLabel">
+                        Ours (RGB)
+                      </div>
+                    </div>
+
+                    <div class="bal-before" style="width: 50%;">
+                      <div class="bal-before-inset" style="width: 539px;">
+                        <img src="./static/images/qual/courtyard_render_baseline.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          3DGS (RGB)
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bal-handle" style="left: 50%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+
+                  </div>
+				  <div id="example3" class="bal-container-small">
+
+                    <div class="bal-after">
+                      <img src="./static/images/qual/blended1_render_ours.png">
+                      <div class="bal-afterPosition afterLabel">
+                        Ours (RGB)
+                      </div>
+                    </div>
+
+                    <div class="bal-before" style="width: 50%;">
+                      <div class="bal-before-inset" style="width: 539px;">
+                        <img src="./static/images/qual/blended1_render_baseline.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          3DGS (RGB)
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bal-handle" style="left: 50%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+
+                  </div>
+				  <div id="example4" class="bal-container-small">
+
+                    <div class="bal-after">
+                      <img src="./static/images/qual/blended2_render_ours.png">
+                      <div class="bal-afterPosition afterLabel">
+                        Ours (RGB)
+                      </div>
+                    </div>
+
+                    <div class="bal-before" style="width: 50%;">
+                      <div class="bal-before-inset" style="width: 539px;">
+                        <img src="./static/images/qual/blended2_render_baseline.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          3DGS (RGB)
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bal-handle" style="left: 50%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+
+                  </div>
+                </div>
+				
+              </div>
+            </div>
+          </div>
+
+
+          <div class="column">
+            <div class="columns is-centered">
+              <div class="column content">
+
+                <div id="example5" class="bal-container-small">
+                  <div class="bal-after">
+                    <img src="./static/images/qual/facade_depth_ours.png">
+                    <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                      Ours (Depth)
+                    </div>
+                  </div>
+
+                  <div class="bal-before" style="width:62.10191082802548%;">
+                    <div class="bal-before-inset" style="width: 539px;">
+                      <img src="./static/images/qual/facade_depth_baseline.png">
+                      <div class="bal-beforePosition beforeLabel">
+                        3DGS (Depth)
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bal-handle" style="left:62.10191082802548%;">
+                    <span class=" handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                  </div>
+
+                </div>
+
+                <div id="example6" class="bal-container-small">
+                  <div class="bal-after">
+                    <img src="./static/images/qual/courtyard_depth_ours.png">
+                    <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                      Ours (Depth)
+                    </div>
+                  </div>
+
+                  <div class="bal-before" style="width:56.77179962894249%;">
+                    <div class="bal-before-inset" style="width: 628px;">
+                      <img src="./static/images/qual/courtyard_depth_baseline.png">
+                      <div class="bal-beforePosition beforeLabel">
+                        3DGS (Depth)
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bal-handle" style="left:56.77179962894249%;">
+                    <span class=" handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                  </div>
+
+                </div>
+				<div id="example7" class="bal-container-small">
+					<div class="bal-after">
+					  <img src="./static/images/qual/blended1_depth_ours.png">
+					  <div class="bal-afterPosition afterLabel" style="z-index:1;">
+						Ours (Depth)
+					  </div>
+					</div>
+  
+					<div class="bal-before" style="width:56.77179962894249%;">
+					  <div class="bal-before-inset" style="width: 628px;">
+						<img src="./static/images/qual/blended1_depth_baseline.png">
+						<div class="bal-beforePosition beforeLabel">
+						  3DGS (Depth)
+						</div>
+					  </div>
+					</div>
+  
+					<div class="bal-handle" style="left:56.77179962894249%;">
+					  <span class=" handle-left-arrow"></span>
+					  <span class="handle-right-arrow"></span>
+					</div>
+  
+				  </div>
+				  <div id="example8" class="bal-container-small">
+					<div class="bal-after">
+					  <img src="./static/images/qual/blended2_depth_ours.png">
+					  <div class="bal-afterPosition afterLabel" style="z-index:1;">
+						Ours (Depth)
+					  </div>
+					</div>
+  
+					<div class="bal-before" style="width:56.77179962894249%;">
+					  <div class="bal-before-inset" style="width: 628px;">
+						<img src="./static/images/qual/blended2_depth_baseline.png">
+						<div class="bal-beforePosition beforeLabel">
+						  3DGS (Depth)
+						</div>
+					  </div>
+					</div>
+  
+					<div class="bal-handle" style="left:56.77179962894249%;">
+					  <span class=" handle-left-arrow"></span>
+					  <span class="handle-right-arrow"></span>
+					</div>
+  
+				  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- </section> -->
+
+  <script>
+    new BeforeAfter({
+      id: '#example1'
+    });
+    new BeforeAfter({
+      id: '#example2'
+    });
+	new BeforeAfter({
+      id: '#example3'
+    });
+    new BeforeAfter({
+      id: '#example4'
+    });
+    new BeforeAfter({
+      id: '#example5'
+    });
+	new BeforeAfter({
+      id: '#example6'
+    });
+	new BeforeAfter({
+      id: '#example7'
+    });
+	new BeforeAfter({
+      id: '#example8'
+    });
+
+  </script>
+
+  <!-- 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Needs update
+          </p>
+         
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section> -->
+
+  
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <!-- <div class=" has-text-centered"> -->
+      <h2 class="title is-3">BibTeX</h2>
+    <!-- </div> -->
+    <pre><code>@inproceedings{safadoust2024BMVC,
+      title={Self-Evolving Depth-Supervised 3D Gaussian Splatting from Rendered Stereo Pairs},
+      author={Safadoust, Sadra and Tosi, Fabio and G{\"u}ney, Fatma and Poggi, Matteo},
+      booktitle={British Machine Vision Conference (BMVC)},
+      year={2024}
+    }</code></pre>
+  </div>
+</section>
+
+  
+
+</body>
+
+</html>

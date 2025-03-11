@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion">
+  <meta name="keywords" content="Multispectral, Image Generation, Image Translation, Infrared, Diffusion">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍉</text></svg>">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/script.js"></script>
+
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+			<h1 class="title is-1 publication-title" style="margin-bottom: 0; font-size: 4rem"><strong>SpectraDiff:</strong></h1>
+			<h1 class="title is-1 publication-title" style="font-size: 3.5rem; margin-top: 0; margin-bottom: 0"><strong>Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion</strong></h1>
+          <div class="is-size-4 publication-authors">
+                <!-- <span class="univerity-block" style="color: rgb(54, 54, 54); font-size: 2.5rem">BMVC 2024</span> -->
+          </div>
+		  <br>
+
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">
+				<a href="https://stl.yonsei.ac.kr/">Incheol Park</a><sup></sup>,</span>
+            <span class="author-block">
+				<a href="https://stl.yonsei.ac.kr/">Youngwan Jin</a><sup></sup>,</span>
+            <span class="author-block">
+				<a href="https://ynalcakan.github.io/">Yagiz Nalcakan</a><sup></sup>,</span>
+            <span class="author-block">
+				<a href="https://stl.yonsei.ac.kr/">Hyeongjin Ju</a><sup></sup>,</span>
+            <span class="author-block">
+        <a href="https://stl.yonsei.ac.kr/">Shiho Kim</a><sup></sup></span>
+          </div>
+
+		  <br>
+		  <table align=center width=750px>
+				<table align=center width=750px>
+					<tr>
+						<td align=center width=200px>
+							<center>
+								<span style="font-size:22px">Seamless Trans-X Lab, Yonsei University<sup></sup></span>
+							</center>
+						</td>
+					</tr>
+				</table>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2409.07456"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+	      <span class="link-block">
+                <a href="https://drive.google.com/file/d/1WGsyVrq-9QLxF5TXk_YNWafTshHuRv4k/view?usp=sharing"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Supplementary</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2409.07456"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/anon045/SpectraDiff"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <div class="container is-max-desktop">
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <!-- <img src="./static/images/teaser.png"> -->
+            
+              <p>Autonomous systems commonly rely on RGB cameras, which are susceptible to failure in low-light and adverse conditions. Infrared (IR) imaging provides a viable alternative by capturing thermal signatures independent of visible illumination. However, its high cost and integration complexities limit widespread adoption. To address these challenges, we introduce SpectraDiff, a diffusion-based framework that synthesizes realistic IR images by fusing RGB inputs with refined semantic segmentation. Through our RGB-Seg Object-Aware (RSOA) module, SpectraDiff  learns object-specific IR intensities by leveraging object-aware features. The SpectraDiff architecture, featuring a novel Spectral Attention Block, enforces self-attention among semantically similar pixels while leveraging cross-attention with the original RGB to preserve high-frequency details. Extensive evaluations on FLIR, FMB, MFNet, IDD-AW, and RANUS demonstrate SpectraDiff’s superior performance over existing methods, as measured by both perceptual (FID, LPIPS, DISTS) and fidelity (SSIM, SAM) metrics.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+<hr>
+<!-- <section class="section"> -->
+    <div class="container is-max-desktop">
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Method</h2>
+          <div class="content has-text-justified">
+            <img src="./static/images/method.png">
+            
+              <p>We exploit 3DGS itself to render stereo pairs and process for more accurate depth supervision. Given a camera pose among those in the training set, we derive a corresponding right viewpoint in a fictitious stereo configuration according to an arbitrary stereo baseline. During training, for each image in the training set we render a corresponding right frame; we process the two through a stereo network to obtain depth. We train 3DGS by minimizing the difference between rendered and real images, as well as between rendered depth and the depth map obtained from stereo.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  <!-- </section> -->
+
+<hr>
+  <!-- <section class="section"> -->
+    <div class="container ">
+      <div class=" has-text-centered">
+        <h2 class="title is-3">Qualitative Results</h2>
+        <div class="content has-text-justified">
+          <p>
+
+          </p>
+        </div>
+
+                <!-- First row -->
+                <div class="image-row" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                  <div id="example1" class="bal-container-small">
+        
+                      <div class="bal-after">
+                        <img src="./static/images/qual/FLIR_ours_277.png">
+                        <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                          Ours (FLIR)
+                        </div>
+                      </div>
+        
+                      <div class="bal-before" style="width:96.4968152866242%;">
+                        <div class="bal-before-inset" style="width: 539px;">
+                          <img src="./static/images/qual/FLIR_gt_277.png">
+                          <div class="bal-beforePosition beforeLabel">
+                            GT (FLIR)
+                          </div>
+                        </div>
+                      </div>
+        
+                      <div class="bal-handle" style="left:96.4968152866242%;">
+                        <span class=" handle-left-arrow"></span>
+                        <span class="handle-right-arrow"></span>
+                      </div>        
+                  </div>
+                  <div id="example2" class="bal-container-small">
+                    
+                      <div class="bal-after">
+                        <img src="./static/images/qual/FMB_ours_12.png">
+                        <div class="bal-afterPosition afterLabel">
+                          Ours (FMB)
+                        </div>
+                      </div>
+        
+                      <div class="bal-before" style="width: 50%;">
+                        <div class="bal-before-inset" style="width: 539px;">
+                          <img src="./static/images/qual/FMB_gt_12.png">
+                          <div class="bal-beforePosition beforeLabel">
+                            GT (FMB)
+                          </div>
+                        </div>
+                      </div>
+        
+                      <div class="bal-handle" style="left: 50%;">
+                        <span class=" handle-left-arrow"></span>
+                        <span class="handle-right-arrow"></span>
+                      </div>
+        
+                  </div>
+                  <div id="example3" class="bal-container-small">
+        
+                      <div class="bal-after">
+                        <img src="./static/images/qual/MFNet_ours_303.png">
+                        <div class="bal-afterPosition afterLabel">
+                          Ours (MFNet)
+                        </div>
+                      </div>
+        
+                      <div class="bal-before" style="width: 50%;">
+                        <div class="bal-before-inset" style="width: 539px;">
+                          <img src="./static/images/qual/MFNet_gt_303.png">
+                          <div class="bal-beforePosition beforeLabel">
+                            GT (MFNet)
+                          </div>
+                        </div>
+                      </div>
+        
+                      <div class="bal-handle" style="left: 50%;">
+                        <span class=" handle-left-arrow"></span>
+                        <span class="handle-right-arrow"></span>
+                      </div>
+        
+                  </div>
+                  <div id="example3" class="bal-container-small">
+        
+                    <div class="bal-after">
+                      <img src="./static/images/qual/MFNet_ours_337.png">
+                      <div class="bal-afterPosition afterLabel">
+                        Ours (MFNet)
+                      </div>
+                    </div>
+      
+                    <div class="bal-before" style="width: 50%;">
+                      <div class="bal-before-inset" style="width: 539px;">
+                        <img src="./static/images/qual/MFNet_gt_337.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          GT (MFNet)
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="bal-handle" style="left: 50%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+      
+                </div>
+                
+        
+                <!-- Second row -->
+                <!-- <div class="image-row" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                  <div id="example1" class="bal-container-small">
+        
+                    <div class="bal-after">
+                      <img src="./static/images/qual/facade_render_ours.png">
+                      <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                        Ours (RGB)
+                      </div>
+                    </div>
+      
+                    <div class="bal-before" style="width:96.4968152866242%;">
+                      <div class="bal-before-inset" style="width: 539px;">
+                        <img src="./static/images/qual/facade_render_baseline.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          3DGS (RGB)
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="bal-handle" style="left:96.4968152866242%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>        
+                </div>
+                <div id="example2" class="bal-container-small">
+                  
+                    <div class="bal-after">
+                      <img src="./static/images/qual/courtyard_render_ours.png">
+                      <div class="bal-afterPosition afterLabel">
+                        Ours (RGB)
+                      </div>
+                    </div>
+      
+                    <div class="bal-before" style="width: 50%;">
+                      <div class="bal-before-inset" style="width: 539px;">
+                        <img src="./static/images/qual/courtyard_render_baseline.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          3DGS (RGB)
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="bal-handle" style="left: 50%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+      
+                </div>
+                <div id="example3" class="bal-container-small">
+      
+                    <div class="bal-after">
+                      <img src="./static/images/qual/blended1_render_ours.png">
+                      <div class="bal-afterPosition afterLabel">
+                        Ours (RGB)
+                      </div>
+                    </div>
+      
+                    <div class="bal-before" style="width: 50%;">
+                      <div class="bal-before-inset" style="width: 539px;">
+                        <img src="./static/images/qual/blended1_render_baseline.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          3DGS (RGB)
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="bal-handle" style="left: 50%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+      
+                </div>
+                </div> -->
+        
+                <!-- Third row -->
+                <!-- <div class="image-row" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                  <div id="example1" class="bal-container-small">
+        
+                    <div class="bal-after">
+                      <img src="./static/images/qual/facade_render_ours.png">
+                      <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                        Ours (RGB)
+                      </div>
+                    </div>
+      
+                    <div class="bal-before" style="width:96.4968152866242%;">
+                      <div class="bal-before-inset" style="width: 539px;">
+                        <img src="./static/images/qual/facade_render_baseline.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          3DGS (RGB)
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="bal-handle" style="left:96.4968152866242%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>        
+                </div>
+                <div id="example2" class="bal-container-small">
+                  
+                    <div class="bal-after">
+                      <img src="./static/images/qual/courtyard_render_ours.png">
+                      <div class="bal-afterPosition afterLabel">
+                        Ours (RGB)
+                      </div>
+                    </div>
+      
+                    <div class="bal-before" style="width: 50%;">
+                      <div class="bal-before-inset" style="width: 539px;">
+                        <img src="./static/images/qual/courtyard_render_baseline.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          3DGS (RGB)
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="bal-handle" style="left: 50%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+      
+                </div>
+                <div id="example3" class="bal-container-small">
+      
+                    <div class="bal-after">
+                      <img src="./static/images/qual/blended1_render_ours.png">
+                      <div class="bal-afterPosition afterLabel">
+                        Ours (RGB)
+                      </div>
+                    </div>
+      
+                    <div class="bal-before" style="width: 50%;">
+                      <div class="bal-before-inset" style="width: 539px;">
+                        <img src="./static/images/qual/blended1_render_baseline.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          3DGS (RGB)
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div class="bal-handle" style="left: 50%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+      
+                </div>
+              
+    </div>
+
+  <-- </section> -->
+  </div>
+  <script>
+    new BeforeAfter({
+      id: '#example1'
+    });
+    new BeforeAfter({
+      id: '#example2'
+    });
+	new BeforeAfter({
+      id: '#example3'
+    });
+    new BeforeAfter({
+      id: '#example4'
+    });
+    new BeforeAfter({
+      id: '#example5'
+    });
+	new BeforeAfter({
+      id: '#example6'
+    });
+	new BeforeAfter({
+      id: '#example7'
+    });
+	new BeforeAfter({
+      id: '#example8'
+    });
+
+  </script>
+
+<br>
+<br>
+
+<h4 class="title is-4">Qualitative comparisons of different models on the FLIR dataset</h4>
+<div id="flir_results" class="image-container">
+  <img src="./static/images/FLIR_results.png" alt="FLIR Dataset results" style="width: 100%; border-radius: 10px;">
+  <div class="image-label">
+    The FLIR results illustrate the effectiveness of our SpectraDiff model in capturing the thermal properties of objects, including people, across both day and night conditions, producing clearer and more
+    detailed images than other methods.
+  </div>
+
+  
+<br>
+<br>
+
+</div>
+
+<h4 class="title is-4">Qualitative comparisons with different models on the FMB dataset (top two rows) and MFNet dataset (bottom two rows) for LWIR translation.</h4>
+<div id="fmb_results" class="image-container">
+  <img src="./static/images/FMB_results.png" alt="FMB Dataset results" style="width: 100%; border-radius: 10px;">
+  <div class="image-label">
+    SpectraDiff demonstrates effectiveness in capturing IR intensities and produces clearer images. In particular, our model
+    effectively captures thermal emissive properties across various objects and scenes in thermal infrared domain. Results for NIR datasets
+    (IDD-AW, RANUS) are available in the supplementary material.
+  </div>
+</div>
+
+<br>
+<br>
+
+  <!-- <section class="section"> -->
+    <div class="container is-max-desktop">
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Quantitative Results</h2>
+          <div class="content has-text-justified">
+            <img src="./static/images/quant_results.png">
+            
+              <p>Quantitative comparison of the proposed model's performance across various infrared (IR) range datasets. The results demonstrate
+                performance variations across different IR ranges and highlight where our model outperforms other methods based on SAM, FID, LPIPS,
+                and DISTS metrics. The best results are shaded in <span style="background-color: rgb(84, 247, 84);">green</span> and the second-best results are shaded in <span style="background-color: rgb(245, 245, 12);">yellow.</span></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  <!-- </section> -->
+
+  <!-- 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Needs update
+          </p>
+         
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section> -->
+
+  
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <!-- <div class=" has-text-centered"> -->
+      <h2 class="title is-3">BibTeX</h2>
+    <!-- </div> -->
+    <pre><code>@misc{incheol2025,
+      title={SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion},
+      author={Park, Incheol and Jin, Youngwan and Nalcakan, Yagiz and Ju, Hyeongjin and Kim, Shiho},
+      year={2025},
+      eprint={2503.16706},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2503.16706}, 
+    }</code></pre>
+  </div>
+</section>
+
+  
+
+</body>
+
+</html>
