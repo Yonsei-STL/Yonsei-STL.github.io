@@ -40,6 +40,36 @@
   <script src="./static/js/index.js"></script>
   <script src="./static/js/script.js"></script>
 
+  <style>
+    .image-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 20px; /* Adds space between wrapped items */
+    }
+
+    .bal-container-small {
+      flex: 1 1 300px; /* This allows the containers to grow and shrink, with a minimum width of 300px */
+      min-width: 300px; /* Ensures minimum width even when flexing */
+      margin: 0 auto; /* Centers the containers when they wrap */
+    }
+
+    /* Media query for smaller screens */
+    @media screen and (max-width: 768px) {
+      .image-row {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .bal-container-small {
+        width: 100%;
+        max-width: 539px; /* Match your current image width */
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -169,7 +199,7 @@
         </div>
 
                 <!-- First row -->
-                <div class="image-row" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <div class="image-row">
                   <div id="example1" class="bal-container-small">
         
                       <div class="bal-after">
