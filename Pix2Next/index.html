@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation">
+  <meta name="keywords" content="RGB to NIR, Vision Foundation Models, Image Translation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation</title>
+  
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/script.js"></script>
+
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+			<h1 class="title is-1 publication-title" style="margin-bottom: 0; font-size: 4rem"><strong>Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation</strong></h1>
+          <!-- <div class="is-size-4 publication-authors">
+                <span class="univerity-block" style="color: rgb(54, 54, 54); font-size: 2.5rem">BMVC 2024</span>
+          </div> -->
+		  <br>
+
+      <div class="is-size-4 publication-authors">
+        <span class="author-block">
+    <a href="https://stl.yonsei.ac.kr/">Youngwan Jin</a>,</span>
+    <span class="author-block">
+      <a href="https://ynalcakan.github.io/">Incheol Park</a>,</span>
+    <span class="author-block">
+      <a href="https://stl.yonsei.ac.kr/">Hanbin Song</a>,</span>    
+    <span class="author-block">
+    <a href="https://stl.yonsei.ac.kr/">Hyeongjin Ju</a>,</span>
+    <span class="author-block">
+      <a href="https://ynalcakan.github.io/">Yagiz Nalcakan</a>,</span>
+        <span class="author-block">
+    <a href="https://stl.yonsei.ac.kr/">Shiho Kim</a></span>
+      </div>
+
+		  <br>
+		  <div class="affiliations-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin: 0 auto; max-width: 750px;">
+            <div class="affiliation-item" style="flex: 1; min-width: 250px; text-align: center;">
+              <span style="font-size: clamp(16px, 3vw, 22px);">Seamless Trans-X Lab, Yonsei University</span>
+            </div>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2409.16706"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+	      <span class="link-block">
+                <a href="https://arxiv.org/abs/2409.16706"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Yonsei-STL/pix2next/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fa fa-database"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="section"> -->
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>This paper proposes Pix2Next, a novel image-to-image translation framework designed to address the challenge of generating high-quality Near-Infrared (NIR) images from RGB inputs. Our approach leverages a state-of-the-art Vision Foundation Model (VFM) within an encoder-decoder architecture, incorporating cross-attention mechanisms to enhance feature integration. This design captures detailed global representations and preserves essential spectral characteristics, treating RGB-to-NIR translation as more than a simple domain transfer problem. A multi-scale PatchGAN discriminator ensures realistic image generation at various detail levels, while carefully designed loss functions couple global context understanding with local feature preservation. We performed experiments on the RANUS dataset to demonstrate Pix2Next's advantages in quantitative metrics and visual quality, improving the FID score by 34.81% compared to existing methods. Furthermore, we demonstrate the practical utility of Pix2Next by showing improved performance on a downstream object detection task using generated NIR data to augment limited real NIR datasets. The proposed approach enables the scaling up of NIR datasets without additional data acquisition or annotation efforts, potentially accelerating advancements in NIR-based computer vision applications.          </div>
+        </div>
+      </div>
+
+    </div>
+  <!-- </section> -->
+
+<hr>
+  <!-- <section class="section"> -->
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Model Architecture</h2>
+          <div class="content has-text-justified">
+            <p>The Pix2pixHD model uses coarse-to-fine generator architectures to transfer the global and local details of the input image to the generated image. With Pix2Next, we extended this framework by employing residual blocks within an encoder-decoder architecture instead of using separate global and local generators. Residual blocks are integral to our design, as they allow the network to maintain critical feature details by facilitating identity mappings through shortcut connections. These connections help to address the vanishing gradient problem, ensuring stable training and enabling the network to learn more complex transformations essential for high-quality image generation. To further improve the preservation of fine details and overall image context, we integrate a vision foundation model (VFM) into our architecture, which serves as a feature extractor. This model captures broad global features that work together with the local features learned by the encoder-decoder structure. These features are combined throughout the network using cross-attention mechanisms, which help align and merge the global and local features during the image generation process. This approach is key to accurately capturing the specific characteristics and subtle details of the NIR domain, leading to better quality and more reliable translated images.</p>
+          </div>
+          <br>
+          <img src="./static/images/detailed_architecture.png" style="width: 80%; max-width: 800px;">
+        </div>
+      </div>
+    </div>
+
+    
+  <!-- </section> -->
+
+  <!-- <section class="section"> -->
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Experimental Results</h2>
+          <br>
+            <h3 class="title is-4">Results on RANUS dataset</h3>
+            <img src="./static/images/Ranus_vis.PNG" style="width: 100%; max-width: 1000px;">   
+            <br>
+            <img src="./static/images/Ranus_qual.PNG" style="width: 80%; max-width: 1000px;">   
+            <br>
+            <br>
+            <h3 class="title is-4">Results on IDD-AW dataset</h3>
+            <img src="./static/images/IDDAW_vis.PNG" style="width: 100%; max-width: 1000px;">   
+            <br>
+            <img src="./static/images/IDDAW_qual.PNG" style="width: 80%; max-width: 1000px;">   
+            <br>
+            <br>
+            <h3 class="title is-4">Zero-shot RGB to NIR translation Results on BDD100K dataset</h3>
+            <img src="./static/images/bdd100k_vis.PNG" style="width: 80%; max-width: 1000px;">   
+            <br>
+        </div>
+      </div>
+    </div>
+
+    <!-- section for citation -->
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <!-- <div class=" has-text-centered"> -->
+          <h2 class="title is-3">BibTeX</h2>
+        <!-- </div> -->
+        <pre><code>@misc{jin2024pix2next,
+          title={Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation},
+          author={Jin, Youngwan and Park, Incheol and Song, Hanbin and Ju, Hyeongjin and Nalcakan, Yagiz and Kim, Shiho},
+          journal={arXiv preprint arXiv:2409.16706},
+          year={2024}
+        }</code></pre>
+      </div>
+    </section>
+  <!-- 
+<section class="section">
+  
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Needs update
+          </p>
+         
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section> -->
+  
+
+</body>
+
+</html>
