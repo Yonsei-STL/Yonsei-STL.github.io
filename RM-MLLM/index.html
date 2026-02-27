@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion">
+  <meta name="keywords"
+    content="autonomous driving, scene understanding, multispectral, multimodal large language model, adverse weather, dataset">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/script.js"></script>
+</head>
+
+<body>
+
+  <!-- 헤더(제목, 저자, 링크 등) -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title" style="margin-bottom: 0; font-size: 4rem">
+              <strong>RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion</strong>
+            </h1>
+            <br>
+
+            <div class="is-size-4 publication-authors">
+              <span class="author-block">
+                <a href="https://stl.yonsei.ac.kr/">Hyeongjin Ju</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://stl.yonsei.ac.kr/">Sanghyeop Yeo</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://stl.yonsei.ac.kr/">Incheol Park</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://stl.yonsei.ac.kr/">Youngwan Jin</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://stl.yonsei.ac.kr/">Shiho Kim</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://ynalcakan.github.io/">Yagiz Nalcakan</a>,
+              </span>
+            </div>
+
+            <br>
+            <div class="affiliations-container"
+              style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin: 0 auto; max-width: 750px;">
+              <div class="affiliation-item" style="flex: 1; min-width: 250px; text-align: center;">
+                <span style="font-size: clamp(16px, 3vw, 22px);"><sup></sup>Seamless Trans-X Lab <br> Yonsei
+                  University</span>
+              </div>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link -->
+                <span class="link-block">
+                  <a href="https://yonsei-stl.github.io/RM-MLLM/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://yonsei-stl.github.io/RM-MLLM/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Data Link -->
+                <span class="link-block">
+                  <a href="https://yonsei-stl.github.io/RM-MLLM/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fa fa-database"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+                </span>
+              </div>
+
+              <!-- Notification: New Object Detection Benchmark -->
+              <!-- <div class="notification is-warning is-light"
+                style="margin-top: 1rem; display: inline-block; text-align: left; max-width: 750px;">
+                <strong>📢 New Object Detection Benchmark (RASMD_detection_V2) is available! <a
+                    href="https://huggingface.co/datasets/STL-Yonsei/RASMD/blob/main/RASMD_detection_V2.zip"
+                    target="_blank" rel="noopener noreferrer">
+                    🔗 ZIP File Link
+                  </a></strong>
+              </div> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <img src="./static/images/rm_teaser.png" style="width: 80%; display: block; margin: auto;">
+          <p>
+            <b>DENSE-QA:</b> An example of the DENSE-QA dataset for scene understanding in
+            adverse driving conditions. (a) RGB and multispectral images are used as input,
+            and (b) a total of six scene understanding tasks are structured in an instruction-response
+            format.
+          </p>
+          <br>
+          <img src="./static/images/architecture_ver3.png">
+          <p>
+            <b>RM-MLLM:</b> An overview of the proposed RM-MLLM architecture. The model
+            is trained using a progressive strategy consisting of three stages: pre-training, fusion,
+            and instruction tuning. Synchronized RGB and multispectral images are passed through
+            separate vision modules to be converted into visual tokens, which are then fused in N
+            Fusion Modules using Multi-Head Cross Attention and MoE-FFN. The resulting fused
+            tokens are passed through a Projector module and fed into a Large Language Model
+            (LLM) fine-tuned with LoRA to generate a reasoning response.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Abstract -->
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Multimodal large language models (MLLMs) for autonomous driving often become less reliable in adverse
+            weather, partly because training data are dominated by clear, well-lit scenes, and most models primarily
+            rely on RGB imagery. We address these issues with two contributions. First, we introduce DENSE-QA, a
+            large-scale benchmark for adverse-weather scene understanding comprising 12,997 scenes and over 77,000
+            instruction-response pairs, built on synchronized RGB and multispectral imagery. Second, we propose RM-MLLM,
+            an MLLM architecture with modality-specific encoders and an adaptive fusion module, trained with a
+            three-stage progressive strategy to better integrate complementary sensor cues. Across multiple LLM
+            backbones, RM-MLLM improves QA performance under adverse conditions. Using only RGB input, the proposed
+            architecture and training already outperform all evaluated baselines, including prompt-augmented models, by
+            over 11 percentage points. Incorporating RGB-multispectral fusion provides an additional 3-point gain
+            concentrated on weather-sensitive tasks. We also observe that fine-tuning a strong RGB-only vision-language
+            model on the same training data yields performance comparable to its zero-shot evaluation, suggesting that
+            DENSE-QA fine-tuning alone does not close the gap to RM-MLLM and that multispectral input provides
+            complementary value.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3 has-text-centered">Details of DENSE-QA</h2>
+    <br>
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <div class="content has-text-justified">
+          <img src="./static/images/data.png">
+          <p>
+            Percentage distributions for the five attribute
+            groups used in our scene-understanding tasks: Time-of-Day (TOD), Road-Surface Condi-
+            tion (RSC), Weather (WEA), Infrastructure (INF), and Illumination (ILL). The vertical
+            and horizontal axes represent various tasks and class ratios, respectively.
+          </p>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="content has-text-justified">
+          <img src="./static/images/data_table.png">
+          <p>
+            Numerical distribution of labels for each task in the DENSE-QA dataset.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RASMD Details -->
+  <div class="container">
+    <div class="has-text-centered">
+      <h2 class="title is-3">Quantitative Comparison with State-of-the-Art Models on the DENSE-QA Benchmark</h2>
+      <p>
+        <b>Quantitative comparison with state-of-the-art models on the DENSE-QA benchmark.</b>
+        <br>
+        We evaluate RM-MLLM against general-purpose VLMs, driving-specific MLLMs, a fine-tuned baseline (Qwen2-VL
+        trained on the same DENSE-QA data), and an RGB-only ablation across six scene understanding tasks. An asterisk
+        (*)
+        denotes results from prompts augmented with a class list. All models are evaluated using identical
+        category-based keyword matching. Average is computed over the six per-task accuracies
+        (OBJ Total, TOD, RSC, WEA, INF, ILL).
+      </p>
+      <img src="./static/images/quantitative.png">
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RASMD Details -->
+  <div class="container">
+    <div class="has-text-centered">
+      <h2 class="title is-3">Qualitative Results of SOTA Models on the DENSE-QA Benchmark</h2>
+      <p>
+        <b>Qualitative comparison on challenging DENSE-QA examples.</b>
+        <br>
+        Two scenarios each for (a) RSC and (b) Weather. Colors: <b style="background-color: blue; color: white;"> blue
+        </b>=RM-MLLM (ours), <b style="background-color: orange; color: black;"> orange </b>=fine-tuned (Qwen2-VL), <b
+          style="background-color: gray; color: white;"> gray </b>=zero-shot VLMs.
+        <br>RGB-only models are misled by ambiguous visual cues, while RM-MLLM correctly interprets the scenes using
+        multispectral information.
+      </p>
+      <img src="./static/images/qualitative.png">
+      <img src="./static/images/pic_result3.png" style="width: 70%;">
+      <p><b>(c) Time-of-Day (TOD) and (d) Illumination (ILL)</b></p>
+      <img src="./static/images/pic_result4.png" style="width: 70%;">
+      <p><b>(e) Infrastructure (INF)</b></p>
+    </div>
+  </div>
+
+  <br>
+
+  <!-- section for citation -->
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content"> -->
+  <!-- <div class=" has-text-centered"> -->
+  <!-- <h2 class="title is-3">BibTeX</h2> -->
+  <!-- </div> -->
+  <!-- <pre><code>@article{JIN2026RASMD,
+  title = {RASMD: RGB and SWIR multispectral driving dataset for robust perception in adverse conditions},
+  journal = {Information Fusion},
+  volume = {128},
+  pages = {103872},
+  year = {2026},
+  issn = {1566-2535},
+  doi = {https://doi.org/10.1016/j.inffus.2025.103872},
+  url = {https://www.sciencedirect.com/science/article/pii/S1566253525009340},
+  author = {Youngwan Jin and Michal Kovac and Yagiz Nalcakan and Incheol Park and Sanghyeop Yeo and Hyeongjin Ju and Shiho Kim},
+  keywords = {SWIR, Dataset, Multi-spectral, Infrared, Autonomous driving, Image fusion, Super-resolution, Object detection, Image translation}
+  }</code></pre>
+    </div>
+  </section> -->
+
+</body>
+
+</html>
