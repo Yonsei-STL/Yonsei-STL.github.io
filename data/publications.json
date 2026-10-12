@@ -308,6 +308,107 @@
       ]
     },
     {
+      "id": "rpt-sr",
+      "path": "RPT-SR",
+      "page_profile": "supplied",
+      "title": "RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution",
+      "meta_description": "We introduce RPT-SR, a dual-token transformer that combines learned regional priors with local features for LWIR and SWIR image super-resolution.",
+      "summary": "A dual-token transformer for infrared super-resolution that combines learned regional priors with local features, evaluated on M3FD, RASMD, and TNO.",
+      "abstract": "We address a fundamental inefficiency in infrared image super-resolution: general-purpose models repeatedly learn spatial relationships even when cameras observe fixed or nearly static scene layouts. We propose the Regional Prior attention Transformer for infrared image Super-Resolution (RPT-SR), which explicitly encodes these persistent spatial regularities in its attention mechanism. Our dual-token framework combines learnable regional prior tokens, which retain position-specific structural information across training images, with local tokens that capture the content of each input frame. We refine these fused tokens through attention and use them to guide local reconstruction within a hierarchical window structure. We evaluate our approach on long-wave infrared (LWIR) and short-wave infrared (SWIR) datasets at ×2 and ×4 magnification. Our model achieves the strongest LPIPS, MUSIQ, and MANIQA results among the methods we compare on M3FD at ×4, along with competitive performance across RASMD and TNO. Through ablation experiments, we show that combining persistent priors with frame-specific features improves perceptual reconstruction over using either token type alone. Our approach demonstrates how scene-layout information can complement dynamic image features for infrared super-resolution.",
+      "authors": [
+        {
+          "name": "Youngwan Jin",
+          "citation": "Jin, Youngwan",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Incheol Park",
+          "citation": "Park, Incheol",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Yagiz Nalcakan",
+          "citation": "Nalcakan, Yagiz",
+          "url": "https://ynalcakan.github.io/",
+          "affiliation": "Yonsei University"
+        },
+        {
+          "name": "Hyeongjin Ju",
+          "citation": "Ju, Hyeongjin",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Sanghyeop Yeo",
+          "citation": "Yeo, Sanghyeop",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Shiho Kim",
+          "citation": "Kim, Shiho",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Yonsei University"
+        }
+      ],
+      "date_published": "2026-03-06",
+      "online_date": null,
+      "citation_publication_date": "2026",
+      "journal": "2026 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+      "container_meta": "citation_conference_title",
+      "venue_label": "WACV, 2026",
+      "volume": null,
+      "issue": null,
+      "firstpage": "5184",
+      "lastpage": "5193",
+      "issn": null,
+      "doi": "10.1109/WACV61042.2026.00503",
+      "publisher": "IEEE",
+      "paper_url": "https://doi.org/10.1109/WACV61042.2026.00503",
+      "arxiv_url": "https://arxiv.org/abs/2602.15490",
+      "code_url": "https://github.com/Yonsei-STL/RPT-SR",
+      "dataset_url": null,
+      "pdf_url": null,
+      "image": "static/images/architecture.png",
+      "keywords": [
+        "RPT-SR",
+        "infrared image super-resolution",
+        "Regional Prior Attention",
+        "regional prior tokens",
+        "dual-token transformer",
+        "LWIR",
+        "SWIR",
+        "M3FD",
+        "RASMD",
+        "TNO"
+      ],
+      "resources": [
+        {
+          "label": "Paper",
+          "url": "https://doi.org/10.1109/WACV61042.2026.00503"
+        },
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2602.15490"
+        },
+        {
+          "label": "Code",
+          "url": "https://github.com/Yonsei-STL/RPT-SR"
+        },
+        {
+          "label": "RASMD",
+          "url": "https://yonsei-stl.github.io/RASMD/"
+        }
+      ],
+      "bibtex_doi": "10.1109/WACV61042.2026.00503",
+      "bibtex_author": "Jin, Youngwan and Park, Incheol and Nalcakan, Yagiz and Ju, Hyeongjin and Yeo, Sanghyeop and Kim, Shiho",
+      "needs_review": [
+        "citation_pdf_url points to the arXiv PDF, not a file in this directory. Google Scholar asks for a same-directory PDF."
+      ]
+    },
+    {
       "id": "mwsc",
       "path": "MWSC",
       "page_profile": "supplied",

@@ -9,6 +9,7 @@ This file maps published project pages for agents that request it. It does not r
 - [Publication index](https://yonsei-stl.github.io/publications/): Published Yonsei STL research project pages
 - [RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion](https://yonsei-stl.github.io/RM-MLLM/): A multispectral multimodal language model and the DENSE-QA benchmark for adverse-weather driving scene understanding, using synchronized RGB and multispectral images.
 - [RASMD: RGB And SWIR Multispectral Driving Dataset for Robust Perception in Adverse Conditions](https://yonsei-stl.github.io/RASMD/): A large-scale driving dataset of 100,000 aligned RGB-SWIR pairs, with benchmarks for object detection and RGB-to-SWIR translation in adverse conditions.
+- [RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution](https://yonsei-stl.github.io/RPT-SR/): A dual-token transformer for infrared super-resolution that combines learned regional priors with local features, evaluated on M3FD, RASMD, and TNO.
 - [SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion](https://yonsei-stl.github.io/SpectraDiff/): A diffusion model that translates RGB images to infrared using semantic segmentation and a Spectral Attention Block, evaluated on FLIR, FMB, MFNet, IDD-AW, and RANUS.
 - [Seeing through the rain: An empirical assessment of short-wave infrared imaging on enhancing autonomous vehicle perception under rainy weather](https://yonsei-stl.github.io/SeeingThroughRain/): A measurement-driven comparison of RGB and SWIR imaging in real rainy driving scenes using 620 paired frames, 14 image-quality metrics, visibility estimation, and fixed pretrained perception models.
 - [Multi-Modal Cross-Attention-Based Multi-Label Weather and Severity Level Classification](https://yonsei-stl.github.io/MWSC/): MWSC jointly predicts multiple weather conditions and one severity level using global–local and image–text cross-attention, evaluated on 40,205 annotated driving images.
@@ -22,6 +23,10 @@ This file maps published project pages for agents that request it. It does not r
 - [RASMD: RGB And SWIR Multispectral Driving Dataset for Robust Perception in Adverse Conditions DOI](https://doi.org/10.1016/j.inffus.2025.103872)
 - [RASMD arXiv](https://arxiv.org/abs/2504.07603)
 - [RASMD dataset](https://huggingface.co/datasets/STL-Yonsei/RASMD/tree/main)
+- [RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution DOI](https://doi.org/10.1109/WACV61042.2026.00503)
+- [RPT-SR arXiv](https://arxiv.org/abs/2602.15490)
+- [RPT-SR Code](https://github.com/Yonsei-STL/RPT-SR)
+- [RPT-SR RASMD](https://yonsei-stl.github.io/RASMD/)
 - [SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion DOI](https://doi.org/10.1016/j.cviu.2026.104709)
 - [SpectraDiff code](https://github.com/Yonsei-STL/SpectraDiff)
 - [Seeing through the rain: An empirical assessment of short-wave infrared imaging on enhancing autonomous vehicle perception under rainy weather DOI](https://doi.org/10.1016/j.measurement.2025.119654)

@@ -29,7 +29,7 @@ SITEMAP_PATH = ROOT / "sitemap.xml"
 LLMS_PATH = ROOT / "llms.txt"
 PUBLICATIONS_PATH = ROOT / "publications" / "index.html"
 ROBOTS_PATH = ROOT / "robots.txt"
-DRAFT_MARKERS = ("RPT-SR",)
+DRAFT_MARKERS = ()
 SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
 
