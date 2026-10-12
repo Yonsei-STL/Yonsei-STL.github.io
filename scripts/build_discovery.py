@@ -36,8 +36,12 @@ SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 def load_registry() -> dict:
     with REGISTRY_PATH.open(encoding="utf-8") as handle:
         data = json.load(handle)
-    if not isinstance(data.get("publications"), list) or not data["publications"]:
+    publications = data.get("publications")
+    if not isinstance(publications, list) or not publications:
         raise SystemExit("publications.json must contain a non-empty publications list")
+    paths = [item.get("path") for item in publications]
+    if len(paths) != len(set(paths)):
+        raise SystemExit("publications.json contains a duplicate project path")
     return data
 
 
@@ -517,6 +521,22 @@ def find_issue(node: dict) -> str:
     return ""
 
 
+def check_relative_assets(html: str, page_dir: Path, label: str, errors: list[str]) -> None:
+    visible = re.sub(r"<!--.*?-->", "", html, flags=re.S)
+    suffixes = {".css", ".js", ".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".ico", ".pdf"}
+    for src in re.findall(r'(?:src|href)="([^"]+)"', visible):
+        if src.startswith(("http://", "https://", "data:", "mailto:", "#", "//")):
+            continue
+        relative = src.split("?", 1)[0].split("#", 1)[0]
+        path = (ROOT / relative.lstrip("/")).resolve() if relative.startswith("/") else (page_dir / relative).resolve()
+        if path.suffix.lower() not in suffixes:
+            continue
+        if ROOT.resolve() not in path.parents and path != ROOT.resolve():
+            errors.append(f"{label}: asset path escapes the repository ({src})")
+        elif not path.is_file():
+            errors.append(f"{label}: missing local asset {src}")
+
+
 def check_publication(registry: dict, publication: dict, errors: list[str]) -> None:
     path = ROOT / publication["path"] / "index.html"
     label = publication["path"]
@@ -639,6 +659,7 @@ def check_publication(registry: dict, publication: dict, errors: list[str]) -> N
     for src, alt in parser.images:
         if not alt or not alt.strip():
             errors.append(f"{label}: image {src} is missing alt text")
+    check_relative_assets(html, path.parent, label, errors)
     if publication.get("pdf_url"):
         relative = publication["pdf_url"].split(f"/{publication['path']}/", 1)[-1]
         pdf_path = ROOT / publication["path"] / relative
@@ -655,6 +676,14 @@ def check_content_rules(errors: list[str]) -> None:
     rm = (ROOT / "RM-MLLM" / "index.html").read_text(encoding="utf-8")
     if "RAMSD" in rasmd:
         errors.append("RASMD: teaser still says RAMSD")
+    for page_name, page_html in (
+        ("RASMD", rasmd),
+        ("Pix2Next", pix),
+        ("SpectraDiff", spectra),
+        ("RM-MLLM", rm),
+    ):
+        if "<sup></sup>" in page_html or "<sup> </sup>" in page_html:
+            errors.append(f"{page_name}: empty affiliation superscript")
     if "Information Fusion Journal, Elsevier" in rasmd:
         errors.append("RASMD: journal is still listed as an affiliation")
     pix_parser = PageParser()
@@ -738,6 +767,13 @@ def check_generated(registry: dict, errors: list[str]) -> None:
         for marker in DRAFT_MARKERS:
             if marker in actual:
                 errors.append(f"{path.relative_to(ROOT)} exposes {marker}")
+    if PUBLICATIONS_PATH.is_file():
+        check_relative_assets(
+            PUBLICATIONS_PATH.read_text(encoding="utf-8"),
+            PUBLICATIONS_PATH.parent,
+            "publications",
+            errors,
+        )
     if SITEMAP_PATH.is_file():
         try:
             tree = ET.fromstring(SITEMAP_PATH.read_text(encoding="utf-8"))
