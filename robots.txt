@@ -9,7 +9,5 @@
 
 User-agent: *
 Allow: /
-Disallow: /IVIFormer_draft/
-Disallow: /MWSC_draft/
 
 Sitemap: https://yonsei-stl.github.io/sitemap.xml

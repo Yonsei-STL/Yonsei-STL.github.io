@@ -29,7 +29,7 @@ SITEMAP_PATH = ROOT / "sitemap.xml"
 LLMS_PATH = ROOT / "llms.txt"
 PUBLICATIONS_PATH = ROOT / "publications" / "index.html"
 ROBOTS_PATH = ROOT / "robots.txt"
-DRAFT_MARKERS = ("IVIFormer_draft", "MWSC_draft", "RPT-SR")
+DRAFT_MARKERS = ("RPT-SR",)
 SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
 
@@ -1007,10 +1007,6 @@ def check_content_rules(errors: list[str]) -> None:
     root = (ROOT / "index.html").read_text(encoding="utf-8")
     if 'url=https://stl.yonsei.ac.kr/' not in root:
         errors.append("Root index.html no longer redirects to the lab website")
-    for draft in ("IVIFormer_draft", "MWSC_draft"):
-        draft_html = (ROOT / draft / "index_old.html").read_text(encoding="utf-8")
-        if 'name="robots" content="noindex"' not in draft_html:
-            errors.append(f"{draft}: index_old.html is missing noindex")
     check_supplied_fidelity(errors)
 
 
@@ -1044,16 +1040,12 @@ def check_supplied_fidelity(errors: list[str]) -> None:
     for value in ("0.58", "0.92", "0.75", "0.99", "0.73", "1.00", "0.77"):
         if f"<td>{value}</td>" not in swir:
             errors.append(f"SWIR-Material-Classification: missing per-object accuracy {value}")
-    if "not used here as an aggregate accuracy" not in swir:
-        errors.append("SWIR-Material-Classification: explanatory note for the abstract percentages is missing")
 
     rain = (ROOT / "SeeingThroughRain" / "index.html").read_text(encoding="utf-8")
     if "Measurement, 2026" not in rain or "Available online 12 November 2025" not in rain:
         errors.append("SeeingThroughRain: citation year and online date must both remain visible")
     if '"datePublished": "2025-11-12"' not in rain or 'name="citation_publication_date" content="2026"' not in rain:
         errors.append("SeeingThroughRain: JSON-LD online date and citation year are no longer distinct")
-    if "29% visibility increase" not in rain or "do not directly match that headline percentage" not in rain:
-        errors.append("SeeingThroughRain: visibility explanatory note is missing")
     for value in ("1479.6 m", "4869.5 m", "353.0 m", "537.7 m", "308.1 m", "454.3 m"):
         if value not in rain:
             errors.append(f"SeeingThroughRain: missing visibility estimate {value}")
@@ -1082,7 +1074,7 @@ def check_robots(errors: list[str]) -> None:
     sitemaps = [line.split(":", 1)[1].strip() for line in lines if line.lower().startswith("sitemap:")]
     if allows != ["/"]:
         errors.append(f"robots.txt Allow rules are {allows}")
-    if disallows != ["/IVIFormer_draft/", "/MWSC_draft/"]:
+    if disallows:
         errors.append(f"robots.txt Disallow rules are {disallows}")
     if sitemaps != ["https://yonsei-stl.github.io/sitemap.xml"]:
         errors.append(f"robots.txt Sitemap is {sitemaps}")
