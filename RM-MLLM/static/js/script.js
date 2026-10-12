@@ -2,6 +2,9 @@ class BeforeAfter {
     constructor(enteryObject) {
 
         const beforeAfterContainer = document.querySelector(enteryObject.id);
+        if (!beforeAfterContainer) {
+            return;
+        }
         const before = beforeAfterContainer.querySelector('.bal-before');
         const beforeText = beforeAfterContainer.querySelector('.bal-beforePosition');
         const afterText = beforeAfterContainer.querySelector('.bal-afterPosition');

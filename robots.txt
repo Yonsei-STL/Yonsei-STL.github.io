@@ -1,0 +1,15 @@
+# Yonsei STL research project pages.
+# Search and training crawlers may fetch published research.
+# Search indexing and model training are separate controls. This file allows
+# both. To keep search indexing while opting out of training, disallow
+# GPTBot, ClaudeBot, Google-Extended, CCBot, and Applebot-Extended without
+# disallowing OAI-SearchBot, Claude-SearchBot, Googlebot, bingbot, or
+# PerplexityBot. User-triggered fetchers such as ChatGPT-User may ignore
+# robots.txt. Blocking Google-Extended does not remove pages from Google Search.
+
+User-agent: *
+Allow: /
+Disallow: /IVIFormer_draft/
+Disallow: /MWSC_draft/
+
+Sitemap: https://yonsei-stl.github.io/sitemap.xml

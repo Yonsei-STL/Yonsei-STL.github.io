@@ -1,13 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-    content="RASMD: RGB And SWIR Multispectral Driving Dataset for Robust Perception in Adverse Conditions">
+  <meta name="description" content="A dataset of 100,000 aligned RGB-SWIR driving pairs for object detection and image translation in adverse weather. Information Fusion, 2026.">
   <meta name="keywords" content="Multispectral imaging, Shortwave Infrared, Autonomous Driving">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RASMD: RGB And SWIR Multispectral Driving Dataset for Robust Perception in Adverse Conditions</title>
+  <!-- seo:meta:start -->
+<link rel="canonical" href="https://yonsei-stl.github.io/RASMD/">
+<link rel="describedby" href="https://yonsei-stl.github.io/llms.txt">
+<meta name="citation_title" content="RASMD: RGB And SWIR Multispectral Driving Dataset for Robust Perception in Adverse Conditions">
+<meta name="citation_author" content="Jin, Youngwan">
+<meta name="citation_author" content="Kovac, Michal">
+<meta name="citation_author" content="Nalcakan, Yagiz">
+<meta name="citation_author" content="Park, Incheol">
+<meta name="citation_author" content="Yeo, Sanghyeop">
+<meta name="citation_author" content="Ju, Hyeongjin">
+<meta name="citation_author" content="Kim, Shiho">
+<meta name="citation_publication_date" content="2026/04">
+<meta name="citation_journal_title" content="Information Fusion">
+<meta name="citation_volume" content="128">
+<meta name="citation_firstpage" content="103872">
+<meta name="citation_issn" content="1566-2535">
+<meta name="citation_doi" content="10.1016/j.inffus.2025.103872">
+<meta name="citation_abstract" content="Current autonomous driving algorithms heavily rely on the visible spectrum, which is prone to performance degradation in adverse conditions like fog, rain, snow, glare, and high contrast. Although other spectral bands like near-infrared (NIR) and long-wave infrared (LWIR) can enhance vision perception in such situations, they have limitations and lack large-scale datasets and benchmarks. Short-wave infrared (SWIR) imaging offers several advantages over NIR and LWIR. However, no publicly available large-scale datasets currently incorporate SWIR data for autonomous driving. To address this gap, we introduce the RGB and SWIR Multispectral Driving (RASMD) dataset, which comprises 100,000 synchronized and spatially aligned RGB-SWIR image pairs collected across diverse locations, lighting, and weather conditions. In addition, we provide a subset for RGB-SWIR translation and object detection annotations for a subset of challenging traffic scenarios to demonstrate the utility of SWIR imaging through experiments on both object detection and RGB-to-SWIR image translation. Our experiments show that combining RGB and SWIR data in an ensemble framework significantly improves detection accuracy compared to RGB-only approaches, particularly in conditions where visible-spectrum sensors struggle. We anticipate that the RASMD dataset will advance research in multispectral imaging for autonomous driving and robust perception systems.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RASMD: RGB And SWIR Multispectral Driving Dataset for Robust Perception in Adverse Conditions">
+<meta property="og:description" content="A dataset of 100,000 aligned RGB-SWIR driving pairs for object detection and image translation in adverse weather. Information Fusion, 2026.">
+<meta property="og:url" content="https://yonsei-stl.github.io/RASMD/">
+<meta property="og:image" content="https://yonsei-stl.github.io/RASMD/static/images/teaser.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RASMD: RGB And SWIR Multispectral Driving Dataset for Robust Perception in Adverse Conditions">
+<meta name="twitter:description" content="A dataset of 100,000 aligned RGB-SWIR driving pairs for object detection and image translation in adverse weather. Information Fusion, 2026.">
+<meta name="twitter:image" content="https://yonsei-stl.github.io/RASMD/static/images/teaser.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "RASMD: RGB And SWIR Multispectral Driving Dataset for Robust Perception in Adverse Conditions",
+  "name": "RASMD: RGB And SWIR Multispectral Driving Dataset for Robust Perception in Adverse Conditions",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Youngwan Jin",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Michal Kovac",
+      "url": "https://urk.fei.stuba.sk/ustav/en/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Slovak University of Technology in Bratislava"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Yagiz Nalcakan",
+      "url": "https://ynalcakan.github.io/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Incheol Park",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Sanghyeop Yeo",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Hyeongjin Ju",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Shiho Kim",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    }
+  ],
+  "datePublished": "2026-04",
+  "description": "Current autonomous driving algorithms heavily rely on the visible spectrum, which is prone to performance degradation in adverse conditions like fog, rain, snow, glare, and high contrast. Although other spectral bands like near-infrared (NIR) and long-wave infrared (LWIR) can enhance vision perception in such situations, they have limitations and lack large-scale datasets and benchmarks. Short-wave infrared (SWIR) imaging offers several advantages over NIR and LWIR. However, no publicly available large-scale datasets currently incorporate SWIR data for autonomous driving. To address this gap, we introduce the RGB and SWIR Multispectral Driving (RASMD) dataset, which comprises 100,000 synchronized and spatially aligned RGB-SWIR image pairs collected across diverse locations, lighting, and weather conditions. In addition, we provide a subset for RGB-SWIR translation and object detection annotations for a subset of challenging traffic scenarios to demonstrate the utility of SWIR imaging through experiments on both object detection and RGB-to-SWIR image translation. Our experiments show that combining RGB and SWIR data in an ensemble framework significantly improves detection accuracy compared to RGB-only approaches, particularly in conditions where visible-spectrum sensors struggle. We anticipate that the RASMD dataset will advance research in multispectral imaging for autonomous driving and robust perception systems.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Elsevier"
+  },
+  "isPartOf": {
+    "@type": "PublicationVolume",
+    "volumeNumber": "128",
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "Information Fusion",
+      "issn": "1566-2535"
+    }
+  },
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1016/j.inffus.2025.103872"
+  },
+  "sameAs": [
+    "https://doi.org/10.1016/j.inffus.2025.103872",
+    "https://arxiv.org/abs/2504.07603"
+  ],
+  "url": "https://yonsei-stl.github.io/RASMD/",
+  "image": "https://yonsei-stl.github.io/RASMD/static/images/teaser.png",
+  "keywords": [
+    "Multispectral imaging",
+    "Shortwave Infrared",
+    "Autonomous Driving"
+  ]
+}
+</script>
+<!-- seo:meta:end -->
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
@@ -33,9 +164,10 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title" style="margin-bottom: 0; font-size: 4rem">
+          <h1 class="title is-1 publication-title" style="margin-bottom: 0; font-size: clamp(1.8rem, 5vw, 4rem)">
             <strong>RASMD: RGB And SWIR Multispectral Driving Dataset for Robust Perception in Adverse Conditions</strong>
           </h1>
+          <p class="publication-venue is-size-4">Information Fusion, 2026</p>
           <br>
 
           <div class="is-size-4 publication-authors">
@@ -69,9 +201,6 @@
             </div>
             <div class="affiliation-item" style="flex: 1; min-width: 250px; text-align: center;">
               <span style="font-size: clamp(16px, 3vw, 22px);"><sup>2</sup>Slovak University of Technology in Bratislava</span>
-            </div>
-            <div class="affiliation-item" style="flex: 1; min-width: 250px; text-align: center;">
-              <span style="font-size: clamp(16px, 3vw, 22px);">Information Fusion Journal, Elsevier</span>
             </div>
           </div>
 
@@ -127,9 +256,9 @@
   <div class="columns is-centered has-text-centered">
     <div class="column is-full-width">
       <div class="content has-text-justified">
-        <img src="./static/images/teaser.png">
+        <img src="./static/images/teaser.png" alt="Teaser of RASMD showing paired RGB and SWIR driving images, conditions where each modality helps, and the benchmark tasks.">
         <p>
-          RAMSD consists of paired pixel-wise registered SWIR (Short-Wave Infrared) and RGB images captured
+          RASMD consists of paired pixel-wise registered SWIR (Short-Wave Infrared) and RGB images captured
           under various weather conditions (a). Dual modality provides an advantage in different weather and
           situations (b). We provide benchmarks of our dataset for object detection and domain translation
           tasks (c).
@@ -177,7 +306,7 @@
     <div style="flex: 0 0 calc(35%); max-width: calc(35%);">
       <div id="example1" class="bal-container-small" style="width: 75%; height: 400px;">
         <div class="bal-after" style="height: 100%;">
-          <img src="./static/images/git2.jpg" style="width: 100%; height: 100%; object-fit: contain;">
+          <img src="./static/images/git2.jpg" alt="SWIR view of a driving scene." style="width: 100%; height: 100%; object-fit: contain;">
           <div class="bal-afterPosition afterLabel" style="z-index:1;">
             swir
           </div>
@@ -185,7 +314,7 @@
 
         <div class="bal-before" style="width:76.23529411764706%; height: 100%;">
           <div class="bal-before-inset" style="width: 100%; height: 100%;">
-            <img src="./static/images/git1.jpg" style="width: 100%; height: 100%; object-fit: contain;">
+            <img src="./static/images/git1.jpg" alt="RGB view of the same driving scene." style="width: 100%; height: 100%; object-fit: contain;">
             <div class="bal-beforePosition beforeLabel">
               rgb
             </div>
@@ -201,7 +330,7 @@
     <div style="flex: 0 0 calc(35%); max-width: calc(35%);">
       <div id="example2" class="bal-container-small" style="width: 75%; height: 400px;">
         <div class="bal-after" style="height: 100%;">
-          <img src="./static/images/git4.jpg" style="width: 100%; height: 100%; object-fit: contain;">
+          <img src="./static/images/git4.jpg" alt="SWIR view of a second driving scene." style="width: 100%; height: 100%; object-fit: contain;">
           <div class="bal-afterPosition afterLabel" style="z-index:1;">
             swir
           </div>
@@ -209,7 +338,7 @@
 
         <div class="bal-before" style="width:86.11764705882354%; height: 100%;">
           <div class="bal-before-inset" style="width: 100%; height: 100%;">
-            <img src="./static/images/git3.jpg" style="width: 100%; height: 100%; object-fit: contain;">
+            <img src="./static/images/git3.jpg" alt="RGB view of the second driving scene." style="width: 100%; height: 100%; object-fit: contain;">
             <div class="bal-beforePosition beforeLabel">
               rgb
             </div>
@@ -225,7 +354,7 @@
     <div style="flex: 0 0 calc(35%); max-width: calc(35%);">
       <div id="example3" class="bal-container-small" style="width: 75%; height: 400px;">
         <div class="bal-after" style="height: 100%;">
-          <img src="./static/images/git6.jpg" style="width: 100%; height: 100%; object-fit: contain;">
+          <img src="./static/images/git6.jpg" alt="SWIR view of a third driving scene." style="width: 100%; height: 100%; object-fit: contain;">
           <div class="bal-afterPosition afterLabel" style="z-index:1;">
             swir
           </div>
@@ -233,7 +362,7 @@
 
         <div class="bal-before" style="width:28.037383177570092%; height: 100%;">
           <div class="bal-before-inset" style="width: 100%; height: 100%;">
-            <img src="./static/images/git5.jpg" style="width: 100%; height: 100%; object-fit: contain;">
+            <img src="./static/images/git5.jpg" alt="RGB view of the third driving scene." style="width: 100%; height: 100%; object-fit: contain;">
             <div class="bal-beforePosition beforeLabel">
               rgb
             </div>
@@ -249,7 +378,7 @@
     <div style="flex: 0 0 calc(35%); max-width: calc(35%);">
       <div id="example4" class="bal-container-small" style="width: 75%; height: 400px;">
         <div class="bal-after" style="height: 100%;">
-          <img src="./static/images/git8.jpg" style="width: 100%; height: 100%; object-fit: contain;">
+          <img src="./static/images/git8.jpg" alt="SWIR view of a fourth driving scene." style="width: 100%; height: 100%; object-fit: contain;">
           <div class="bal-afterPosition afterLabel" style="z-index:1;">
             swir
           </div>
@@ -257,7 +386,7 @@
 
         <div class="bal-before" style="width:61.993769470404985%; height: 100%;">
           <div class="bal-before-inset" style="width: 100%; height: 100%;">
-            <img src="./static/images/git7.jpg" style="width: 100%; height: 100%; object-fit: contain;">
+            <img src="./static/images/git7.jpg" alt="RGB view of the fourth driving scene." style="width: 100%; height: 100%; object-fit: contain;">
             <div class="bal-beforePosition beforeLabel">
               rgb
             </div>
@@ -285,18 +414,6 @@
     new BeforeAfter({
       id: '#example4'
     });
-    new BeforeAfter({
-      id: '#example5'
-    });
-	new BeforeAfter({
-      id: '#example6'
-    });
-	new BeforeAfter({
-      id: '#example7'
-    });
-	new BeforeAfter({
-      id: '#example8'
-    });
 
   </script>
 <hr>
@@ -315,31 +432,31 @@
         <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-weight: bold; margin-right: 10px; font-size: clamp(14px, 2vw, 18px);">
           Weather situation: Cloudy
         </div>
-        <img src="./static/images/cloudy.png" style="width: 80%; max-width: 800px;">
+        <img src="./static/images/cloudy.png" alt="RGB and SWIR image pairs collected in cloudy weather." style="width: 80%; max-width: 800px;">
       </div>
       <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: center; width: 100%;">
         <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-weight: bold; margin-right: 10px; font-size: clamp(14px, 2vw, 18px);">
           Weather situation: Rainy
         </div>
-        <img src="./static/images/rainy.png" style="width: 80%; max-width: 800px;">
+        <img src="./static/images/rainy.png" alt="RGB and SWIR image pairs collected in rainy weather." style="width: 80%; max-width: 800px;">
       </div>
       <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: center; width: 100%;">
         <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-weight: bold; margin-right: 10px; font-size: clamp(14px, 2vw, 18px);">
           Weather situation: Sunny
         </div>
-        <img src="./static/images/sunny.png" style="width: 80%; max-width: 800px;">
+        <img src="./static/images/sunny.png" alt="RGB and SWIR image pairs collected in sunny weather." style="width: 80%; max-width: 800px;">
       </div>
       <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: center; width: 100%;">
         <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-weight: bold; margin-right: 10px; font-size: clamp(14px, 2vw, 18px);">
           Weather situation: Snowy
         </div>
-        <img src="./static/images/snowy.png" style="width: 80%; max-width: 800px;">
+        <img src="./static/images/snowy.png" alt="RGB and SWIR image pairs collected in snowy weather." style="width: 80%; max-width: 800px;">
       </div>
     </div>
 
     <br>
     <p>Data acquisition details and data distributions</p>
-    <img src="./static/images/data_acqusition.png">
+    <img src="./static/images/data_acqusition.png" alt="Diagram of RASMD data acquisition and the distribution of the collected data.">
   </div>
 </div>
 
@@ -358,13 +475,19 @@
   pages = {103872},
   year = {2026},
   issn = {1566-2535},
-  doi = {https://doi.org/10.1016/j.inffus.2025.103872},
+  doi = {10.1016/j.inffus.2025.103872},
   url = {https://www.sciencedirect.com/science/article/pii/S1566253525009340},
   author = {Youngwan Jin and Michal Kovac and Yagiz Nalcakan and Incheol Park and Sanghyeop Yeo and Hyeongjin Ju and Shiho Kim},
   keywords = {SWIR, Dataset, Multi-spectral, Infrared, Autonomous driving, Image fusion, Super-resolution, Object detection, Image translation}
   }</code></pre>
   </div>
 </section>
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p><a href="https://yonsei-stl.github.io/publications/">All STL publications</a></p>
+  </div>
+</footer>
 
 </body>
 </html>

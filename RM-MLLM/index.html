@@ -1,14 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-    content="RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion">
+  <meta name="description" content="RGB-multispectral multimodal language model and the DENSE-QA benchmark for adverse-weather driving scene understanding.">
   <meta name="keywords"
     content="autonomous driving, scene understanding, multispectral, multimodal large language model, adverse weather, dataset">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion</title>
+  <!-- seo:meta:start -->
+<link rel="canonical" href="https://yonsei-stl.github.io/RM-MLLM/">
+<link rel="describedby" href="https://yonsei-stl.github.io/llms.txt">
+<meta name="citation_title" content="RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion">
+<meta name="citation_author" content="Ju, Hyeongjin">
+<meta name="citation_author" content="Yeo, Sanghyeop">
+<meta name="citation_author" content="Park, Incheol">
+<meta name="citation_author" content="Jin, Youngwan">
+<meta name="citation_author" content="Nalcakan, Yagiz">
+<meta name="citation_author" content="Kim, Shiho">
+<meta name="citation_publication_date" content="2026/12">
+<meta name="citation_journal_title" content="Results in Engineering">
+<meta name="citation_volume" content="32">
+<meta name="citation_firstpage" content="112317">
+<meta name="citation_issn" content="2590-1230">
+<meta name="citation_doi" content="10.1016/j.rineng.2026.112317">
+<meta name="citation_abstract" content="Multimodal large language models (MLLMs) for autonomous driving often become less reliable in adverse weather, partly because training data are dominated by clear, well-lit scenes, and most models primarily rely on RGB imagery. We address these issues with two contributions. First, we introduce DENSE-QA, a large-scale benchmark for adverse-weather scene understanding comprising 12,997 scenes and over 77,000 instruction-response pairs, built on synchronized RGB and multispectral imagery. Second, we propose RM-MLLM, an MLLM architecture with modality-specific encoders and an adaptive fusion module, trained with a three-stage progressive strategy to better integrate complementary sensor cues. Across multiple LLM backbones, RM-MLLM improves QA performance under adverse conditions. Using only RGB input, the proposed architecture and training already outperform all evaluated baselines, including prompt-augmented models, by over 11 percentage points. Incorporating RGB-multispectral fusion provides an additional 3-point gain concentrated on weather-sensitive tasks. We also observe that fine-tuning a strong RGB-only vision-language model on the same training data yields performance comparable to its zero-shot evaluation, suggesting that DENSE-QA fine-tuning alone does not close the gap to RM-MLLM and that multispectral input provides complementary value.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion">
+<meta property="og:description" content="RGB-multispectral multimodal language model and the DENSE-QA benchmark for adverse-weather driving scene understanding.">
+<meta property="og:url" content="https://yonsei-stl.github.io/RM-MLLM/">
+<meta property="og:image" content="https://yonsei-stl.github.io/RM-MLLM/static/images/rm_teaser.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion">
+<meta name="twitter:description" content="RGB-multispectral multimodal language model and the DENSE-QA benchmark for adverse-weather driving scene understanding.">
+<meta name="twitter:image" content="https://yonsei-stl.github.io/RM-MLLM/static/images/rm_teaser.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion",
+  "name": "RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Hyeongjin Ju",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Sanghyeop Yeo",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Incheol Park",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Youngwan Jin",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Yagiz Nalcakan",
+      "url": "https://ynalcakan.github.io/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Shiho Kim",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    }
+  ],
+  "datePublished": "2026-12",
+  "description": "Multimodal large language models (MLLMs) for autonomous driving often become less reliable in adverse weather, partly because training data are dominated by clear, well-lit scenes, and most models primarily rely on RGB imagery. We address these issues with two contributions. First, we introduce DENSE-QA, a large-scale benchmark for adverse-weather scene understanding comprising 12,997 scenes and over 77,000 instruction-response pairs, built on synchronized RGB and multispectral imagery. Second, we propose RM-MLLM, an MLLM architecture with modality-specific encoders and an adaptive fusion module, trained with a three-stage progressive strategy to better integrate complementary sensor cues. Across multiple LLM backbones, RM-MLLM improves QA performance under adverse conditions. Using only RGB input, the proposed architecture and training already outperform all evaluated baselines, including prompt-augmented models, by over 11 percentage points. Incorporating RGB-multispectral fusion provides an additional 3-point gain concentrated on weather-sensitive tasks. We also observe that fine-tuning a strong RGB-only vision-language model on the same training data yields performance comparable to its zero-shot evaluation, suggesting that DENSE-QA fine-tuning alone does not close the gap to RM-MLLM and that multispectral input provides complementary value.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Elsevier"
+  },
+  "isPartOf": {
+    "@type": "PublicationVolume",
+    "volumeNumber": "32",
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "Results in Engineering",
+      "issn": "2590-1230"
+    }
+  },
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1016/j.rineng.2026.112317"
+  },
+  "sameAs": [
+    "https://doi.org/10.1016/j.rineng.2026.112317"
+  ],
+  "url": "https://yonsei-stl.github.io/RM-MLLM/",
+  "image": "https://yonsei-stl.github.io/RM-MLLM/static/images/rm_teaser.png",
+  "keywords": [
+    "autonomous driving",
+    "scene understanding",
+    "multispectral",
+    "multimodal large language model",
+    "adverse weather",
+    "dataset"
+  ]
+}
+</script>
+<!-- seo:meta:end -->
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
@@ -34,9 +157,10 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title" style="margin-bottom: 0; font-size: 4rem">
+            <h1 class="title is-1 publication-title" style="margin-bottom: 0; font-size: clamp(1.8rem, 5vw, 4rem)">
               <strong>RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion</strong>
             </h1>
+            <p class="publication-venue is-size-4">Results in Engineering, 2026</p>
             <br>
 
             <div class="is-size-4 publication-authors">
@@ -73,31 +197,12 @@
               <div class="publication-links">
                 <!-- PDF Link -->
                 <span class="link-block">
-                  <a href="https://yonsei-stl.github.io/RM-MLLM/"
+                  <a href="https://doi.org/10.1016/j.rineng.2026.112317"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
                     <span>Paper</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="https://yonsei-stl.github.io/RM-MLLM/"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-                <!-- Data Link -->
-                <span class="link-block">
-                  <a href="https://yonsei-stl.github.io/RM-MLLM/"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fa fa-database"></i>
-                    </span>
-                    <span>Data</span>
                   </a>
                 </span>
               </div>
@@ -124,7 +229,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <div class="content has-text-justified">
-          <img src="./static/images/rm_teaser.png" style="width: 80%; display: block; margin: auto;">
+          <img src="./static/images/rm_teaser.png" alt="DENSE-QA example with synchronized RGB and multispectral images for six scene-understanding tasks." style="width: 80%; display: block; margin: auto;">
           <p>
             <b>DENSE-QA:</b> An example of the DENSE-QA dataset for scene understanding in
             adverse driving conditions. (a) RGB and multispectral images are used as input,
@@ -132,7 +237,7 @@
             format.
           </p>
           <br>
-          <img src="./static/images/architecture_ver3.png">
+          <img src="./static/images/architecture_ver3.png" alt="RM-MLLM architecture with separate RGB and multispectral vision modules, fusion modules, a projector, and a language model.">
           <p>
             <b>RM-MLLM:</b> An overview of the proposed RM-MLLM architecture. The model
             is trained using a progressive strategy consisting of three stages: pre-training, fusion,
@@ -184,7 +289,7 @@
     <div class="columns is-centered">
       <div class="column is-half">
         <div class="content has-text-justified">
-          <img src="./static/images/data.png">
+          <img src="./static/images/data.png" alt="Percentage distributions of DENSE-QA attributes for time of day, road-surface condition, weather, infrastructure, and illumination.">
           <p>
             Percentage distributions for the five attribute
             groups used in our scene-understanding tasks: Time-of-Day (TOD), Road-Surface Condi-
@@ -195,7 +300,7 @@
       </div>
       <div class="column is-half">
         <div class="content has-text-justified">
-          <img src="./static/images/data_table.png">
+          <img src="./static/images/data_table.png" alt="Table of label counts for each task in the DENSE-QA dataset. Numeric values are shown in the figure.">
           <p>
             Numerical distribution of labels for each task in the DENSE-QA dataset.
           </p>
@@ -220,7 +325,7 @@
         category-based keyword matching. Average is computed over the six per-task accuracies
         (OBJ Total, TOD, RSC, WEA, INF, ILL).
       </p>
-      <img src="./static/images/quantitative.png">
+      <img src="./static/images/quantitative.png" alt="Table comparing RM-MLLM with other models on the six DENSE-QA scene-understanding tasks. Numeric values are shown in the figure.">
     </div>
   </div>
 
@@ -239,36 +344,38 @@
         <br>RGB-only models are misled by ambiguous visual cues, while RM-MLLM correctly interprets the scenes using
         multispectral information.
       </p>
-      <img src="./static/images/qualitative.png">
-      <img src="./static/images/pic_result3.png" style="width: 70%;">
+      <img src="./static/images/qualitative.png" alt="Qualitative comparison on DENSE-QA road-surface and weather examples.">
+      <img src="./static/images/pic_result3.png" alt="Qualitative comparison on DENSE-QA time-of-day and illumination examples." style="width: 70%;">
       <p><b>(c) Time-of-Day (TOD) and (d) Illumination (ILL)</b></p>
-      <img src="./static/images/pic_result4.png" style="width: 70%;">
+      <img src="./static/images/pic_result4.png" alt="Qualitative comparison on a DENSE-QA infrastructure example." style="width: 70%;">
       <p><b>(e) Infrastructure (INF)</b></p>
     </div>
   </div>
 
   <br>
 
-  <!-- section for citation -->
-  <!-- <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content"> -->
-  <!-- <div class=" has-text-centered"> -->
-  <!-- <h2 class="title is-3">BibTeX</h2> -->
-  <!-- </div> -->
-  <!-- <pre><code>@article{JIN2026RASMD,
-  title = {RASMD: RGB and SWIR multispectral driving dataset for robust perception in adverse conditions},
-  journal = {Information Fusion},
-  volume = {128},
-  pages = {103872},
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-3">BibTeX</h2>
+      <pre><code>@article{JU2026RMMLLM,
+  title = {RM-MLLM: Robust scene understanding in adverse weather with RGB-multispectral fusion},
+  journal = {Results in Engineering},
+  volume = {32},
+  pages = {112317},
   year = {2026},
-  issn = {1566-2535},
-  doi = {https://doi.org/10.1016/j.inffus.2025.103872},
-  url = {https://www.sciencedirect.com/science/article/pii/S1566253525009340},
-  author = {Youngwan Jin and Michal Kovac and Yagiz Nalcakan and Incheol Park and Sanghyeop Yeo and Hyeongjin Ju and Shiho Kim},
-  keywords = {SWIR, Dataset, Multi-spectral, Infrared, Autonomous driving, Image fusion, Super-resolution, Object detection, Image translation}
+  issn = {2590-1230},
+  doi = {10.1016/j.rineng.2026.112317},
+  url = {https://doi.org/10.1016/j.rineng.2026.112317},
+  author = {Hyeongjin Ju and Sanghyeop Yeo and Incheol Park and Youngwan Jin and Yagiz Nalcakan and Shiho Kim}
   }</code></pre>
     </div>
-  </section> -->
+  </section>
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p><a href="https://yonsei-stl.github.io/publications/">All STL publications</a></p>
+  </div>
+</footer>
 
 </body>
 

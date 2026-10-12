@@ -1,0 +1,311 @@
+{
+  "base_url": "https://yonsei-stl.github.io",
+  "lab_name": "Seamless Trans-X Lab, Yonsei University",
+  "lab_url": "https://stl.yonsei.ac.kr/",
+  "publications": [
+    {
+      "id": "rm-mllm",
+      "path": "RM-MLLM",
+      "title": "RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion",
+      "meta_description": "RGB-multispectral multimodal language model and the DENSE-QA benchmark for adverse-weather driving scene understanding.",
+      "summary": "A multispectral multimodal language model and the DENSE-QA benchmark for adverse-weather driving scene understanding, using synchronized RGB and multispectral images.",
+      "abstract": "Multimodal large language models (MLLMs) for autonomous driving often become less reliable in adverse weather, partly because training data are dominated by clear, well-lit scenes, and most models primarily rely on RGB imagery. We address these issues with two contributions. First, we introduce DENSE-QA, a large-scale benchmark for adverse-weather scene understanding comprising 12,997 scenes and over 77,000 instruction-response pairs, built on synchronized RGB and multispectral imagery. Second, we propose RM-MLLM, an MLLM architecture with modality-specific encoders and an adaptive fusion module, trained with a three-stage progressive strategy to better integrate complementary sensor cues. Across multiple LLM backbones, RM-MLLM improves QA performance under adverse conditions. Using only RGB input, the proposed architecture and training already outperform all evaluated baselines, including prompt-augmented models, by over 11 percentage points. Incorporating RGB-multispectral fusion provides an additional 3-point gain concentrated on weather-sensitive tasks. We also observe that fine-tuning a strong RGB-only vision-language model on the same training data yields performance comparable to its zero-shot evaluation, suggesting that DENSE-QA fine-tuning alone does not close the gap to RM-MLLM and that multispectral input provides complementary value.",
+      "authors": [
+        {
+          "name": "Hyeongjin Ju",
+          "citation": "Ju, Hyeongjin",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Sanghyeop Yeo",
+          "citation": "Yeo, Sanghyeop",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Incheol Park",
+          "citation": "Park, Incheol",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Youngwan Jin",
+          "citation": "Jin, Youngwan",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Yagiz Nalcakan",
+          "citation": "Nalcakan, Yagiz",
+          "url": "https://ynalcakan.github.io/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Shiho Kim",
+          "citation": "Kim, Shiho",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        }
+      ],
+      "date_published": "2026-12",
+      "citation_publication_date": "2026/12",
+      "journal": "Results in Engineering",
+      "venue_label": "Results in Engineering, 2026",
+      "volume": "32",
+      "issue": null,
+      "firstpage": "112317",
+      "issn": "2590-1230",
+      "doi": "10.1016/j.rineng.2026.112317",
+      "publisher": "Elsevier",
+      "paper_url": "https://doi.org/10.1016/j.rineng.2026.112317",
+      "arxiv_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "pdf_url": null,
+      "image": "static/images/rm_teaser.png",
+      "keywords": [
+        "autonomous driving",
+        "scene understanding",
+        "multispectral",
+        "multimodal large language model",
+        "adverse weather",
+        "dataset"
+      ],
+      "bibtex_doi": "10.1016/j.rineng.2026.112317",
+      "bibtex_author": "Hyeongjin Ju and Sanghyeop Yeo and Incheol Park and Youngwan Jin and Yagiz Nalcakan and Shiho Kim",
+      "needs_review": [
+        "Crossref issue date is December 2026, while the record was created on 7 August 2026 and the version-of-record license starts 3 August 2026. Confirm which date is printed on the PDF.",
+        "No public code or dataset URL was found. Do not add Code or Data links until the lab supplies them.",
+        "The version of record is CC BY-NC-ND 4.0. Confirm before hosting a PDF in this repository."
+      ]
+    },
+    {
+      "id": "rasmd",
+      "path": "RASMD",
+      "title": "RASMD: RGB And SWIR Multispectral Driving Dataset for Robust Perception in Adverse Conditions",
+      "meta_description": "A dataset of 100,000 aligned RGB-SWIR driving pairs for object detection and image translation in adverse weather. Information Fusion, 2026.",
+      "summary": "A large-scale driving dataset of 100,000 aligned RGB-SWIR pairs, with benchmarks for object detection and RGB-to-SWIR translation in adverse conditions.",
+      "abstract": "Current autonomous driving algorithms heavily rely on the visible spectrum, which is prone to performance degradation in adverse conditions like fog, rain, snow, glare, and high contrast. Although other spectral bands like near-infrared (NIR) and long-wave infrared (LWIR) can enhance vision perception in such situations, they have limitations and lack large-scale datasets and benchmarks. Short-wave infrared (SWIR) imaging offers several advantages over NIR and LWIR. However, no publicly available large-scale datasets currently incorporate SWIR data for autonomous driving. To address this gap, we introduce the RGB and SWIR Multispectral Driving (RASMD) dataset, which comprises 100,000 synchronized and spatially aligned RGB-SWIR image pairs collected across diverse locations, lighting, and weather conditions. In addition, we provide a subset for RGB-SWIR translation and object detection annotations for a subset of challenging traffic scenarios to demonstrate the utility of SWIR imaging through experiments on both object detection and RGB-to-SWIR image translation. Our experiments show that combining RGB and SWIR data in an ensemble framework significantly improves detection accuracy compared to RGB-only approaches, particularly in conditions where visible-spectrum sensors struggle. We anticipate that the RASMD dataset will advance research in multispectral imaging for autonomous driving and robust perception systems.",
+      "authors": [
+        {
+          "name": "Youngwan Jin",
+          "citation": "Jin, Youngwan",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Michal Kovac",
+          "citation": "Kovac, Michal",
+          "url": "https://urk.fei.stuba.sk/ustav/en/",
+          "affiliation": "Slovak University of Technology in Bratislava"
+        },
+        {
+          "name": "Yagiz Nalcakan",
+          "citation": "Nalcakan, Yagiz",
+          "url": "https://ynalcakan.github.io/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Incheol Park",
+          "citation": "Park, Incheol",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Sanghyeop Yeo",
+          "citation": "Yeo, Sanghyeop",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Hyeongjin Ju",
+          "citation": "Ju, Hyeongjin",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Shiho Kim",
+          "citation": "Kim, Shiho",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        }
+      ],
+      "date_published": "2026-04",
+      "citation_publication_date": "2026/04",
+      "journal": "Information Fusion",
+      "venue_label": "Information Fusion, 2026",
+      "volume": "128",
+      "issue": null,
+      "firstpage": "103872",
+      "issn": "1566-2535",
+      "doi": "10.1016/j.inffus.2025.103872",
+      "publisher": "Elsevier",
+      "paper_url": "https://www.sciencedirect.com/science/article/pii/S1566253525009340",
+      "arxiv_url": "https://arxiv.org/abs/2504.07603",
+      "code_url": null,
+      "dataset_url": "https://huggingface.co/datasets/STL-Yonsei/RASMD/tree/main",
+      "pdf_url": null,
+      "image": "static/images/teaser.png",
+      "keywords": [
+        "Multispectral imaging",
+        "Shortwave Infrared",
+        "Autonomous Driving"
+      ],
+      "bibtex_doi": "10.1016/j.inffus.2025.103872",
+      "bibtex_author": "Youngwan Jin and Michal Kovac and Yagiz Nalcakan and Incheol Park and Sanghyeop Yeo and Hyeongjin Ju and Shiho Kim",
+      "needs_review": [
+        "The project abstract follows the arXiv preprint. The journal abstract also mentions RGB-SWIR fusion and super-resolution. Compare the published PDF before replacing the abstract.",
+        "The publisher PDF is not open access. citation_pdf_url is omitted unless the lab hosts a preprint PDF it is allowed to post in this directory."
+      ]
+    },
+    {
+      "id": "spectradiff",
+      "path": "SpectraDiff",
+      "title": "SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion",
+      "meta_description": "Object-aware diffusion for RGB-to-infrared translation using semantic segmentation and a Spectral Attention Block. Computer Vision and Image Understanding, 2026.",
+      "summary": "A diffusion model that translates RGB images to infrared using semantic segmentation and a Spectral Attention Block, evaluated on FLIR, FMB, MFNet, IDD-AW, and RANUS.",
+      "abstract": "Autonomous systems commonly rely on RGB cameras, which are susceptible to failure in low-light and adverse conditions. Infrared (IR) imaging provides a viable alternative by capturing thermal signatures independent of visible illumination. However, its high cost and integration complexities limit widespread adoption. To address these challenges, we introduce SpectraDiff, a diffusion-based framework that synthesizes realistic IR images by fusing RGB inputs with refined semantic segmentation. Through our RGB-Seg Object-Aware (RSOA) module, SpectraDiff learns object-specific IR intensities by leveraging object-aware features. The SpectraDiff architecture, featuring a novel Spectral Attention Block, enforces self-attention among semantically similar pixels while leveraging cross-attention with the original RGB to preserve high-frequency details. Extensive evaluations on FLIR, FMB, MFNet, IDD-AW, and RANUS demonstrate SpectraDiff's superior performance over existing methods, as measured by both perceptual (FID, LPIPS, DISTS) and fidelity (SSIM, SAM) metrics.",
+      "authors": [
+        {
+          "name": "Incheol Park",
+          "citation": "Park, Incheol",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Youngwan Jin",
+          "citation": "Jin, Youngwan",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Yagiz Nalcakan",
+          "citation": "Nalcakan, Yagiz",
+          "url": "https://ynalcakan.github.io/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Hyeongjin Ju",
+          "citation": "Ju, Hyeongjin",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Sanghyeop Yeo",
+          "citation": "Yeo, Sanghyeop",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Shiho Kim",
+          "citation": "Kim, Shiho",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        }
+      ],
+      "date_published": "2026-03",
+      "citation_publication_date": "2026/03",
+      "journal": "Computer Vision and Image Understanding",
+      "venue_label": "Computer Vision and Image Understanding, 2026",
+      "volume": "266",
+      "issue": null,
+      "firstpage": "104709",
+      "issn": "1077-3142",
+      "doi": "10.1016/j.cviu.2026.104709",
+      "publisher": "Elsevier",
+      "paper_url": "https://www.sciencedirect.com/science/article/pii/S1077314226000767",
+      "arxiv_url": null,
+      "code_url": "https://github.com/Yonsei-STL/SpectraDiff",
+      "dataset_url": null,
+      "pdf_url": null,
+      "image": "static/images/method.png",
+      "keywords": [
+        "Multispectral",
+        "Image Generation",
+        "Image Translation",
+        "Infrared",
+        "Diffusion"
+      ],
+      "bibtex_doi": "10.1016/j.cviu.2026.104709",
+      "bibtex_author": "Incheol Park and Youngwan Jin and Nalcakan Yagiz and Hyeongjin Ju and Sanghyeop Yeo and Shiho Kim",
+      "needs_review": [
+        "Crossref stores the third author as given name Nalcakan and family name Yagiz. The visible page uses Yagiz Nalcakan, consistent with the author's other papers. BibTeX keeps the publisher string Nalcakan Yagiz until the PDF title page is checked.",
+        "No arXiv preprint was found, and the publisher PDF is not open access. citation_pdf_url is omitted."
+      ]
+    },
+    {
+      "id": "pix2next",
+      "path": "Pix2Next",
+      "title": "Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation",
+      "meta_description": "RGB-to-NIR image translation with a vision foundation model, cross-attention, and a multi-scale PatchGAN. Technologies, 2025.",
+      "summary": "An RGB-to-NIR translation model that uses a vision foundation model, cross-attention, and a multi-scale PatchGAN, with results on RANUS, IDD-AW, and zero-shot BDD100K.",
+      "abstract": "This paper proposes Pix2Next, a novel image-to-image translation framework designed to address the challenge of generating high-quality Near-Infrared (NIR) images from RGB inputs. Our approach leverages a state-of-the-art Vision Foundation Model (VFM) within an encoder-decoder architecture, incorporating cross-attention mechanisms to enhance feature integration. This design captures detailed global representations and preserves essential spectral characteristics, treating RGB-to-NIR translation as more than a simple domain transfer problem. A multi-scale PatchGAN discriminator ensures realistic image generation at various detail levels, while carefully designed loss functions couple global context understanding with local feature preservation. We performed experiments on the RANUS dataset to demonstrate Pix2Next's advantages in quantitative metrics and visual quality, improving the FID score by 34.81% compared to existing methods. Furthermore, we demonstrate the practical utility of Pix2Next by showing improved performance on a downstream object detection task using generated NIR data to augment limited real NIR datasets. The proposed approach enables the scaling up of NIR datasets without additional data acquisition or annotation efforts, potentially accelerating advancements in NIR-based computer vision applications.",
+      "authors": [
+        {
+          "name": "Youngwan Jin",
+          "citation": "Jin, Youngwan",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Incheol Park",
+          "citation": "Park, Incheol",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Hanbin Song",
+          "citation": "Song, Hanbin",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Hyeongjin Ju",
+          "citation": "Ju, Hyeongjin",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Yagiz Nalcakan",
+          "citation": "Nalcakan, Yagiz",
+          "url": "https://ynalcakan.github.io/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        },
+        {
+          "name": "Shiho Kim",
+          "citation": "Kim, Shiho",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "Seamless Trans-X Lab, Yonsei University"
+        }
+      ],
+      "date_published": "2025-04-11",
+      "citation_publication_date": "2025/04/11",
+      "journal": "Technologies",
+      "venue_label": "Technologies, 2025",
+      "volume": "13",
+      "issue": "4",
+      "firstpage": "154",
+      "issn": "2227-7080",
+      "doi": "10.3390/technologies13040154",
+      "publisher": "MDPI",
+      "paper_url": "https://www.mdpi.com/2227-7080/13/4/154",
+      "arxiv_url": "https://arxiv.org/abs/2409.16706",
+      "code_url": "https://github.com/Yonsei-STL/pix2next/",
+      "dataset_url": null,
+      "pdf_url": null,
+      "image": "static/images/detailed_architecture.png",
+      "keywords": [
+        "RGB to NIR",
+        "Vision Foundation Models",
+        "Image Translation"
+      ],
+      "bibtex_doi": "10.3390/technologies13040154",
+      "bibtex_author": "Jin, Youngwan and Park, Incheol and Song, Hanbin and Ju, Hyeongjin and Nalcakan, Yagiz and Kim, Shiho",
+      "needs_review": [
+        "The project abstract says the FID score improved by 34.81% and names the RANUS dataset in that sentence. The publisher abstract says the FID score is highly improved and also names IDD-AW. Confirm the 34.81% figure against the published PDF before editing the sentence.",
+        "The article is CC BY 4.0. A same-directory PDF can be added later for citation_pdf_url; none is hosted yet."
+      ]
+    }
+  ]
+}

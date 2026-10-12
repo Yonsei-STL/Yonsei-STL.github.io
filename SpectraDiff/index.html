@@ -1,13 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-    content="SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion">
+  <meta name="description" content="Object-aware diffusion for RGB-to-infrared translation using semantic segmentation and a Spectral Attention Block. Computer Vision and Image Understanding, 2026.">
   <meta name="keywords" content="Multispectral, Image Generation, Image Translation, Infrared, Diffusion">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion</title>
+  <!-- seo:meta:start -->
+<link rel="canonical" href="https://yonsei-stl.github.io/SpectraDiff/">
+<link rel="describedby" href="https://yonsei-stl.github.io/llms.txt">
+<meta name="citation_title" content="SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion">
+<meta name="citation_author" content="Park, Incheol">
+<meta name="citation_author" content="Jin, Youngwan">
+<meta name="citation_author" content="Nalcakan, Yagiz">
+<meta name="citation_author" content="Ju, Hyeongjin">
+<meta name="citation_author" content="Yeo, Sanghyeop">
+<meta name="citation_author" content="Kim, Shiho">
+<meta name="citation_publication_date" content="2026/03">
+<meta name="citation_journal_title" content="Computer Vision and Image Understanding">
+<meta name="citation_volume" content="266">
+<meta name="citation_firstpage" content="104709">
+<meta name="citation_issn" content="1077-3142">
+<meta name="citation_doi" content="10.1016/j.cviu.2026.104709">
+<meta name="citation_abstract" content="Autonomous systems commonly rely on RGB cameras, which are susceptible to failure in low-light and adverse conditions. Infrared (IR) imaging provides a viable alternative by capturing thermal signatures independent of visible illumination. However, its high cost and integration complexities limit widespread adoption. To address these challenges, we introduce SpectraDiff, a diffusion-based framework that synthesizes realistic IR images by fusing RGB inputs with refined semantic segmentation. Through our RGB-Seg Object-Aware (RSOA) module, SpectraDiff learns object-specific IR intensities by leveraging object-aware features. The SpectraDiff architecture, featuring a novel Spectral Attention Block, enforces self-attention among semantically similar pixels while leveraging cross-attention with the original RGB to preserve high-frequency details. Extensive evaluations on FLIR, FMB, MFNet, IDD-AW, and RANUS demonstrate SpectraDiff's superior performance over existing methods, as measured by both perceptual (FID, LPIPS, DISTS) and fidelity (SSIM, SAM) metrics.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion">
+<meta property="og:description" content="Object-aware diffusion for RGB-to-infrared translation using semantic segmentation and a Spectral Attention Block. Computer Vision and Image Understanding, 2026.">
+<meta property="og:url" content="https://yonsei-stl.github.io/SpectraDiff/">
+<meta property="og:image" content="https://yonsei-stl.github.io/SpectraDiff/static/images/method.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion">
+<meta name="twitter:description" content="Object-aware diffusion for RGB-to-infrared translation using semantic segmentation and a Spectral Attention Block. Computer Vision and Image Understanding, 2026.">
+<meta name="twitter:image" content="https://yonsei-stl.github.io/SpectraDiff/static/images/method.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion",
+  "name": "SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Incheol Park",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Youngwan Jin",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Yagiz Nalcakan",
+      "url": "https://ynalcakan.github.io/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Hyeongjin Ju",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Sanghyeop Yeo",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Shiho Kim",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    }
+  ],
+  "datePublished": "2026-03",
+  "description": "Autonomous systems commonly rely on RGB cameras, which are susceptible to failure in low-light and adverse conditions. Infrared (IR) imaging provides a viable alternative by capturing thermal signatures independent of visible illumination. However, its high cost and integration complexities limit widespread adoption. To address these challenges, we introduce SpectraDiff, a diffusion-based framework that synthesizes realistic IR images by fusing RGB inputs with refined semantic segmentation. Through our RGB-Seg Object-Aware (RSOA) module, SpectraDiff learns object-specific IR intensities by leveraging object-aware features. The SpectraDiff architecture, featuring a novel Spectral Attention Block, enforces self-attention among semantically similar pixels while leveraging cross-attention with the original RGB to preserve high-frequency details. Extensive evaluations on FLIR, FMB, MFNet, IDD-AW, and RANUS demonstrate SpectraDiff's superior performance over existing methods, as measured by both perceptual (FID, LPIPS, DISTS) and fidelity (SSIM, SAM) metrics.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Elsevier"
+  },
+  "isPartOf": {
+    "@type": "PublicationVolume",
+    "volumeNumber": "266",
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "Computer Vision and Image Understanding",
+      "issn": "1077-3142"
+    }
+  },
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1016/j.cviu.2026.104709"
+  },
+  "sameAs": [
+    "https://doi.org/10.1016/j.cviu.2026.104709"
+  ],
+  "url": "https://yonsei-stl.github.io/SpectraDiff/",
+  "image": "https://yonsei-stl.github.io/SpectraDiff/static/images/method.png",
+  "keywords": [
+    "Multispectral",
+    "Image Generation",
+    "Image Translation",
+    "Infrared",
+    "Diffusion"
+  ]
+}
+</script>
+<!-- seo:meta:end -->
   <!-- <link rel="icon" href="./static/images/stl.ico"> -->
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -79,8 +201,8 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-			<h1 class="title is-1 publication-title" style="margin-bottom: 0; font-size: 4rem"><strong>SpectraDiff:</strong></h1>
-			<h1 class="title is-1 publication-title" style="font-size: 3.5rem; margin-top: 0; margin-bottom: 0"><strong>Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion</strong></h1>
+			<h1 class="title is-1 publication-title" style="margin-bottom: 0; font-size: clamp(1.8rem, 5vw, 4rem)"><strong>SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion</strong></h1>
+          <p class="publication-venue is-size-4">Computer Vision and Image Understanding, 2026</p>
           <div class="is-size-4 publication-authors">
                 <!-- <span class="univerity-block" style="color: rgb(54, 54, 54); font-size: 2.5rem">BMVC 2024</span> -->
           </div>
@@ -95,6 +217,8 @@
 				<a href="https://ynalcakan.github.io/">Yagiz Nalcakan</a><sup></sup>,</span>
             <span class="author-block">
 				<a href="https://stl.yonsei.ac.kr/">Hyeongjin Ju</a><sup></sup>,</span>
+            <span class="author-block">
+				<a href="https://stl.yonsei.ac.kr/">Sanghyeop Yeo</a><sup></sup>,</span>
             <span class="author-block">
         <a href="https://stl.yonsei.ac.kr/">Shiho Kim</a><sup></sup></span>
           </div>
@@ -119,24 +243,6 @@
                   <span>Paper</span>
                 </a>
               </span>
-	      <span class="link-block">
-                <a href="https://www.sciencedirect.com/science/article/pii/S1077314226000767"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Supplementary</span>
-                </a>
-              </span>
-              <!-- <span class="link-block">
-                <a href="https://yonsei-stl.github.io/SpectraDiff/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span> -->
               <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/Yonsei-STL/SpectraDiff"
@@ -153,6 +259,7 @@
       </div>
     </div>
   </div>
+  </div>
 </section>
 
     <div class="container is-max-desktop">
@@ -161,8 +268,6 @@
         <div class="column is-full-width">
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
-            <!-- <img src="./static/images/teaser.png"> -->
-            
               <p>Autonomous systems commonly rely on RGB cameras, which are susceptible to failure in low-light and adverse conditions. Infrared (IR) imaging provides a viable alternative by capturing thermal signatures independent of visible illumination. However, its high cost and integration complexities limit widespread adoption. To address these challenges, we introduce SpectraDiff, a diffusion-based framework that synthesizes realistic IR images by fusing RGB inputs with refined semantic segmentation. Through our RGB-Seg Object-Aware (RSOA) module, SpectraDiff  learns object-specific IR intensities by leveraging object-aware features. The SpectraDiff architecture, featuring a novel Spectral Attention Block, enforces self-attention among semantically similar pixels while leveraging cross-attention with the original RGB to preserve high-frequency details. Extensive evaluations on FLIR, FMB, MFNet, IDD-AW, and RANUS demonstrate SpectraDiff's superior performance over existing methods, as measured by both perceptual (FID, LPIPS, DISTS) and fidelity (SSIM, SAM) metrics.</p>
           </div>
         </div>
@@ -177,9 +282,9 @@
         <div class="column is-full-width">
           <h2 class="title is-3">Method</h2>
           <div class="content has-text-justified">
-            <img src="./static/images/method.png">
+            <img src="./static/images/method.png" alt="SpectraDiff method diagram showing optional semantic segmentation, the RGB-Seg Object-Aware module, and a diffusion backbone with residual blocks and a Spectral Attention Block.">
             
-              <p>We exploit 3DGS itself to render stereo pairs and process for more accurate depth supervision. Given a camera pose among those in the training set, we derive a corresponding right viewpoint in a fictitious stereo configuration according to an arbitrary stereo baseline. During training, for each image in the training set we render a corresponding right frame; we process the two through a stereo network to obtain depth. We train 3DGS by minimizing the difference between rendered and real images, as well as between rendered depth and the depth map obtained from stereo.</p>
+              <p>The method diagram shows how SpectraDiff turns an RGB image into an infrared image. An optional stage produces a semantic segmentation map from the RGB input. The RGB-Seg Object-Aware (RSOA) module encodes the RGB image and the segmentation so the model can learn object-specific infrared intensities. The diffusion backbone then uses residual blocks and a Spectral Attention Block, which applies self-attention among semantically similar pixels and cross-attention with the original RGB image to preserve high-frequency detail.</p>
           </div>
         </div>
       </div>
@@ -203,7 +308,7 @@
                   <div id="example1" class="bal-container-small">
         
                       <div class="bal-after">
-                        <img src="./static/images/qual/FLIR_ours_277.png">
+                        <img src="./static/images/qual/FLIR_ours_277.png" alt="SpectraDiff infrared translation of an FLIR scene.">
                         <div class="bal-afterPosition afterLabel" style="z-index:1;">
                           Ours (FLIR)
                         </div>
@@ -211,7 +316,7 @@
         
                       <div class="bal-before" style="width:96.4968152866242%;">
                         <div class="bal-before-inset" style="width: 539px;">
-                          <img src="./static/images/qual/FLIR_gt_277.png">
+                          <img src="./static/images/qual/FLIR_gt_277.png" alt="Ground-truth infrared image for the FLIR scene.">
                           <div class="bal-beforePosition beforeLabel">
                             GT (FLIR)
                           </div>
@@ -226,7 +331,7 @@
                   <div id="example2" class="bal-container-small">
                     
                       <div class="bal-after">
-                        <img src="./static/images/qual/FMB_ours_12.png">
+                        <img src="./static/images/qual/FMB_ours_12.png" alt="SpectraDiff infrared translation of an FMB scene.">
                         <div class="bal-afterPosition afterLabel">
                           Ours (FMB)
                         </div>
@@ -234,7 +339,7 @@
         
                       <div class="bal-before" style="width: 50%;">
                         <div class="bal-before-inset" style="width: 539px;">
-                          <img src="./static/images/qual/FMB_gt_12.png">
+                          <img src="./static/images/qual/FMB_gt_12.png" alt="Ground-truth infrared image for the FMB scene.">
                           <div class="bal-beforePosition beforeLabel">
                             GT (FMB)
                           </div>
@@ -250,7 +355,7 @@
                   <div id="example3" class="bal-container-small">
         
                       <div class="bal-after">
-                        <img src="./static/images/qual/MFNet_ours_303.png">
+                        <img src="./static/images/qual/MFNet_ours_303.png" alt="SpectraDiff infrared translation of an MFNet scene.">
                         <div class="bal-afterPosition afterLabel">
                           Ours (MFNet)
                         </div>
@@ -258,7 +363,7 @@
         
                       <div class="bal-before" style="width: 50%;">
                         <div class="bal-before-inset" style="width: 539px;">
-                          <img src="./static/images/qual/MFNet_gt_303.png">
+                          <img src="./static/images/qual/MFNet_gt_303.png" alt="Ground-truth infrared image for an MFNet scene.">
                           <div class="bal-beforePosition beforeLabel">
                             GT (MFNet)
                           </div>
@@ -274,7 +379,7 @@
                   <div id="example4" class="bal-container-small">
         
                     <div class="bal-after">
-                      <img src="./static/images/qual/MFNet_ours_337.png">
+                      <img src="./static/images/qual/MFNet_ours_337.png" alt="SpectraDiff infrared translation of a second MFNet scene.">
                       <div class="bal-afterPosition afterLabel">
                         Ours (MFNet)
                       </div>
@@ -282,7 +387,7 @@
       
                     <div class="bal-before" style="width: 50%;">
                       <div class="bal-before-inset" style="width: 539px;">
-                        <img src="./static/images/qual/MFNet_gt_337.png">
+                        <img src="./static/images/qual/MFNet_gt_337.png" alt="Ground-truth infrared image for the second MFNet scene.">
                         <div class="bal-beforePosition beforeLabel">
                           GT (MFNet)
                         </div>
@@ -297,159 +402,10 @@
                 </div>
                 
         
-                <!-- Second row -->
-                <!-- <div class="image-row" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                  <div id="example1" class="bal-container-small">
-        
-                    <div class="bal-after">
-                      <img src="./static/images/qual/facade_render_ours.png">
-                      <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                        Ours (RGB)
-                      </div>
-                    </div>
-      
-                    <div class="bal-before" style="width:96.4968152866242%;">
-                      <div class="bal-before-inset" style="width: 539px;">
-                        <img src="./static/images/qual/facade_render_baseline.png">
-                        <div class="bal-beforePosition beforeLabel">
-                          3DGS (RGB)
-                        </div>
-                      </div>
-                    </div>
-      
-                    <div class="bal-handle" style="left:96.4968152866242%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>        
-                </div>
-                <div id="example2" class="bal-container-small">
-                  
-                    <div class="bal-after">
-                      <img src="./static/images/qual/courtyard_render_ours.png">
-                      <div class="bal-afterPosition afterLabel">
-                        Ours (RGB)
-                      </div>
-                    </div>
-      
-                    <div class="bal-before" style="width: 50%;">
-                      <div class="bal-before-inset" style="width: 539px;">
-                        <img src="./static/images/qual/courtyard_render_baseline.png">
-                        <div class="bal-beforePosition beforeLabel">
-                          3DGS (RGB)
-                        </div>
-                      </div>
-                    </div>
-      
-                    <div class="bal-handle" style="left: 50%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>
-      
-                </div>
-                <div id="example3" class="bal-container-small">
-      
-                    <div class="bal-after">
-                      <img src="./static/images/qual/blended1_render_ours.png">
-                      <div class="bal-afterPosition afterLabel">
-                        Ours (RGB)
-                      </div>
-                    </div>
-      
-                    <div class="bal-before" style="width: 50%;">
-                      <div class="bal-before-inset" style="width: 539px;">
-                        <img src="./static/images/qual/blended1_render_baseline.png">
-                        <div class="bal-beforePosition beforeLabel">
-                          3DGS (RGB)
-                        </div>
-                      </div>
-                    </div>
-      
-                    <div class="bal-handle" style="left: 50%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>
-      
-                </div>
-                </div> -->
-        
-                <!-- Third row -->
-                <!-- <div class="image-row" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                  <div id="example1" class="bal-container-small">
-        
-                    <div class="bal-after">
-                      <img src="./static/images/qual/facade_render_ours.png">
-                      <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                        Ours (RGB)
-                      </div>
-                    </div>
-      
-                    <div class="bal-before" style="width:96.4968152866242%;">
-                      <div class="bal-before-inset" style="width: 539px;">
-                        <img src="./static/images/qual/facade_render_baseline.png">
-                        <div class="bal-beforePosition beforeLabel">
-                          3DGS (RGB)
-                        </div>
-                      </div>
-                    </div>
-      
-                    <div class="bal-handle" style="left:96.4968152866242%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>        
-                </div>
-                <div id="example2" class="bal-container-small">
-                  
-                    <div class="bal-after">
-                      <img src="./static/images/qual/courtyard_render_ours.png">
-                      <div class="bal-afterPosition afterLabel">
-                        Ours (RGB)
-                      </div>
-                    </div>
-      
-                    <div class="bal-before" style="width: 50%;">
-                      <div class="bal-before-inset" style="width: 539px;">
-                        <img src="./static/images/qual/courtyard_render_baseline.png">
-                        <div class="bal-beforePosition beforeLabel">
-                          3DGS (RGB)
-                        </div>
-                      </div>
-                    </div>
-      
-                    <div class="bal-handle" style="left: 50%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>
-      
-                </div>
-                <div id="example3" class="bal-container-small">
-      
-                    <div class="bal-after">
-                      <img src="./static/images/qual/blended1_render_ours.png">
-                      <div class="bal-afterPosition afterLabel">
-                        Ours (RGB)
-                      </div>
-                    </div>
-      
-                    <div class="bal-before" style="width: 50%;">
-                      <div class="bal-before-inset" style="width: 539px;">
-                        <img src="./static/images/qual/blended1_render_baseline.png">
-                        <div class="bal-beforePosition beforeLabel">
-                          3DGS (RGB)
-                        </div>
-                      </div>
-                    </div>
-      
-                    <div class="bal-handle" style="left: 50%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>
-      
-                </div>
-              
+      </div>
+    </div>
     </div>
 
-  <-- </section> -->
-  </div>
   <script>
     new BeforeAfter({
       id: '#example1'
@@ -463,27 +419,15 @@
     new BeforeAfter({
       id: '#example4'
     });
-    new BeforeAfter({
-      id: '#example5'
-    });
-	new BeforeAfter({
-      id: '#example6'
-    });
-	new BeforeAfter({
-      id: '#example7'
-    });
-	new BeforeAfter({
-      id: '#example8'
-    });
 
   </script>
 
 <br>
 <br>
 
-<h4 class="title is-4">Qualitative comparisons of different models on the FLIR dataset</h4>
+<h3 class="title is-4">Qualitative comparisons of different models on the FLIR dataset</h3>
 <div id="flir_results" class="image-container">
-  <img src="./static/images/FLIR_results.png" alt="FLIR Dataset results" style="width: 100%; border-radius: 10px;">
+  <img src="./static/images/FLIR_results.png" alt="Qualitative comparison of infrared translation methods on the FLIR dataset in day and night scenes." style="width: 100%; border-radius: 10px;">
   <div class="image-label">
     The FLIR results illustrate the effectiveness of our SpectraDiff model in capturing the thermal properties of objects, including people, across both day and night conditions, producing clearer and more
     detailed images than other methods.
@@ -495,9 +439,9 @@
 
 </div>
 
-<h4 class="title is-4">Qualitative comparisons with different models on the FMB dataset (top two rows) and MFNet dataset (bottom two rows) for LWIR translation.</h4>
+<h3 class="title is-4">Qualitative comparisons with different models on the FMB dataset (top two rows) and MFNet dataset (bottom two rows) for LWIR translation.</h3>
 <div id="fmb_results" class="image-container">
-  <img src="./static/images/FMB_results.png" alt="FMB Dataset results" style="width: 100%; border-radius: 10px;">
+  <img src="./static/images/FMB_results.png" alt="Qualitative comparison of long-wave infrared translation on the FMB dataset and the MFNet dataset." style="width: 100%; border-radius: 10px;">
   <div class="image-label">
     SpectraDiff demonstrates effectiveness in capturing IR intensities and produces clearer images. In particular, our model
     effectively captures thermal emissive properties across various objects and scenes in thermal infrared domain. Results for NIR datasets
@@ -515,7 +459,7 @@
         <div class="column is-full-width">
           <h2 class="title is-3">Quantitative Results</h2>
           <div class="content has-text-justified">
-            <img src="./static/images/quant_results.png">
+            <img src="./static/images/quant_results.png" alt="Table comparing infrared translation methods on several datasets using SAM, FID, LPIPS, and DISTS. Numeric values are shown in the figure.">
             
               <p>Quantitative comparison of the proposed model's performance across various infrared (IR) range datasets. The results demonstrate
                 performance variations across different IR ranges and highlight where our model outperforms other methods based on SAM, FID, LPIPS,
@@ -555,10 +499,11 @@
     <pre class="has-text-left"><code>@article{park2026spectradiff,
 title = {SpectraDiff: Enhancing the fidelity of Infrared Image Translation with object-aware diffusion},
 journal = {Computer Vision and Image Understanding},
+volume = {266},
 pages = {104709},
 year = {2026},
 issn = {1077-3142},
-doi = {https://doi.org/10.1016/j.cviu.2026.104709},
+doi = {10.1016/j.cviu.2026.104709},
 url = {https://www.sciencedirect.com/science/article/pii/S1077314226000767},
 author = {Incheol Park and Youngwan Jin and Nalcakan Yagiz and Hyeongjin Ju and Sanghyeop Yeo and Shiho Kim},
 keywords = {Image-to-image translation, Data augmentation, Infrared imaging, Diffusion models},
@@ -566,6 +511,12 @@ keywords = {Image-to-image translation, Data augmentation, Infrared imaging, Dif
   </div>
 </section>
 		  
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p><a href="https://yonsei-stl.github.io/publications/">All STL publications</a></p>
+  </div>
+</footer>
+
 </body>
 
 </html>

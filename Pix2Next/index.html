@@ -1,13 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-    content="Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation">
+  <meta name="description" content="RGB-to-NIR image translation with a vision foundation model, cross-attention, and a multi-scale PatchGAN. Technologies, 2025.">
   <meta name="keywords" content="RGB to NIR, Vision Foundation Models, Image Translation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation</title>
+  <!-- seo:meta:start -->
+<link rel="canonical" href="https://yonsei-stl.github.io/Pix2Next/">
+<link rel="describedby" href="https://yonsei-stl.github.io/llms.txt">
+<meta name="citation_title" content="Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation">
+<meta name="citation_author" content="Jin, Youngwan">
+<meta name="citation_author" content="Park, Incheol">
+<meta name="citation_author" content="Song, Hanbin">
+<meta name="citation_author" content="Ju, Hyeongjin">
+<meta name="citation_author" content="Nalcakan, Yagiz">
+<meta name="citation_author" content="Kim, Shiho">
+<meta name="citation_publication_date" content="2025/04/11">
+<meta name="citation_journal_title" content="Technologies">
+<meta name="citation_volume" content="13">
+<meta name="citation_issue" content="4">
+<meta name="citation_firstpage" content="154">
+<meta name="citation_issn" content="2227-7080">
+<meta name="citation_doi" content="10.3390/technologies13040154">
+<meta name="citation_abstract" content="This paper proposes Pix2Next, a novel image-to-image translation framework designed to address the challenge of generating high-quality Near-Infrared (NIR) images from RGB inputs. Our approach leverages a state-of-the-art Vision Foundation Model (VFM) within an encoder-decoder architecture, incorporating cross-attention mechanisms to enhance feature integration. This design captures detailed global representations and preserves essential spectral characteristics, treating RGB-to-NIR translation as more than a simple domain transfer problem. A multi-scale PatchGAN discriminator ensures realistic image generation at various detail levels, while carefully designed loss functions couple global context understanding with local feature preservation. We performed experiments on the RANUS dataset to demonstrate Pix2Next's advantages in quantitative metrics and visual quality, improving the FID score by 34.81% compared to existing methods. Furthermore, we demonstrate the practical utility of Pix2Next by showing improved performance on a downstream object detection task using generated NIR data to augment limited real NIR datasets. The proposed approach enables the scaling up of NIR datasets without additional data acquisition or annotation efforts, potentially accelerating advancements in NIR-based computer vision applications.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation">
+<meta property="og:description" content="RGB-to-NIR image translation with a vision foundation model, cross-attention, and a multi-scale PatchGAN. Technologies, 2025.">
+<meta property="og:url" content="https://yonsei-stl.github.io/Pix2Next/">
+<meta property="og:image" content="https://yonsei-stl.github.io/Pix2Next/static/images/detailed_architecture.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation">
+<meta name="twitter:description" content="RGB-to-NIR image translation with a vision foundation model, cross-attention, and a multi-scale PatchGAN. Technologies, 2025.">
+<meta name="twitter:image" content="https://yonsei-stl.github.io/Pix2Next/static/images/detailed_architecture.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation",
+  "name": "Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Youngwan Jin",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Incheol Park",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Hanbin Song",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Hyeongjin Ju",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Yagiz Nalcakan",
+      "url": "https://ynalcakan.github.io/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Shiho Kim",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Seamless Trans-X Lab, Yonsei University"
+      }
+    }
+  ],
+  "datePublished": "2025-04-11",
+  "description": "This paper proposes Pix2Next, a novel image-to-image translation framework designed to address the challenge of generating high-quality Near-Infrared (NIR) images from RGB inputs. Our approach leverages a state-of-the-art Vision Foundation Model (VFM) within an encoder-decoder architecture, incorporating cross-attention mechanisms to enhance feature integration. This design captures detailed global representations and preserves essential spectral characteristics, treating RGB-to-NIR translation as more than a simple domain transfer problem. A multi-scale PatchGAN discriminator ensures realistic image generation at various detail levels, while carefully designed loss functions couple global context understanding with local feature preservation. We performed experiments on the RANUS dataset to demonstrate Pix2Next's advantages in quantitative metrics and visual quality, improving the FID score by 34.81% compared to existing methods. Furthermore, we demonstrate the practical utility of Pix2Next by showing improved performance on a downstream object detection task using generated NIR data to augment limited real NIR datasets. The proposed approach enables the scaling up of NIR datasets without additional data acquisition or annotation efforts, potentially accelerating advancements in NIR-based computer vision applications.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "MDPI"
+  },
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "issueNumber": "4",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "volumeNumber": "13",
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Technologies",
+        "issn": "2227-7080"
+      }
+    }
+  },
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.3390/technologies13040154"
+  },
+  "sameAs": [
+    "https://doi.org/10.3390/technologies13040154",
+    "https://arxiv.org/abs/2409.16706"
+  ],
+  "url": "https://yonsei-stl.github.io/Pix2Next/",
+  "image": "https://yonsei-stl.github.io/Pix2Next/static/images/detailed_architecture.png",
+  "keywords": [
+    "RGB to NIR",
+    "Vision Foundation Models",
+    "Image Translation"
+  ]
+}
+</script>
+<!-- seo:meta:end -->
   
 
 
@@ -36,7 +162,8 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-			<h1 class="title is-1 publication-title" style="margin-bottom: 0; font-size: 4rem"><strong>Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation</strong></h1>
+			<h1 class="title is-1 publication-title" style="margin-bottom: 0; font-size: clamp(1.8rem, 5vw, 4rem)"><strong>Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation</strong></h1>
+          <p class="publication-venue is-size-4">Technologies, 2025</p>
           <!-- <div class="is-size-4 publication-authors">
                 <span class="univerity-block" style="color: rgb(54, 54, 54); font-size: 2.5rem">BMVC 2024</span>
           </div> -->
@@ -46,7 +173,7 @@
         <span class="author-block">
     <a href="https://stl.yonsei.ac.kr/">Youngwan Jin</a>,</span>
     <span class="author-block">
-      <a href="https://ynalcakan.github.io/">Incheol Park</a>,</span>
+      <a href="https://stl.yonsei.ac.kr/">Incheol Park</a>,</span>
     <span class="author-block">
       <a href="https://stl.yonsei.ac.kr/">Hanbin Song</a>,</span>    
     <span class="author-block">
@@ -101,6 +228,7 @@
       </div>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- <section class="section"> -->
@@ -110,7 +238,8 @@
         <div class="column is-full-width">
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
-            <p>This paper proposes Pix2Next, a novel image-to-image translation framework designed to address the challenge of generating high-quality Near-Infrared (NIR) images from RGB inputs. Our approach leverages a state-of-the-art Vision Foundation Model (VFM) within an encoder-decoder architecture, incorporating cross-attention mechanisms to enhance feature integration. This design captures detailed global representations and preserves essential spectral characteristics, treating RGB-to-NIR translation as more than a simple domain transfer problem. A multi-scale PatchGAN discriminator ensures realistic image generation at various detail levels, while carefully designed loss functions couple global context understanding with local feature preservation. We performed experiments on the RANUS dataset to demonstrate Pix2Next's advantages in quantitative metrics and visual quality, improving the FID score by 34.81% compared to existing methods. Furthermore, we demonstrate the practical utility of Pix2Next by showing improved performance on a downstream object detection task using generated NIR data to augment limited real NIR datasets. The proposed approach enables the scaling up of NIR datasets without additional data acquisition or annotation efforts, potentially accelerating advancements in NIR-based computer vision applications.          </div>
+            <p>This paper proposes Pix2Next, a novel image-to-image translation framework designed to address the challenge of generating high-quality Near-Infrared (NIR) images from RGB inputs. Our approach leverages a state-of-the-art Vision Foundation Model (VFM) within an encoder-decoder architecture, incorporating cross-attention mechanisms to enhance feature integration. This design captures detailed global representations and preserves essential spectral characteristics, treating RGB-to-NIR translation as more than a simple domain transfer problem. A multi-scale PatchGAN discriminator ensures realistic image generation at various detail levels, while carefully designed loss functions couple global context understanding with local feature preservation. We performed experiments on the RANUS dataset to demonstrate Pix2Next's advantages in quantitative metrics and visual quality, improving the FID score by 34.81% compared to existing methods. Furthermore, we demonstrate the practical utility of Pix2Next by showing improved performance on a downstream object detection task using generated NIR data to augment limited real NIR datasets. The proposed approach enables the scaling up of NIR datasets without additional data acquisition or annotation efforts, potentially accelerating advancements in NIR-based computer vision applications.</p>
+          </div>
         </div>
       </div>
 
@@ -127,7 +256,7 @@
             <p>The Pix2pixHD model uses coarse-to-fine generator architectures to transfer the global and local details of the input image to the generated image. With Pix2Next, we extended this framework by employing residual blocks within an encoder-decoder architecture instead of using separate global and local generators. Residual blocks are integral to our design, as they allow the network to maintain critical feature details by facilitating identity mappings through shortcut connections. These connections help to address the vanishing gradient problem, ensuring stable training and enabling the network to learn more complex transformations essential for high-quality image generation. To further improve the preservation of fine details and overall image context, we integrate a vision foundation model (VFM) into our architecture, which serves as a feature extractor. This model captures broad global features that work together with the local features learned by the encoder-decoder structure. These features are combined throughout the network using cross-attention mechanisms, which help align and merge the global and local features during the image generation process. This approach is key to accurately capturing the specific characteristics and subtle details of the NIR domain, leading to better quality and more reliable translated images.</p>
           </div>
           <br>
-          <img src="./static/images/detailed_architecture.png" style="width: 80%; max-width: 800px;">
+          <img src="./static/images/detailed_architecture.png" alt="Pix2Next encoder-decoder with residual blocks, a vision foundation model, and cross-attention." style="width: 80%; max-width: 800px;">
         </div>
       </div>
     </div>
@@ -142,19 +271,19 @@
           <h2 class="title is-3">Experimental Results</h2>
           <br>
             <h3 class="title is-4">Results on RANUS dataset</h3>
-            <img src="./static/images/Ranus_vis.PNG" style="width: 100%; max-width: 1000px;">   
+            <img src="./static/images/Ranus_vis.PNG" alt="Quantitative RGB-to-NIR comparison on the RANUS dataset. Numeric values are shown in the figure." style="width: 100%; max-width: 1000px;">   
             <br>
-            <img src="./static/images/Ranus_qual.PNG" style="width: 80%; max-width: 1000px;">   
+            <img src="./static/images/Ranus_qual.PNG" alt="Qualitative RGB-to-NIR translation examples on the RANUS dataset." style="width: 80%; max-width: 1000px;">   
             <br>
             <br>
             <h3 class="title is-4">Results on IDD-AW dataset</h3>
-            <img src="./static/images/IDDAW_vis.PNG" style="width: 100%; max-width: 1000px;">   
+            <img src="./static/images/IDDAW_vis.PNG" alt="Quantitative RGB-to-NIR comparison on the IDD-AW dataset. Numeric values are shown in the figure." style="width: 100%; max-width: 1000px;">   
             <br>
-            <img src="./static/images/IDDAW_qual.PNG" style="width: 80%; max-width: 1000px;">   
+            <img src="./static/images/IDDAW_qual.PNG" alt="Qualitative RGB-to-NIR translation examples on the IDD-AW dataset." style="width: 80%; max-width: 1000px;">   
             <br>
             <br>
             <h3 class="title is-4">Zero-shot RGB to NIR translation Results on BDD100K dataset</h3>
-            <img src="./static/images/bdd100k_vis.PNG" style="width: 80%; max-width: 1000px;">   
+            <img src="./static/images/bdd100k_vis.PNG" alt="Zero-shot RGB-to-NIR translation examples on the BDD100K dataset." style="width: 80%; max-width: 1000px;">   
             <br>
         </div>
       </div>
@@ -202,6 +331,12 @@
   </div>
 </section> -->
   
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p><a href="https://yonsei-stl.github.io/publications/">All STL publications</a></p>
+  </div>
+</footer>
 
 </body>
 

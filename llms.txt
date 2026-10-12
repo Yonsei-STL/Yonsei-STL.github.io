@@ -1,0 +1,25 @@
+# Yonsei STL
+
+> Research project pages from Seamless Trans-X Lab, Yonsei University.
+
+This file maps published project pages for agents that request it. It does not replace the HTML pages, the sitemap, or the papers.
+
+## Publications
+
+- [Publication index](https://yonsei-stl.github.io/publications/): Published Yonsei STL research project pages
+- [RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion](https://yonsei-stl.github.io/RM-MLLM/): A multispectral multimodal language model and the DENSE-QA benchmark for adverse-weather driving scene understanding, using synchronized RGB and multispectral images.
+- [RASMD: RGB And SWIR Multispectral Driving Dataset for Robust Perception in Adverse Conditions](https://yonsei-stl.github.io/RASMD/): A large-scale driving dataset of 100,000 aligned RGB-SWIR pairs, with benchmarks for object detection and RGB-to-SWIR translation in adverse conditions.
+- [SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion](https://yonsei-stl.github.io/SpectraDiff/): A diffusion model that translates RGB images to infrared using semantic segmentation and a Spectral Attention Block, evaluated on FLIR, FMB, MFNet, IDD-AW, and RANUS.
+- [Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation](https://yonsei-stl.github.io/Pix2Next/): An RGB-to-NIR translation model that uses a vision foundation model, cross-attention, and a multi-scale PatchGAN, with results on RANUS, IDD-AW, and zero-shot BDD100K.
+
+## Bibliographic records
+
+- [RM-MLLM: Robust Scene Understanding in Adverse Weather with RGB-Multispectral Fusion DOI](https://doi.org/10.1016/j.rineng.2026.112317)
+- [RASMD: RGB And SWIR Multispectral Driving Dataset for Robust Perception in Adverse Conditions DOI](https://doi.org/10.1016/j.inffus.2025.103872)
+- [RASMD arXiv](https://arxiv.org/abs/2504.07603)
+- [RASMD dataset](https://huggingface.co/datasets/STL-Yonsei/RASMD/tree/main)
+- [SpectraDiff: Enhancing the Fidelity of Infrared Image Translation with Object-Aware Diffusion DOI](https://doi.org/10.1016/j.cviu.2026.104709)
+- [SpectraDiff code](https://github.com/Yonsei-STL/SpectraDiff)
+- [Pix2Next: Leveraging Vision Foundation Models for RGB to NIR Image Translation DOI](https://doi.org/10.3390/technologies13040154)
+- [Pix2Next arXiv](https://arxiv.org/abs/2409.16706)
+- [Pix2Next code](https://github.com/Yonsei-STL/pix2next/)
