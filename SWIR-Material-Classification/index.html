@@ -211,12 +211,12 @@
 <figcaption>Multi-band examples of the Human vs. Others dataset. Panels (a–d) show individual object types; panels (e–f) show test scenes containing multiple objects. <span class="figure-source"><a href="static/images/detection-dataset.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption></figure>
 </div></section>
 <section class="section" id="results" aria-labelledby="results-title"><div class="container"><h2 id="results-title">Experimental Results</h2>
-<h3>Real / artificial classification</h3><p>The study fine-tunes a pretrained ResNet-18 separately on RGB and SWIR data. The per-object classification accuracies below are transcribed from Table 3. They are not pooled into a new average.</p><div class="table-scroll" role="region" aria-label="Per-object real / artificial classification accuracy" tabindex="0"><table>
+<h3>Real / artificial classification</h3><p>The study fine-tunes a pretrained ResNet-18 separately on RGB and SWIR data.</p><div class="table-scroll" role="region" aria-label="Per-object real / artificial classification accuracy" tabindex="0"><table>
 <caption>Per-object real / artificial classification accuracy</caption><thead><tr><th scope="col">Object type</th><th scope="col">RGB accuracy</th><th scope="col">SWIR accuracy</th></tr></thead><tbody><tr><th scope="row">Banana</th><td>0.58</td><td>0.92</td></tr>
 <tr><th scope="row">Carrot</th><td>0.75</td><td>0.99</td></tr>
 <tr><th scope="row">Orange</th><td>0.73</td><td>1.00</td></tr>
 <tr><th scope="row">Bell pepper</th><td>0.77</td><td>1.00</td></tr>
-</tbody></table></div><h3>Human vs. Others object detection</h3><p>For YOLOv7 detection, images at <strong>1095, 1345, and 1580 nm</strong> are assigned to the model’s three input channels. The table retains the publication’s “mAP 0.5” and “mAP 0.9” column labels.</p><div class="table-scroll" role="region" aria-label="Object detection using selected SWIR wavelengths" tabindex="0"><table>
+</tbody></table></div><h3>Human vs. Others object detection</h3><p>For YOLOv7 detection, images at <strong>1095, 1345, and 1580 nm</strong> are assigned to the model’s three input channels.</p><div class="table-scroll" role="region" aria-label="Object detection using selected SWIR wavelengths" tabindex="0"><table>
 <caption>Object detection using selected SWIR wavelengths</caption><thead><tr><th scope="col">Class</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">mAP 0.5</th><th scope="col">mAP 0.9</th></tr></thead><tbody><tr><th scope="row">Human</th><td>0.987</td><td>0.987</td><td>0.98</td><td>0.852</td></tr>
 <tr><th scope="row">Banner</th><td>0.998</td><td>1.00</td><td>1.00</td><td>0.701</td></tr>
 <tr><th scope="row">Cotton mannequin</th><td>0.879</td><td>0.981</td><td>0.981</td><td>0.854</td></tr>
