@@ -1,0 +1,43 @@
+{
+  "id": "SeeingThroughRain",
+  "type": "article-journal",
+  "title": "Seeing through the rain: An empirical assessment of short-wave infrared imaging on enhancing autonomous vehicle perception under rainy weather",
+  "container-title": "Measurement",
+  "author": [
+    {
+      "given": "Sanghyeop",
+      "family": "Yeo"
+    },
+    {
+      "given": "Yagiz",
+      "family": "Nalcakan"
+    },
+    {
+      "given": "Youngwan",
+      "family": "Jin"
+    },
+    {
+      "given": "Incheol",
+      "family": "Park"
+    },
+    {
+      "given": "Hyeongjin",
+      "family": "Ju"
+    },
+    {
+      "given": "Shiho",
+      "family": "Kim"
+    }
+  ],
+  "issued": {
+    "date-parts": [
+      [
+        2026
+      ]
+    ]
+  },
+  "DOI": "10.1016/j.measurement.2025.119654",
+  "URL": "https://doi.org/10.1016/j.measurement.2025.119654",
+  "volume": "259",
+  "page": "119654"
+}

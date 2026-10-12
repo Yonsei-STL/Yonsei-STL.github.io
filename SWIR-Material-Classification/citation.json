@@ -1,0 +1,47 @@
+{
+  "id": "SWIR-Material-Classification",
+  "type": "article-journal",
+  "title": "Short-Wave Infrared (SWIR) Imaging for Robust Material Classification: Overcoming Limitations of Visible Spectrum Data",
+  "container-title": "Applied Sciences",
+  "author": [
+    {
+      "given": "Hanbin",
+      "family": "Song"
+    },
+    {
+      "given": "Sanghyeop",
+      "family": "Yeo"
+    },
+    {
+      "given": "Youngwan",
+      "family": "Jin"
+    },
+    {
+      "given": "Incheol",
+      "family": "Park"
+    },
+    {
+      "given": "Hyeongjin",
+      "family": "Ju"
+    },
+    {
+      "given": "Yagiz",
+      "family": "Nalcakan"
+    },
+    {
+      "given": "Shiho",
+      "family": "Kim"
+    }
+  ],
+  "issued": {
+    "date-parts": [
+      [
+        2024
+      ]
+    ]
+  },
+  "DOI": "10.3390/app142311049",
+  "URL": "https://doi.org/10.3390/app142311049",
+  "volume": "14",
+  "page": "11049"
+}

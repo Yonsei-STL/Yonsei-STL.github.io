@@ -1,0 +1,43 @@
+{
+  "id": "MWSC",
+  "type": "article-journal",
+  "title": "Multi-Modal Cross-Attention-Based Multi-Label Weather and Severity Level Classification",
+  "container-title": "IEEE Access",
+  "author": [
+    {
+      "given": "Hyeongjin",
+      "family": "Ju"
+    },
+    {
+      "given": "Yagiz",
+      "family": "Nalcakan"
+    },
+    {
+      "given": "Incheol",
+      "family": "Park"
+    },
+    {
+      "given": "Youngwan",
+      "family": "Jin"
+    },
+    {
+      "given": "Sanghyeop",
+      "family": "Yeo"
+    },
+    {
+      "given": "Shiho",
+      "family": "Kim"
+    }
+  ],
+  "issued": {
+    "date-parts": [
+      [
+        2025
+      ]
+    ]
+  },
+  "DOI": "10.1109/ACCESS.2025.3645363",
+  "URL": "https://doi.org/10.1109/ACCESS.2025.3645363",
+  "volume": "13",
+  "page": "215882-215896"
+}

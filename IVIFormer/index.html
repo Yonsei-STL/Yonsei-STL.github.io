@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IVIFormer: Illumination-Aware Infrared-Visible Image Fusion via Adaptive Domain-Switching Cross Attention</title>
+  <meta name="description" content="IVIFormer adapts infrared–visible image fusion to day and night by switching the query and key/value domains in cross-attention, guided by a lightweight illumination classifier.">
+  <meta name="keywords" content="IVIFormer, infrared-visible image fusion, ADS-CA, LCDM, SWIR, LWIR, illumination awareness">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="citation_title" content="IVIFormer: Illumination-Aware Infrared-Visible Image Fusion via Adaptive Domain-Switching Cross Attention">
+  <meta name="citation_publication_date" content="2025">
+  <meta name="citation_doi" content="10.1109/ICCVW69036.2025.00234">
+  <meta name="citation_author" content="Incheol Park">
+  <meta name="citation_author" content="Youngwan Jin">
+  <meta name="citation_author" content="Yagiz Nalcakan">
+  <meta name="citation_author" content="Hyeongjin Ju">
+  <meta name="citation_author" content="Sanghyeop Yeo">
+  <meta name="citation_author" content="Shiho Kim">
+  <meta name="citation_conference_title" content="2025 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)">
+  <meta name="citation_firstpage" content="2241">
+  <meta name="citation_lastpage" content="2250">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="IVIFormer: Illumination-Aware Infrared-Visible Image Fusion via Adaptive Domain-Switching Cross Attention">
+  <meta property="og:description" content="IVIFormer adapts infrared–visible image fusion to day and night by switching the query and key/value domains in cross-attention, guided by a lightweight illumination classifier.">
+  <meta property="og:url" content="https://yonsei-stl.github.io/IVIFormer/">
+  <meta property="og:site_name" content="Seamless Trans-X Lab, Yonsei University">
+  <meta property="og:image" content="https://yonsei-stl.github.io/IVIFormer/static/images/architecture.png">
+  <meta property="og:image:alt" content="The IVIFormer architecture combines a Light Condition Decision Module, modality-specific residual processing, and Adaptive Domain-Switching Cross Attention.">
+  <meta property="og:image:width" content="1852">
+  <meta property="og:image:height" content="980">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IVIFormer: Illumination-Aware Infrared-Visible Image Fusion via Adaptive Domain-Switching Cross Attention">
+  <meta name="twitter:description" content="IVIFormer adapts infrared–visible image fusion to day and night by switching the query and key/value domains in cross-attention, guided by a lightweight illumination classifier.">
+  <meta name="twitter:image" content="https://yonsei-stl.github.io/IVIFormer/static/images/architecture.png">
+  <link rel="canonical" href="https://yonsei-stl.github.io/IVIFormer/">
+  <link rel="describedby" href="https://yonsei-stl.github.io/llms.txt">
+  <link rel="alternate" type="application/x-bibtex" href="citation.bib" title="BibTeX citation">
+  <link rel="alternate" type="application/vnd.citationstyles.csl+json" href="citation.json" title="CSL-JSON citation">
+  <!-- Optional typography enhancement, matching the existing STL pages. System fonts work offline. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700%7CNoto+Sans:400,600,700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/index.css">
+  <script src="static/js/index.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "@id": "https://yonsei-stl.github.io/IVIFormer/#article",
+  "headline": "IVIFormer: Illumination-Aware Infrared-Visible Image Fusion via Adaptive Domain-Switching Cross Attention",
+  "name": "IVIFormer: Illumination-Aware Infrared-Visible Image Fusion via Adaptive Domain-Switching Cross Attention",
+  "description": "IVIFormer adapts infrared–visible image fusion to day and night by switching the query and key/value domains in cross-attention, guided by a lightweight illumination classifier.",
+  "abstract": "A critical challenge in autonomous driving is maintaining robust perception across drastic illumination changes, from day to night. While infrared-visible image fusion (IVIF) offers a promising solution, most existing methods adopt a static, illumination-agnostic approach, failing to adapt to the changing importance of each sensor modality. In this paper, we introduce IVIFormer, a novel fusion network that explicitly tackles this limitation through a dynamic, condition-aware strategy. The core of our method is the Adaptive Domain-Switching Cross-Attention (ADS-CA), a mechanism that dynamically reverses the roles of query and key/value features between the infrared and visible domains. This switching is guided by a highly efficient Light Condition Decision Module (LCDM) that classifies the scene as day or night. This explicit, adaptive design allows IVIFormer to intelligently leverage the most informative sensor data for any given lighting condition. Extensive experiments on public long-wave infrared (LWIR) datasets and our newly collected short-wave infrared (SWIR) dataset demonstrate that IVIFormer achieves competitive performance. Both quantitative and qualitative results validate its superiority in preserving crucial details and enhancing scene visibility, especially under challenging lighting transitions. Code and pretrained models are available at: https://github.com/Yonsei-STL/IVIFormer",
+  "url": "https://yonsei-stl.github.io/IVIFormer/",
+  "mainEntityOfPage": "https://yonsei-stl.github.io/IVIFormer/",
+  "sameAs": "https://doi.org/10.1109/ICCVW69036.2025.00234",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1109/ICCVW69036.2025.00234"
+  },
+  "inLanguage": "en",
+  "image": "https://yonsei-stl.github.io/IVIFormer/static/images/architecture.png",
+  "keywords": [
+    "IVIFormer",
+    "infrared-visible image fusion",
+    "ADS-CA",
+    "LCDM",
+    "SWIR",
+    "LWIR",
+    "illumination awareness"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Incheol Park",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Youngwan Jin",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Yagiz Nalcakan",
+      "url": "https://ynalcakan.github.io/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Hyeongjin Ju",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Sanghyeop Yeo",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Shiho Kim",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    }
+  ],
+  "isPartOf": {
+    "@type": "CreativeWork",
+    "name": "2025 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)"
+  },
+  "pagination": "2241–2250"
+}
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#abstract">Skip to paper content</a>
+<header class="hero"><div class="container">
+  <h1 class="publication-title">IVIFormer: Illumination-Aware Infrared-Visible Image Fusion via Adaptive Domain-Switching Cross Attention</h1>
+  <p class="publication-venue">ICCV Workshops, 2025</p>
+  <div class="publication-authors"><span class="author-block"><a href="https://stl.yonsei.ac.kr/">Incheol Park</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Youngwan Jin</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://ynalcakan.github.io/">Yagiz Nalcakan</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Hyeongjin Ju</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Sanghyeop Yeo</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Shiho Kim</a><sup>1,2*</sup></span></div>
+  <div class="affiliations"><p><sup>1</sup>School of Integrated Technology, Yonsei University</p>
+<p><sup>2</sup>BK21 Graduate Program in Intelligent Semiconductor Technology</p></div>
+  <p class="author-notes">* Corresponding author</p>
+  <div class="publication-links"><a class="external-link button is-normal is-rounded is-dark" href="https://doi.org/10.1109/ICCVW69036.2025.00234"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H6V3z"/><path d="M14 3v5h4M9 12h6M9 16h6"/></svg><span>Paper</span></a>
+<a class="external-link button is-normal is-rounded is-dark" href="https://github.com/Yonsei-STL/IVIFormer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></svg><span>Code</span></a>
+<a class="button is-normal is-rounded is-dark" href="#BibTeX"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 6H4v7h4c0 3-1 4-3 5m15-12h-6v7h4c0 3-1 4-3 5"/></svg><span>BibTeX</span></a></div>
+  <nav class="page-nav" aria-label="Page sections"><a href="#abstract">Abstract</a> <a href="#method">Method</a> <a href="#results">Results</a> <a href="#resources">Resources</a></nav>
+</div></header>
+<main>
+<section class="teaser" aria-label="Research overview"><div class="container">
+  <figure class="paper-figure">
+    <a class="figure-link" href="static/images/architecture.png" target="_blank" rel="noopener" aria-label="Open full-size overview figure">
+      <picture><source srcset="static/images/architecture.webp" type="image/webp"><img src="static/images/architecture.png" alt="The IVIFormer architecture combines a Light Condition Decision Module, modality-specific residual processing, and Adaptive Domain-Switching Cross Attention." width="1852" height="980" fetchpriority="high" decoding="async"></picture>
+    </a>
+    <figcaption>The IVIFormer architecture combines a Light Condition Decision Module, modality-specific residual processing, and Adaptive Domain-Switching Cross Attention.<span class="figure-source"><a href="static/images/architecture.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption>
+  </figure>
+  <div class="facts" aria-label="Study at a glance"><div class="fact"><span class="fact-value">1.33M</span><span class="fact-label">fusion-model parameters</span></div><div class="fact"><span class="fact-value">5K</span><span class="fact-label">LCDM parameters</span></div><div class="fact"><span class="fact-value">2,390</span><span class="fact-label">collected RGB–SWIR pairs</span></div></div>
+</div></section>
+<section class="section" id="abstract" aria-labelledby="abstract-title"><div class="container">
+  <h2 id="abstract-title">Abstract</h2>
+  <div class="abstract-text"><p>A critical challenge in autonomous driving is maintaining robust perception across drastic illumination changes, from day to night. While infrared-visible image fusion (IVIF) offers a promising solution, most existing methods adopt a static, illumination-agnostic approach, failing to adapt to the changing importance of each sensor modality. In this paper, we introduce IVIFormer, a novel fusion network that explicitly tackles this limitation through a dynamic, condition-aware strategy. The core of our method is the Adaptive Domain-Switching Cross-Attention (ADS-CA), a mechanism that dynamically reverses the roles of query and key/value features between the infrared and visible domains. This switching is guided by a highly efficient Light Condition Decision Module (LCDM) that classifies the scene as day or night. This explicit, adaptive design allows IVIFormer to intelligently leverage the most informative sensor data for any given lighting condition. Extensive experiments on public long-wave infrared (LWIR) datasets and our newly collected short-wave infrared (SWIR) dataset demonstrate that IVIFormer achieves competitive performance. Both quantitative and qualitative results validate its superiority in preserving crucial details and enhancing scene visibility, especially under challenging lighting transitions. Code and pretrained models are available at: <a href="https://github.com/Yonsei-STL/IVIFormer">https://github.com/Yonsei-STL/IVIFormer</a></p></div>
+</div></section>
+<section class="section" id="method" aria-labelledby="method-title"><div class="container"><h2 id="method-title">Method</h2>
+<p>IVIFormer makes the day/night decision explicit rather than using a fixed fusion rule. Its <strong>Light Condition Decision Module (LCDM)</strong> predicts the illumination condition from the RGB image. That decision controls the direction of <strong>Adaptive Domain-Switching Cross Attention (ADS-CA)</strong>.</p><div class="table-scroll" role="region" aria-label="Illumination-guided domain selection" tabindex="0"><table>
+<caption>Illumination-guided domain selection</caption><thead><tr><th scope="col">Illumination</th><th scope="col">Query (Q)</th><th scope="col">Key and value (K/V)</th></tr></thead><tbody><tr><th scope="row">Day</th><td>RGB features</td><td>Infrared features</td></tr>
+<tr><th scope="row">Night</th><td>Infrared features</td><td>RGB features</td></tr>
+</tbody></table></div><p>Channel-wise multi-head cross-attention combines the selected features, followed by a residual connection to the domain used as the query. The training objective combines illumination, light-condition, auxiliary-intensity, and local-variance losses.</p><p>GPT-4o-generated day/night pseudo-labels supervise the LCDM. The illumination decision is binary; extending it to dusk, dawn, and more nuanced weather and lighting conditions is identified as future work.</p>
+</div></section>
+<section class="section" id="dataset" aria-labelledby="dataset-title"><div class="container"><h2 id="dataset-title">Evaluation Datasets</h2>
+<p>Experiments cover the public <strong>FLIR, MFNet, and FMB RGB–LWIR datasets</strong>, along with a newly collected <strong>2,390-pair RGB–SWIR dataset</strong>. The SWIR collection includes urban roads, tunnels, and rainy scenes, with source recordings at 1826 × 1085 pixels and an 8:2 training/test split. Experimental inputs are resized to 256 × 256 pixels.</p><figure class="paper-figure compact-figure">
+<a class="figure-link" href="static/images/swir-samples.png" target="_blank" rel="noopener" aria-label="Open full-size figure: Examples from the collected SWIR dataset. RGB views appear on the left and corresponding SWIR views on the right, with highlighted local regions.">
+<picture><source srcset="static/images/swir-samples.webp" type="image/webp"><img src="static/images/swir-samples.png" alt="Examples from the collected SWIR dataset. RGB views appear on the left and corresponding SWIR views on the right, with highlighted local regions." width="948" height="1000" loading="lazy" decoding="async"></picture></a>
+<figcaption>Examples from the collected SWIR dataset. RGB views appear on the left and corresponding SWIR views on the right, with highlighted local regions. <span class="figure-source"><a href="static/images/swir-samples.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption></figure>
+</div></section>
+<section class="section" id="results" aria-labelledby="results-title"><div class="container"><h2 id="results-title">Experimental Results</h2>
+<p>The table reproduces the four-head <strong>IVIFormer h4</strong> rows from the paper. Higher values are preferred for all nine reported fusion metrics. These are one configuration’s values, not a claim that it ranks first on every dataset or metric.</p><div class="table-scroll" role="region" aria-label="Image-fusion results for IVIFormer h4" tabindex="0"><table>
+<caption>Image-fusion results for IVIFormer h4</caption><thead><tr><th scope="col">Dataset</th><th scope="col">EN</th><th scope="col">SD</th><th scope="col">SF</th><th scope="col">AG</th><th scope="col">MI</th><th scope="col">CC</th><th scope="col">SCD</th><th scope="col">VIF</th><th scope="col">Qabf</th></tr></thead><tbody><tr><th scope="row">FLIR (LWIR)</th><td>7.32</td><td>55.58</td><td>19.52</td><td>6.34</td><td>5.16</td><td>0.51</td><td>1.26</td><td>0.92</td><td>0.55</td></tr>
+<tr><th scope="row">FMB (LWIR)</th><td>6.93</td><td>43.82</td><td>21.93</td><td>5.66</td><td>3.87</td><td>0.57</td><td>1.37</td><td>0.90</td><td>0.61</td></tr>
+<tr><th scope="row">MFNet (LWIR)</th><td>6.55</td><td>39.35</td><td>18.41</td><td>5.32</td><td>3.16</td><td>0.55</td><td>1.40</td><td>0.89</td><td>0.56</td></tr>
+<tr><th scope="row">Collected SWIR</th><td>7.11</td><td>64.16</td><td>11.86</td><td>3.57</td><td>3.63</td><td>0.93</td><td>1.29</td><td>1.00</td><td>0.59</td></tr>
+</tbody></table></div><p>EN: entropy; SD: standard deviation; SF: spatial frequency; AG: average gradient; MI: mutual information; CC: correlation coefficient; SCD: sum of the correlations of differences; VIF: visual information fidelity; Qabf: source-detail preservation measure.</p><figure class="paper-figure">
+<a class="figure-link" href="static/images/fusion-flir-fmb.png" target="_blank" rel="noopener" aria-label="Open full-size figure: Published qualitative comparison across fusion methods on FLIR (upper two rows) and FMB (lower two rows).">
+<picture><source srcset="static/images/fusion-flir-fmb.webp" type="image/webp"><img src="static/images/fusion-flir-fmb.png" alt="Published qualitative comparison across fusion methods on FLIR (upper two rows) and FMB (lower two rows)." width="1984" height="1492" loading="lazy" decoding="async"></picture></a>
+<figcaption>Published qualitative comparison across fusion methods on FLIR (upper two rows) and FMB (lower two rows). <span class="figure-source"><a href="static/images/fusion-flir-fmb.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption></figure><figure class="paper-figure">
+<a class="figure-link" href="static/images/fusion-mfnet-swir.png" target="_blank" rel="noopener" aria-label="Open full-size figure: Published qualitative comparison on MFNet (upper two rows) and the collected SWIR data (lower two rows).">
+<picture><source srcset="static/images/fusion-mfnet-swir.webp" type="image/webp"><img src="static/images/fusion-mfnet-swir.png" alt="Published qualitative comparison on MFNet (upper two rows) and the collected SWIR data (lower two rows)." width="1984" height="1492" loading="lazy" decoding="async"></picture></a>
+<figcaption>Published qualitative comparison on MFNet (upper two rows) and the collected SWIR data (lower two rows). <span class="figure-source"><a href="static/images/fusion-mfnet-swir.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption></figure><h3>Downstream object detection on FMB</h3><p>A DINO detector is trained with either IVIFormer-fused images or RGB images. Overall mAP increases from 0.2505 to 0.2673. The gains are class-dependent: Person and Motorcycle improve, while Car, Traffic Sign, and Bus decrease in this experiment.</p><div class="table-scroll" role="region" aria-label="DINO detection with RGB and fused inputs" tabindex="0"><table>
+<caption>DINO detection with RGB and fused inputs</caption><thead><tr><th scope="col">Class / metric</th><th scope="col">RGB AP</th><th scope="col">IVIFormer AP</th></tr></thead><tbody><tr><th scope="row">Car</th><td>0.5317</td><td>0.5201</td></tr>
+<tr><th scope="row">Person</th><td>0.2018</td><td>0.3638</td></tr>
+<tr><th scope="row">Traffic Sign</th><td>0.2752</td><td>0.2224</td></tr>
+<tr><th scope="row">Motorcycle</th><td>0.1027</td><td>0.1223</td></tr>
+<tr><th scope="row">Bus</th><td>0.1410</td><td>0.1080</td></tr>
+<tr><th scope="row">mAP</th><td>0.2505</td><td>0.2673</td></tr>
+</tbody></table></div>
+</div></section>
+<section class="section" id="resources" aria-labelledby="resources-title"><div class="container"><h2 id="resources-title">Code and Models</h2>
+<p>The official implementation and pretrained models are hosted in the lab’s IVIFormer repository.</p><p><a href="https://github.com/Yonsei-STL/IVIFormer">Open the IVIFormer repository</a></p>
+</div></section>
+<section class="section" id="BibTeX" aria-labelledby="bibtex-title"><div class="container">
+  <h2 id="bibtex-title">BibTeX</h2>
+  <div class="citation-toolbar">
+    <button type="button" class="button" data-copy-bibtex hidden>Copy BibTeX</button>
+    <a href="citation.bib" download>Download .bib</a>
+    <a href="citation.json" download>Download CSL-JSON</a>
+    <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+  </div>
+  <pre><code id="bibtex-code">@inproceedings{park2025iviformer,
+  title = {{IVIFormer: Illumination-Aware Infrared-Visible Image Fusion via Adaptive Domain-Switching Cross Attention}},
+  author = {Park, Incheol and Jin, Youngwan and Nalcakan, Yagiz and Ju, Hyeongjin and Yeo, Sanghyeop and Kim, Shiho},
+  booktitle = {2025 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)},
+  pages = {2241--2250},
+  year = {2025},
+  doi = {10.1109/ICCVW69036.2025.00234},
+  url = {https://doi.org/10.1109/ICCVW69036.2025.00234}
+}
+</code></pre>
+  <p class="paper-reference" id="paper-reference"><strong>Original publication</strong><br>
+    Incheol Park, Youngwan Jin, Yagiz Nalcakan, Hyeongjin Ju, Sanghyeop Yeo, Shiho Kim. <cite>IVIFormer: Illumination-Aware Infrared-Visible Image Fusion via Adaptive Domain-Switching Cross Attention</cite>.
+    <span class="reference-details">ICCV Workshops, 2025. 2025 IEEE/CVF International Conference on Computer Vision Workshops · pp. 2241–2250.</span>
+    <a href="https://doi.org/10.1109/ICCVW69036.2025.00234">DOI: 10.1109/ICCVW69036.2025.00234</a>
+  </p>
+</div></section>
+</main>
+<footer class="footer"><div class="container">
+  <p><a href="https://yonsei-stl.github.io/publications/">All STL publications</a> · <a href="https://stl.yonsei.ac.kr/">Seamless Trans-X Lab, Yonsei University</a></p>
+</div></footer>
+</body>
+</html>

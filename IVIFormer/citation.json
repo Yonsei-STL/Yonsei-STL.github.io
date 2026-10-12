@@ -1,0 +1,42 @@
+{
+  "id": "IVIFormer",
+  "type": "paper-conference",
+  "title": "IVIFormer: Illumination-Aware Infrared-Visible Image Fusion via Adaptive Domain-Switching Cross Attention",
+  "container-title": "2025 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)",
+  "author": [
+    {
+      "given": "Incheol",
+      "family": "Park"
+    },
+    {
+      "given": "Youngwan",
+      "family": "Jin"
+    },
+    {
+      "given": "Yagiz",
+      "family": "Nalcakan"
+    },
+    {
+      "given": "Hyeongjin",
+      "family": "Ju"
+    },
+    {
+      "given": "Sanghyeop",
+      "family": "Yeo"
+    },
+    {
+      "given": "Shiho",
+      "family": "Kim"
+    }
+  ],
+  "issued": {
+    "date-parts": [
+      [
+        2025
+      ]
+    ]
+  },
+  "DOI": "10.1109/ICCVW69036.2025.00234",
+  "URL": "https://doi.org/10.1109/ICCVW69036.2025.00234",
+  "page": "2241-2250"
+}

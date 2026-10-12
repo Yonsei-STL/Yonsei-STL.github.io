@@ -306,6 +306,391 @@
         "The project abstract says the FID score improved by 34.81% and names the RANUS dataset in that sentence. The publisher abstract says the FID score is highly improved and also names IDD-AW. Confirm the 34.81% figure against the published PDF before editing the sentence.",
         "The article is CC BY 4.0. A same-directory PDF can be added later for citation_pdf_url; none is hosted yet."
       ]
+    },
+    {
+      "id": "mwsc",
+      "path": "MWSC",
+      "page_profile": "supplied",
+      "title": "Multi-Modal Cross-Attention-Based Multi-Label Weather and Severity Level Classification",
+      "meta_description": "MWSC jointly predicts multiple weather conditions and one severity level using global–local and image–text cross-attention, evaluated on 40,205 annotated driving images.",
+      "summary": "MWSC jointly predicts multiple weather conditions and one severity level using global–local and image–text cross-attention, evaluated on 40,205 annotated driving images.",
+      "abstract": "Ensuring traffic safety in autonomous vehicles requires accurate weather and severity recognition, especially when operating within a defined ODD. However, most existing studies and datasets focus on single-label weather recognition and largely overlook severity classification, which limits the adaptability of autonomous systems. To address this, we created a comprehensive multi-label weather dataset with light, moderate, and heavy severity levels based on quantitative visibility thresholds aligned with ODDs. We constructed this dataset by prompting multiple VLMs to apply these criteria, then validated annotation quality against a human-labeled gold standard. On this new dataset, we introduce the Multi-Weather and Severity Classifier (MWSC), a novel multi-modal framework that simultaneously handles weather recognition and severity classification. MWSC employs a combination of cross-attention mechanisms to extract global and local image features and integrates them with text captions generated from a standardized, closed-vocabulary template for weather and severity to create robust feature associations for classifier training. Our experiments establish a new benchmark for environment perception in autonomous driving, where MWSC significantly outperforms widely-used baseline models across key metrics including mAP, accuracy, and F1-score, advancing vision-based techniques for safer and more reliable autonomous navigation in complex weather scenarios. The full dataset and code are publicly available in our repository at https://github.com/Yonsei-STL/MWSC.git, including licenses of all sources, human-annotated gold set, image lists and splits, prompts, and trained weights for reproducibility.",
+      "authors": [
+        {
+          "name": "Hyeongjin Ju",
+          "citation": "Ju, Hyeongjin",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Yagiz Nalcakan",
+          "citation": "Nalcakan, Yagiz",
+          "url": "https://ynalcakan.github.io/",
+          "affiliation": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "name": "Incheol Park",
+          "citation": "Park, Incheol",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Youngwan Jin",
+          "citation": "Jin, Youngwan",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Sanghyeop Yeo",
+          "citation": "Yeo, Sanghyeop",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Shiho Kim",
+          "citation": "Kim, Shiho",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ],
+      "date_published": "2025-12-17",
+      "online_date": null,
+      "citation_publication_date": "2025",
+      "journal": "IEEE Access",
+      "container_meta": "citation_journal_title",
+      "venue_label": "IEEE Access, 2025",
+      "volume": "13",
+      "issue": null,
+      "firstpage": "215882",
+      "lastpage": "215896",
+      "issn": null,
+      "doi": "10.1109/ACCESS.2025.3645363",
+      "publisher": "IEEE",
+      "paper_url": "https://doi.org/10.1109/ACCESS.2025.3645363",
+      "arxiv_url": null,
+      "code_url": "https://github.com/Yonsei-STL/MWSC",
+      "dataset_url": null,
+      "pdf_url": null,
+      "image": "static/images/architecture.png",
+      "keywords": [
+        "MWSC",
+        "multi-label weather recognition",
+        "severity classification",
+        "cross-attention",
+        "operational design domain",
+        "autonomous driving"
+      ],
+      "resources": [
+        {
+          "label": "Paper",
+          "url": "https://doi.org/10.1109/ACCESS.2025.3645363",
+          "icon": "paper"
+        },
+        {
+          "label": "Code",
+          "url": "https://github.com/Yonsei-STL/MWSC",
+          "icon": "code"
+        },
+        {
+          "label": "Annotations",
+          "url": "https://github.com/Yonsei-STL/MWSC/tree/main/data/label",
+          "icon": "data"
+        }
+      ],
+      "bibtex_doi": "10.1109/ACCESS.2025.3645363",
+      "bibtex_author": "Ju, Hyeongjin and Nalcakan, Yagiz and Park, Incheol and Jin, Youngwan and Yeo, Sanghyeop and Kim, Shiho",
+      "needs_review": [
+        "Figure 2 mentions five VLMs, while Sections IV-A and IV-C name six. The page describes multiple VLMs with voting and does not resolve that count.",
+        "The source prompt prints the heavy-fog condition as 100m < vis. The page does not reprint or correct that inequality.",
+        "Resource buttons are Code and Annotations. They are not a verified download of every source image, license, gold set, and trained weight."
+      ]
+    },
+    {
+      "id": "iviformer",
+      "path": "IVIFormer",
+      "page_profile": "supplied",
+      "title": "IVIFormer: Illumination-Aware Infrared-Visible Image Fusion via Adaptive Domain-Switching Cross Attention",
+      "meta_description": "IVIFormer adapts infrared–visible image fusion to day and night by switching the query and key/value domains in cross-attention, guided by a lightweight illumination classifier.",
+      "summary": "IVIFormer adapts infrared–visible image fusion to day and night by switching the query and key/value domains in cross-attention, guided by a lightweight illumination classifier.",
+      "abstract": "A critical challenge in autonomous driving is maintaining robust perception across drastic illumination changes, from day to night. While infrared-visible image fusion (IVIF) offers a promising solution, most existing methods adopt a static, illumination-agnostic approach, failing to adapt to the changing importance of each sensor modality. In this paper, we introduce IVIFormer, a novel fusion network that explicitly tackles this limitation through a dynamic, condition-aware strategy. The core of our method is the Adaptive Domain-Switching Cross-Attention (ADS-CA), a mechanism that dynamically reverses the roles of query and key/value features between the infrared and visible domains. This switching is guided by a highly efficient Light Condition Decision Module (LCDM) that classifies the scene as day or night. This explicit, adaptive design allows IVIFormer to intelligently leverage the most informative sensor data for any given lighting condition. Extensive experiments on public long-wave infrared (LWIR) datasets and our newly collected short-wave infrared (SWIR) dataset demonstrate that IVIFormer achieves competitive performance. Both quantitative and qualitative results validate its superiority in preserving crucial details and enhancing scene visibility, especially under challenging lighting transitions. Code and pretrained models are available at: https://github.com/Yonsei-STL/IVIFormer",
+      "authors": [
+        {
+          "name": "Incheol Park",
+          "citation": "Park, Incheol",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Youngwan Jin",
+          "citation": "Jin, Youngwan",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Yagiz Nalcakan",
+          "citation": "Nalcakan, Yagiz",
+          "url": "https://ynalcakan.github.io/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Hyeongjin Ju",
+          "citation": "Ju, Hyeongjin",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Sanghyeop Yeo",
+          "citation": "Yeo, Sanghyeop",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Shiho Kim",
+          "citation": "Kim, Shiho",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ],
+      "date_published": "2025",
+      "online_date": null,
+      "citation_publication_date": "2025",
+      "journal": "2025 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)",
+      "container_meta": "citation_conference_title",
+      "venue_label": "ICCV Workshops, 2025",
+      "volume": null,
+      "issue": null,
+      "firstpage": "2241",
+      "lastpage": "2250",
+      "issn": null,
+      "doi": "10.1109/ICCVW69036.2025.00234",
+      "publisher": "IEEE",
+      "paper_url": "https://doi.org/10.1109/ICCVW69036.2025.00234",
+      "arxiv_url": null,
+      "code_url": "https://github.com/Yonsei-STL/IVIFormer",
+      "dataset_url": null,
+      "pdf_url": null,
+      "image": "static/images/architecture.png",
+      "keywords": [
+        "IVIFormer",
+        "infrared-visible image fusion",
+        "ADS-CA",
+        "LCDM",
+        "SWIR",
+        "LWIR",
+        "illumination awareness"
+      ],
+      "resources": [
+        {
+          "label": "Paper",
+          "url": "https://doi.org/10.1109/ICCVW69036.2025.00234",
+          "icon": "paper"
+        },
+        {
+          "label": "Code",
+          "url": "https://github.com/Yonsei-STL/IVIFormer",
+          "icon": "code"
+        }
+      ],
+      "bibtex_doi": "10.1109/ICCVW69036.2025.00234",
+      "bibtex_author": "Park, Incheol and Jin, Youngwan and Nalcakan, Yagiz and Ju, Hyeongjin and Yeo, Sanghyeop and Kim, Shiho",
+      "needs_review": [
+        "This is an ICCV Workshops 2025 paper, not an ICCV main-conference paper.",
+        "The supplied PDF does not give a full publication day, so the registry date is the year 2025.",
+        "The h4 fusion rows are one configuration. Class-level detection decreases for Car, Traffic Sign, and Bus are part of the result.",
+        "No day/night LCDM accuracy is stated because the supplementary files were not supplied."
+      ]
+    },
+    {
+      "id": "swir-material-classification",
+      "path": "SWIR-Material-Classification",
+      "page_profile": "supplied",
+      "title": "Short-Wave Infrared (SWIR) Imaging for Robust Material Classification: Overcoming Limitations of Visible Spectrum Data",
+      "meta_description": "SWIR-based material discrimination of visually similar objects: real and artificial fruits and vegetables, humans, mannequins, and banners, using moisture-sensitive spectral bands.",
+      "summary": "SWIR-based material discrimination of visually similar objects: real and artificial fruits and vegetables, humans, mannequins, and banners, using moisture-sensitive spectral bands.",
+      "abstract": "This paper presents a novel approach to material classification using short-wave infrared (SWIR) imaging, aimed at applications where differentiating visually similar objects based on material properties is essential, such as in autonomous driving. Traditional vision systems, relying on visible spectrum imaging, struggle to distinguish between objects with similar appearances but different material compositions. Our method leverages SWIR’s distinct reflectance characteristics, particularly for materials containing moisture, and demonstrates a significant improvement in accuracy. Specifically, SWIR data achieved near-perfect classification results with an accuracy of 99% for distinguishing real from artificial objects, compared to 77% with visible spectrum data. In object detection tasks, our SWIR-based model achieved a mean average precision (mAP) of 0.98 for human detection and up to 1.00 for other objects, demonstrating its robustness in reducing false detections. This study underscores SWIR’s potential to enhance object recognition and reduce ambiguity in complex environments, offering a valuable contribution to material-based object recognition in autonomous driving, manufacturing, and beyond.",
+      "authors": [
+        {
+          "name": "Hanbin Song",
+          "citation": "Song, Hanbin",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "name": "Sanghyeop Yeo",
+          "citation": "Yeo, Sanghyeop",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "name": "Youngwan Jin",
+          "citation": "Jin, Youngwan",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "name": "Incheol Park",
+          "citation": "Park, Incheol",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "name": "Hyeongjin Ju",
+          "citation": "Ju, Hyeongjin",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "name": "Yagiz Nalcakan",
+          "citation": "Nalcakan, Yagiz",
+          "url": "https://ynalcakan.github.io/",
+          "affiliation": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "name": "Shiho Kim",
+          "citation": "Kim, Shiho",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University"
+        }
+      ],
+      "date_published": "2024-11-27",
+      "online_date": null,
+      "citation_publication_date": "2024",
+      "journal": "Applied Sciences",
+      "container_meta": "citation_journal_title",
+      "venue_label": "Applied Sciences, 2024",
+      "volume": "14",
+      "issue": null,
+      "firstpage": "11049",
+      "lastpage": null,
+      "issn": null,
+      "doi": "10.3390/app142311049",
+      "publisher": "MDPI",
+      "paper_url": "https://doi.org/10.3390/app142311049",
+      "arxiv_url": null,
+      "code_url": null,
+      "dataset_url": "https://huggingface.co/datasets/STL-Yonsei/SWIR-Fruit_and_Vegetable_Dataset",
+      "pdf_url": null,
+      "image": "static/images/fruit-comparison.png",
+      "keywords": [
+        "SWIR",
+        "material classification",
+        "spectral band selection",
+        "RGB-SWIR dataset",
+        "object detection",
+        "real and artificial objects"
+      ],
+      "resources": [
+        {
+          "label": "Paper",
+          "url": "https://doi.org/10.3390/app142311049",
+          "icon": "paper"
+        },
+        {
+          "label": "Dataset",
+          "url": "https://huggingface.co/datasets/STL-Yonsei/SWIR-Fruit_and_Vegetable_Dataset",
+          "icon": "data"
+        }
+      ],
+      "bibtex_doi": "10.3390/app142311049",
+      "bibtex_author": "Song, Hanbin and Yeo, Sanghyeop and Jin, Youngwan and Park, Incheol and Ju, Hyeongjin and Nalcakan, Yagiz and Kim, Shiho",
+      "needs_review": [
+        "The abstract's 99% and 77% figures are not an aggregate of Table 3. Keep the per-object accuracies and the explanatory note.",
+        "Seven authors are listed, and the first five are equal contributors.",
+        "The only public data link is the RGB-SWIR Fruit and Vegetable Dataset. Fog and fire-smoke experiments are future work."
+      ]
+    },
+    {
+      "id": "seeing-through-rain",
+      "path": "SeeingThroughRain",
+      "page_profile": "supplied",
+      "title": "Seeing through the rain: An empirical assessment of short-wave infrared imaging on enhancing autonomous vehicle perception under rainy weather",
+      "meta_description": "A measurement-driven comparison of RGB and SWIR imaging in real rainy driving scenes using 620 paired frames, 14 image-quality metrics, visibility estimation, and fixed pretrained perception models.",
+      "summary": "A measurement-driven comparison of RGB and SWIR imaging in real rainy driving scenes using 620 paired frames, 14 image-quality metrics, visibility estimation, and fixed pretrained perception models.",
+      "abstract": "Reliable visual perception under adverse weather remains a critical challenge for autonomous systems. Rain, in particular, degrades RGB camera performance due to Mie scattering and windshield distortions. In this study, we conduct a measurement-driven analysis comparing Short-Wave Infrared (SWIR) and RGB imaging under real-world rainy conditions. Using synchronized, unprocessed RGB-SWIR image pairs and 14 no-reference image quality metrics, we quantify clarity, contrast, and effective visibility. Results show SWIR provides a 29% increase in scene visibility and significantly enhances performance in object detection, segmentation, and depth estimation tasks. These measurements indicate that SWIR provides sensor-level mitigation of rain-induced degradations, improving perceptual quality and visibility under adverse conditions.",
+      "authors": [
+        {
+          "name": "Sanghyeop Yeo",
+          "citation": "Yeo, Sanghyeop",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Yagiz Nalcakan",
+          "citation": "Nalcakan, Yagiz",
+          "url": "https://ynalcakan.github.io/",
+          "affiliation": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "name": "Youngwan Jin",
+          "citation": "Jin, Youngwan",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Incheol Park",
+          "citation": "Park, Incheol",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Hyeongjin Ju",
+          "citation": "Ju, Hyeongjin",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University; BK21 Graduate Program in Intelligent Semiconductor Technology"
+        },
+        {
+          "name": "Shiho Kim",
+          "citation": "Kim, Shiho",
+          "url": "https://stl.yonsei.ac.kr/",
+          "affiliation": "School of Integrated Technology, Yonsei University"
+        }
+      ],
+      "date_published": "2026",
+      "online_date": "2025-11-12",
+      "citation_publication_date": "2026",
+      "journal": "Measurement",
+      "container_meta": "citation_journal_title",
+      "venue_label": "Measurement, 2026",
+      "volume": "259",
+      "issue": null,
+      "firstpage": "119654",
+      "lastpage": null,
+      "issn": null,
+      "doi": "10.1016/j.measurement.2025.119654",
+      "publisher": "Elsevier",
+      "paper_url": "https://doi.org/10.1016/j.measurement.2025.119654",
+      "arxiv_url": null,
+      "code_url": null,
+      "dataset_url": null,
+      "pdf_url": null,
+      "image": "static/images/rain-comparison.png",
+      "keywords": [
+        "SWIR",
+        "rain",
+        "visibility assessment",
+        "image quality assessment",
+        "autonomous vehicle perception",
+        "measurement"
+      ],
+      "resources": [
+        {
+          "label": "Paper",
+          "url": "https://doi.org/10.1016/j.measurement.2025.119654",
+          "icon": "paper"
+        },
+        {
+          "label": "Request data",
+          "url": "mailto:shiho@yonsei.ac.kr?subject=Data%20request%3A%20Seeing%20through%20the%20rain",
+          "icon": "mail"
+        }
+      ],
+      "bibtex_doi": "10.1016/j.measurement.2025.119654",
+      "bibtex_author": "Yeo, Sanghyeop and Nalcakan, Yagiz and Jin, Youngwan and Park, Incheol and Ju, Hyeongjin and Kim, Shiho",
+      "needs_review": [
+        "The citation year is 2026 (Measurement, volume 259). The online publication date is 12 November 2025. Keep both.",
+        "The abstract's 29% visibility statement does not directly match Table 2. Do not remove the explanatory note without an author-approved resolution.",
+        "The paper says data will be made available on request. There is no public code or dataset URL."
+      ]
     }
   ]
 }

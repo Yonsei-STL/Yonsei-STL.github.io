@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multi-Modal Cross-Attention-Based Multi-Label Weather and Severity Level Classification</title>
+  <meta name="description" content="MWSC jointly predicts multiple weather conditions and one severity level using global–local and image–text cross-attention, evaluated on 40,205 annotated driving images.">
+  <meta name="keywords" content="MWSC, multi-label weather recognition, severity classification, cross-attention, operational design domain, autonomous driving">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="citation_title" content="Multi-Modal Cross-Attention-Based Multi-Label Weather and Severity Level Classification">
+  <meta name="citation_publication_date" content="2025">
+  <meta name="citation_doi" content="10.1109/ACCESS.2025.3645363">
+  <meta name="citation_author" content="Hyeongjin Ju">
+  <meta name="citation_author" content="Yagiz Nalcakan">
+  <meta name="citation_author" content="Incheol Park">
+  <meta name="citation_author" content="Youngwan Jin">
+  <meta name="citation_author" content="Sanghyeop Yeo">
+  <meta name="citation_author" content="Shiho Kim">
+  <meta name="citation_journal_title" content="IEEE Access">
+  <meta name="citation_volume" content="13">
+  <meta name="citation_firstpage" content="215882">
+  <meta name="citation_lastpage" content="215896">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Multi-Modal Cross-Attention-Based Multi-Label Weather and Severity Level Classification">
+  <meta property="og:description" content="MWSC jointly predicts multiple weather conditions and one severity level using global–local and image–text cross-attention, evaluated on 40,205 annotated driving images.">
+  <meta property="og:url" content="https://yonsei-stl.github.io/MWSC/">
+  <meta property="og:site_name" content="Seamless Trans-X Lab, Yonsei University">
+  <meta property="og:image" content="https://yonsei-stl.github.io/MWSC/static/images/architecture.png">
+  <meta property="og:image:alt" content="MWSC refines global and local image features, aligns them with weather and severity text, and predicts multiple weather labels together with one severity level.">
+  <meta property="og:image:width" content="1844">
+  <meta property="og:image:height" content="896">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Multi-Modal Cross-Attention-Based Multi-Label Weather and Severity Level Classification">
+  <meta name="twitter:description" content="MWSC jointly predicts multiple weather conditions and one severity level using global–local and image–text cross-attention, evaluated on 40,205 annotated driving images.">
+  <meta name="twitter:image" content="https://yonsei-stl.github.io/MWSC/static/images/architecture.png">
+  <link rel="canonical" href="https://yonsei-stl.github.io/MWSC/">
+  <link rel="describedby" href="https://yonsei-stl.github.io/llms.txt">
+  <link rel="alternate" type="application/x-bibtex" href="citation.bib" title="BibTeX citation">
+  <link rel="alternate" type="application/vnd.citationstyles.csl+json" href="citation.json" title="CSL-JSON citation">
+  <!-- Optional typography enhancement, matching the existing STL pages. System fonts work offline. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700%7CNoto+Sans:400,600,700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/index.css">
+  <script src="static/js/index.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "@id": "https://yonsei-stl.github.io/MWSC/#article",
+  "headline": "Multi-Modal Cross-Attention-Based Multi-Label Weather and Severity Level Classification",
+  "name": "Multi-Modal Cross-Attention-Based Multi-Label Weather and Severity Level Classification",
+  "description": "MWSC jointly predicts multiple weather conditions and one severity level using global–local and image–text cross-attention, evaluated on 40,205 annotated driving images.",
+  "abstract": "Ensuring traffic safety in autonomous vehicles requires accurate weather and severity recognition, especially when operating within a defined ODD. However, most existing studies and datasets focus on single-label weather recognition and largely overlook severity classification, which limits the adaptability of autonomous systems. To address this, we created a comprehensive multi-label weather dataset with light, moderate, and heavy severity levels based on quantitative visibility thresholds aligned with ODDs. We constructed this dataset by prompting multiple VLMs to apply these criteria, then validated annotation quality against a human-labeled gold standard. On this new dataset, we introduce the Multi-Weather and Severity Classifier (MWSC), a novel multi-modal framework that simultaneously handles weather recognition and severity classification. MWSC employs a combination of cross-attention mechanisms to extract global and local image features and integrates them with text captions generated from a standardized, closed-vocabulary template for weather and severity to create robust feature associations for classifier training. Our experiments establish a new benchmark for environment perception in autonomous driving, where MWSC significantly outperforms widely-used baseline models across key metrics including mAP, accuracy, and F1-score, advancing vision-based techniques for safer and more reliable autonomous navigation in complex weather scenarios. The full dataset and code are publicly available in our repository at https://github.com/Yonsei-STL/MWSC.git, including licenses of all sources, human-annotated gold set, image lists and splits, prompts, and trained weights for reproducibility.",
+  "url": "https://yonsei-stl.github.io/MWSC/",
+  "mainEntityOfPage": "https://yonsei-stl.github.io/MWSC/",
+  "sameAs": "https://doi.org/10.1109/ACCESS.2025.3645363",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1109/ACCESS.2025.3645363"
+  },
+  "inLanguage": "en",
+  "image": "https://yonsei-stl.github.io/MWSC/static/images/architecture.png",
+  "keywords": [
+    "MWSC",
+    "multi-label weather recognition",
+    "severity classification",
+    "cross-attention",
+    "operational design domain",
+    "autonomous driving"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Hyeongjin Ju",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Yagiz Nalcakan",
+      "url": "https://ynalcakan.github.io/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Incheol Park",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Youngwan Jin",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Sanghyeop Yeo",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Shiho Kim",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    }
+  ],
+  "isPartOf": {
+    "@type": "PublicationVolume",
+    "volumeNumber": "13",
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "IEEE Access"
+    }
+  },
+  "datePublished": "2025-12-17",
+  "pagination": "215882–215896"
+}
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#abstract">Skip to paper content</a>
+<header class="hero"><div class="container">
+  <h1 class="publication-title">Multi-Modal Cross-Attention-Based Multi-Label Weather and Severity Level Classification</h1>
+  <p class="publication-venue">IEEE Access, 2025</p>
+  <div class="publication-authors"><span class="author-block"><a href="https://stl.yonsei.ac.kr/">Hyeongjin Ju</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://ynalcakan.github.io/">Yagiz Nalcakan</a><sup>1</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Incheol Park</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Youngwan Jin</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Sanghyeop Yeo</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Shiho Kim</a><sup>1,2*</sup></span></div>
+  <div class="affiliations"><p><sup>1</sup>School of Integrated Technology, Yonsei University</p>
+<p><sup>2</sup>BK21 Graduate Program in Intelligent Semiconductor Technology</p></div>
+  <p class="author-notes">* Corresponding author: <a href="mailto:shiho@yonsei.ac.kr">shiho@yonsei.ac.kr</a></p>
+  <div class="publication-links"><a class="external-link button is-normal is-rounded is-dark" href="https://doi.org/10.1109/ACCESS.2025.3645363"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H6V3z"/><path d="M14 3v5h4M9 12h6M9 16h6"/></svg><span>Paper</span></a>
+<a class="external-link button is-normal is-rounded is-dark" href="https://github.com/Yonsei-STL/MWSC"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></svg><span>Code</span></a>
+<a class="external-link button is-normal is-rounded is-dark" href="https://github.com/Yonsei-STL/MWSC/tree/main/data/label"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"/></svg><span>Annotations</span></a>
+<a class="button is-normal is-rounded is-dark" href="#BibTeX"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 6H4v7h4c0 3-1 4-3 5m15-12h-6v7h4c0 3-1 4-3 5"/></svg><span>BibTeX</span></a></div>
+  <nav class="page-nav" aria-label="Page sections"><a href="#abstract">Abstract</a> <a href="#method">Method</a> <a href="#results">Results</a> <a href="#resources">Resources</a></nav>
+</div></header>
+<main>
+<section class="teaser" aria-label="Research overview"><div class="container">
+  <figure class="paper-figure">
+    <a class="figure-link" href="static/images/architecture.png" target="_blank" rel="noopener" aria-label="Open full-size overview figure">
+      <picture><source srcset="static/images/architecture.webp" type="image/webp"><img src="static/images/architecture.png" alt="MWSC refines global and local image features, aligns them with weather and severity text, and predicts multiple weather labels together with one severity level." width="1844" height="896" fetchpriority="high" decoding="async"></picture>
+    </a>
+    <figcaption>MWSC refines global and local image features, aligns them with weather and severity text, and predicts multiple weather labels together with one severity level.<span class="figure-source"><a href="static/images/architecture.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption>
+  </figure>
+  <div class="facts" aria-label="Study at a glance"><div class="fact"><span class="fact-value">40,205</span><span class="fact-label">annotated driving images</span></div><div class="fact"><span class="fact-value">4 + 3</span><span class="fact-label">weather classes + severity levels</span></div><div class="fact"><span class="fact-value">2,000</span><span class="fact-label">human-annotated gold-set images</span></div></div>
+</div></section>
+<section class="section" id="abstract" aria-labelledby="abstract-title"><div class="container">
+  <h2 id="abstract-title">Abstract</h2>
+  <div class="abstract-text"><p>Ensuring traffic safety in autonomous vehicles requires accurate weather and severity recognition, especially when operating within a defined ODD. However, most existing studies and datasets focus on single-label weather recognition and largely overlook severity classification, which limits the adaptability of autonomous systems. To address this, we created a comprehensive multi-label weather dataset with light, moderate, and heavy severity levels based on quantitative visibility thresholds aligned with ODDs. We constructed this dataset by prompting multiple VLMs to apply these criteria, then validated annotation quality against a human-labeled gold standard. On this new dataset, we introduce the Multi-Weather and Severity Classifier (MWSC), a novel multi-modal framework that simultaneously handles weather recognition and severity classification. MWSC employs a combination of cross-attention mechanisms to extract global and local image features and integrates them with text captions generated from a standardized, closed-vocabulary template for weather and severity to create robust feature associations for classifier training. Our experiments establish a new benchmark for environment perception in autonomous driving, where MWSC significantly outperforms widely-used baseline models across key metrics including mAP, accuracy, and F1-score, advancing vision-based techniques for safer and more reliable autonomous navigation in complex weather scenarios. The full dataset and code are publicly available in our repository at <a href="https://github.com/Yonsei-STL/MWSC.git">https://github.com/Yonsei-STL/MWSC.git</a>, including licenses of all sources, human-annotated gold set, image lists and splits, prompts, and trained weights for reproducibility.</p></div>
+  <p class="abstract-label">Abstract from the published paper.</p>
+  
+</div></section>
+<section class="section" id="method" aria-labelledby="method-title"><div class="container"><h2 id="method-title">Method</h2>
+<p>The <strong>Multi-Weather and Severity Classifier (MWSC)</strong> separates two related tasks: weather recognition is multi-label, while severity recognition selects a single level. The weather vocabulary is <strong>Clear, Foggy, Rainy, and Snowy</strong>; the severity vocabulary is <strong>Light, Moderate, and Heavy</strong>.</p><h3>From global–local refinement to image–text alignment</h3><p>A CLIP image encoder extracts global and local visual features. <strong>Global-Local Cross Attention (GLCA)</strong> first refines the image representation. <strong>Image-Text Cross Attention (ITCA)</strong> then aligns the refined features with encoded class descriptions in both image-to-text and text-to-image directions. Separate multilayer perceptron heads produce weather and severity predictions.</p><p>Training combines binary cross-entropy for multi-label weather prediction and cross-entropy for severity prediction. At inference, weather classes are selected above a 0.5 probability threshold; when none passes, the highest-probability weather class is retained. Severity uses the highest-probability class.</p>
+</div></section>
+<section class="section" id="dataset" aria-labelledby="dataset-title"><div class="container"><h2 id="dataset-title">Dataset</h2>
+<p>The dataset combines daytime images from ACDC, DEEP BLUE, DENSE, and SODA10M. Vision-language-model annotations are aggregated by voting, and reliability is evaluated against a separate human-annotated gold set. The main dataset uses a 7:1:2 training/validation/test split.</p><div class="table-scroll" role="region" aria-label="Severity-label distribution" tabindex="0"><table>
+<caption>Severity-label distribution</caption><thead><tr><th scope="col">Severity level</th><th scope="col">Number of images</th></tr></thead><tbody><tr><th scope="row">Light</th><td>28,418</td></tr>
+<tr><th scope="row">Moderate</th><td>9,065</td></tr>
+<tr><th scope="row">Heavy</th><td>2,722</td></tr>
+<tr><th scope="row">Total</th><td>40,205</td></tr>
+</tbody></table></div><p>The study excludes nighttime, cloudy, and overcast scenes. The gold set is used to evaluate annotation quality, not to train the classifier or generate labels.</p>
+</div></section>
+<section class="section" id="results" aria-labelledby="results-title"><div class="container"><h2 id="results-title">Experimental Results</h2>
+<p>The results below are the published MWSC rows for the CLIP ViT-B/32 configuration. Values are proportions, not percentages. Precision, recall, and F1 are weighted averages as specified in the paper.</p><div class="table-scroll" role="region" aria-label="Weather and severity classification" tabindex="0"><table>
+<caption>Weather and severity classification</caption><thead><tr><th scope="col">Task</th><th scope="col">mAP</th><th scope="col">Accuracy</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th></tr></thead><tbody><tr><th scope="row">Weather</th><td>0.8974</td><td>0.9156</td><td>0.9343</td><td>0.9423</td><td>0.9381</td></tr>
+<tr><th scope="row">Severity</th><td>0.9507</td><td>0.9092</td><td>0.9090</td><td>0.9092</td><td>0.9088</td></tr>
+</tbody></table></div><p>The reported model has <strong>12.9 million learnable parameters</strong>. On the mixed-resolution test set, the paper reports <strong>82.97 FPS</strong>, using an NVIDIA RTX 4090, batch size 1, and FP32 precision. This is the paper’s preprocessing-and-inference setting; it is not a claim of native-resolution transformer processing.</p><figure class="paper-figure">
+<a class="figure-link" href="static/images/predictions.png" target="_blank" rel="noopener" aria-label="Open full-size figure: Predictions from MWSC and fine-tuned CLIP on scenes with co-occurring weather conditions. The plots show weather and severity probabilities.">
+<picture><source srcset="static/images/predictions.webp" type="image/webp"><img src="static/images/predictions.png" alt="Predictions from MWSC and fine-tuned CLIP on scenes with co-occurring weather conditions. The plots show weather and severity probabilities." width="2000" height="1152" loading="lazy" decoding="async"></picture></a>
+<figcaption>Predictions from MWSC and fine-tuned CLIP on scenes with co-occurring weather conditions. The plots show weather and severity probabilities. <span class="figure-source"><a href="static/images/predictions.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption></figure><h3>Evaluation scope and failure cases</h3><p>The paper identifies confusion between heavy raindrop artifacts and snow, and overestimation of severity when snow or slush occludes the camera view. These examples are limitations of the evaluated model, rather than evidence of complete robustness to adverse weather.</p><figure class="paper-figure compact-figure">
+<a class="figure-link" href="static/images/failure-cases.png" target="_blank" rel="noopener" aria-label="Open full-size figure: Two published failure cases: an extra Snowy prediction in heavy rain, and a Heavy prediction for a scene labeled Moderate.">
+<picture><source srcset="static/images/failure-cases.webp" type="image/webp"><img src="static/images/failure-cases.png" alt="Two published failure cases: an extra Snowy prediction in heavy rain, and a Heavy prediction for a scene labeled Moderate." width="976" height="580" loading="lazy" decoding="async"></picture></a>
+<figcaption>Two published failure cases: an extra Snowy prediction in heavy rain, and a Heavy prediction for a scene labeled Moderate. <span class="figure-source"><a href="static/images/failure-cases.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption></figure>
+</div></section>
+<section class="section" id="resources" aria-labelledby="resources-title"><div class="container"><h2 id="resources-title">Code and Data</h2>
+<p>The official repository provides the implementation and dataset-preparation instructions. Its README directs users to obtain the underlying images from the original dataset providers; the annotation CSV files are maintained separately in the repository.</p><p><a href="https://github.com/Yonsei-STL/MWSC">Implementation and preparation instructions</a> · <a href="https://github.com/Yonsei-STL/MWSC/tree/main/data/label">Annotation files</a></p>
+</div></section>
+<section class="section" id="BibTeX" aria-labelledby="bibtex-title"><div class="container">
+  <h2 id="bibtex-title">BibTeX</h2>
+  <div class="citation-toolbar">
+    <button type="button" class="button" data-copy-bibtex hidden>Copy BibTeX</button>
+    <a href="citation.bib" download>Download .bib</a>
+    <a href="citation.json" download>Download CSL-JSON</a>
+    <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+  </div>
+  <pre><code id="bibtex-code">@article{ju2025mwsc,
+  title = {{Multi-Modal Cross-Attention-Based Multi-Label Weather and Severity Level Classification}},
+  author = {Ju, Hyeongjin and Nalcakan, Yagiz and Park, Incheol and Jin, Youngwan and Yeo, Sanghyeop and Kim, Shiho},
+  journal = {IEEE Access},
+  volume = {13},
+  pages = {215882--215896},
+  year = {2025},
+  doi = {10.1109/ACCESS.2025.3645363},
+  url = {https://doi.org/10.1109/ACCESS.2025.3645363}
+}
+</code></pre>
+  <p class="paper-reference" id="paper-reference"><strong>Original publication</strong><br>
+    Hyeongjin Ju, Yagiz Nalcakan, Incheol Park, Youngwan Jin, Sanghyeop Yeo, Shiho Kim. <cite>Multi-Modal Cross-Attention-Based Multi-Label Weather and Severity Level Classification</cite>.
+    <span class="reference-details">IEEE Access, 2025. Volume 13 · pp. 215882–215896.</span>
+    <a href="https://doi.org/10.1109/ACCESS.2025.3645363">DOI: 10.1109/ACCESS.2025.3645363</a>
+  </p>
+</div></section>
+</main>
+<footer class="footer"><div class="container">
+  <p><a href="https://yonsei-stl.github.io/publications/">All STL publications</a> · <a href="https://stl.yonsei.ac.kr/">Seamless Trans-X Lab, Yonsei University</a></p>
+</div></footer>
+</body>
+</html>

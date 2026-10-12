@@ -24,6 +24,10 @@ PRESERVED = [
     "/Pix2Next/",
     "/SpectraDiff/",
     "/RM-MLLM/",
+    "/MWSC/",
+    "/IVIFormer/",
+    "/SWIR-Material-Classification/",
+    "/SeeingThroughRain/",
 ]
 
 DISCOVERY = [
@@ -38,6 +42,10 @@ REDIRECTS = {
     "/Pix2Next": "/Pix2Next/",
     "/SpectraDiff": "/SpectraDiff/",
     "/RM-MLLM": "/RM-MLLM/",
+    "/MWSC": "/MWSC/",
+    "/IVIFormer": "/IVIFormer/",
+    "/SWIR-Material-Classification": "/SWIR-Material-Classification/",
+    "/SeeingThroughRain": "/SeeingThroughRain/",
 }
 
 CASE_MISS = "/rasmd/"
@@ -62,7 +70,16 @@ def local_checks() -> list[str]:
     root = (ROOT / "index.html").read_text(encoding="utf-8")
     if "https://stl.yonsei.ac.kr/" not in root:
         errors.append("root index.html does not point at the lab website")
-    for folder in ("RASMD", "Pix2Next", "SpectraDiff", "RM-MLLM"):
+    for folder in (
+        "RASMD",
+        "Pix2Next",
+        "SpectraDiff",
+        "RM-MLLM",
+        "MWSC",
+        "IVIFormer",
+        "SWIR-Material-Classification",
+        "SeeingThroughRain",
+    ):
         html = (ROOT / folder / "index.html").read_text(encoding="utf-8")
         if f"https://yonsei-stl.github.io/{folder}/" not in html:
             errors.append(f"{folder}: canonical project URL is missing")

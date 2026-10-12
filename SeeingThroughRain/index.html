@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seeing through the rain: An empirical assessment of short-wave infrared imaging on enhancing autonomous vehicle perception under rainy weather</title>
+  <meta name="description" content="A measurement-driven comparison of RGB and SWIR imaging in real rainy driving scenes using 620 paired frames, 14 image-quality metrics, visibility estimation, and fixed pretrained perception models.">
+  <meta name="keywords" content="SWIR, rain, visibility assessment, image quality assessment, autonomous vehicle perception, measurement">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="citation_title" content="Seeing through the rain: An empirical assessment of short-wave infrared imaging on enhancing autonomous vehicle perception under rainy weather">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_doi" content="10.1016/j.measurement.2025.119654">
+  <meta name="citation_author" content="Sanghyeop Yeo">
+  <meta name="citation_author" content="Yagiz Nalcakan">
+  <meta name="citation_author" content="Youngwan Jin">
+  <meta name="citation_author" content="Incheol Park">
+  <meta name="citation_author" content="Hyeongjin Ju">
+  <meta name="citation_author" content="Shiho Kim">
+  <meta name="citation_journal_title" content="Measurement">
+  <meta name="citation_volume" content="259">
+  <meta name="citation_firstpage" content="119654">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Seeing through the rain: An empirical assessment of short-wave infrared imaging on enhancing autonomous vehicle perception under rainy weather">
+  <meta property="og:description" content="A measurement-driven comparison of RGB and SWIR imaging in real rainy driving scenes using 620 paired frames, 14 image-quality metrics, visibility estimation, and fixed pretrained perception models.">
+  <meta property="og:url" content="https://yonsei-stl.github.io/SeeingThroughRain/">
+  <meta property="og:site_name" content="Seamless Trans-X Lab, Yonsei University">
+  <meta property="og:image" content="https://yonsei-stl.github.io/SeeingThroughRain/static/images/rain-comparison.png">
+  <meta property="og:image:alt" content="A representative rainy driving scene captured in RGB (left) and SWIR (right). Windshield artifacts and scene visibility differ across the two spectral views.">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="324">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Seeing through the rain: An empirical assessment of short-wave infrared imaging on enhancing autonomous vehicle perception under rainy weather">
+  <meta name="twitter:description" content="A measurement-driven comparison of RGB and SWIR imaging in real rainy driving scenes using 620 paired frames, 14 image-quality metrics, visibility estimation, and fixed pretrained perception models.">
+  <meta name="twitter:image" content="https://yonsei-stl.github.io/SeeingThroughRain/static/images/rain-comparison.png">
+  <link rel="canonical" href="https://yonsei-stl.github.io/SeeingThroughRain/">
+  <link rel="describedby" href="https://yonsei-stl.github.io/llms.txt">
+  <link rel="alternate" type="application/x-bibtex" href="citation.bib" title="BibTeX citation">
+  <link rel="alternate" type="application/vnd.citationstyles.csl+json" href="citation.json" title="CSL-JSON citation">
+  <!-- Optional typography enhancement, matching the existing STL pages. System fonts work offline. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700%7CNoto+Sans:400,600,700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/index.css">
+  <script src="static/js/index.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "@id": "https://yonsei-stl.github.io/SeeingThroughRain/#article",
+  "headline": "Seeing through the rain: An empirical assessment of short-wave infrared imaging on enhancing autonomous vehicle perception under rainy weather",
+  "name": "Seeing through the rain: An empirical assessment of short-wave infrared imaging on enhancing autonomous vehicle perception under rainy weather",
+  "description": "A measurement-driven comparison of RGB and SWIR imaging in real rainy driving scenes using 620 paired frames, 14 image-quality metrics, visibility estimation, and fixed pretrained perception models.",
+  "abstract": "Reliable visual perception under adverse weather remains a critical challenge for autonomous systems. Rain, in particular, degrades RGB camera performance due to Mie scattering and windshield distortions. In this study, we conduct a measurement-driven analysis comparing Short-Wave Infrared (SWIR) and RGB imaging under real-world rainy conditions. Using synchronized, unprocessed RGB-SWIR image pairs and 14 no-reference image quality metrics, we quantify clarity, contrast, and effective visibility. Results show SWIR provides a 29% increase in scene visibility and significantly enhances performance in object detection, segmentation, and depth estimation tasks. These measurements indicate that SWIR provides sensor-level mitigation of rain-induced degradations, improving perceptual quality and visibility under adverse conditions.",
+  "url": "https://yonsei-stl.github.io/SeeingThroughRain/",
+  "mainEntityOfPage": "https://yonsei-stl.github.io/SeeingThroughRain/",
+  "sameAs": "https://doi.org/10.1016/j.measurement.2025.119654",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1016/j.measurement.2025.119654"
+  },
+  "inLanguage": "en",
+  "image": "https://yonsei-stl.github.io/SeeingThroughRain/static/images/rain-comparison.png",
+  "keywords": [
+    "SWIR",
+    "rain",
+    "visibility assessment",
+    "image quality assessment",
+    "autonomous vehicle perception",
+    "measurement"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Sanghyeop Yeo",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Yagiz Nalcakan",
+      "url": "https://ynalcakan.github.io/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Youngwan Jin",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Incheol Park",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Hyeongjin Ju",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Shiho Kim",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "School of Integrated Technology, Yonsei University"
+        }
+      ]
+    }
+  ],
+  "isPartOf": {
+    "@type": "PublicationVolume",
+    "volumeNumber": "259",
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "Measurement"
+    }
+  },
+  "datePublished": "2025-11-12",
+  "pagination": "119654"
+}
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#abstract">Skip to paper content</a>
+<header class="hero"><div class="container">
+  <h1 class="publication-title">Seeing through the rain: An empirical assessment of short-wave infrared imaging on enhancing autonomous vehicle perception under rainy weather</h1>
+  <p class="publication-venue">Measurement, 2026</p>
+  <div class="publication-authors"><span class="author-block"><a href="https://stl.yonsei.ac.kr/">Sanghyeop Yeo</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://ynalcakan.github.io/">Yagiz Nalcakan</a><sup>1</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Youngwan Jin</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Incheol Park</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Hyeongjin Ju</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Shiho Kim</a><sup>1*</sup></span></div>
+  <div class="affiliations"><p><sup>1</sup>School of Integrated Technology, Yonsei University</p>
+<p><sup>2</sup>BK21 Graduate Program in Intelligent Semiconductor Technology</p></div>
+  <p class="author-notes">* Corresponding author: <a href="mailto:shiho@yonsei.ac.kr">shiho@yonsei.ac.kr</a></p>
+  <div class="publication-links"><a class="external-link button is-normal is-rounded is-dark" href="https://doi.org/10.1016/j.measurement.2025.119654"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H6V3z"/><path d="M14 3v5h4M9 12h6M9 16h6"/></svg><span>Paper</span></a>
+<a class="external-link button is-normal is-rounded is-dark" href="mailto:shiho@yonsei.ac.kr?subject=Data%20request%3A%20Seeing%20through%20the%20rain"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span>Request data</span></a>
+<a class="button is-normal is-rounded is-dark" href="#BibTeX"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 6H4v7h4c0 3-1 4-3 5m15-12h-6v7h4c0 3-1 4-3 5"/></svg><span>BibTeX</span></a></div>
+  <nav class="page-nav" aria-label="Page sections"><a href="#abstract">Abstract</a> <a href="#method">Method</a> <a href="#results">Results</a> <a href="#resources">Resources</a></nav>
+</div></header>
+<main>
+<section class="teaser" aria-label="Research overview"><div class="container">
+  <figure class="paper-figure">
+    <a class="figure-link" href="static/images/rain-comparison.png" target="_blank" rel="noopener" aria-label="Open full-size overview figure">
+      <picture><source srcset="static/images/rain-comparison.webp" type="image/webp"><img src="static/images/rain-comparison.png" alt="A representative rainy driving scene captured in RGB (left) and SWIR (right). Windshield artifacts and scene visibility differ across the two spectral views." width="1024" height="324" fetchpriority="high" decoding="async"></picture>
+    </a>
+    <figcaption>A representative rainy driving scene captured in RGB (left) and SWIR (right). Windshield artifacts and scene visibility differ across the two spectral views.<span class="figure-source"><a href="static/images/rain-comparison.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption>
+  </figure>
+  <div class="facts" aria-label="Study at a glance"><div class="fact"><span class="fact-value">620</span><span class="fact-label">paired daytime RGB–SWIR frames</span></div><div class="fact"><span class="fact-value">14</span><span class="fact-label">image clarity and quality metrics</span></div><div class="fact"><span class="fact-value">3</span><span class="fact-label">downstream perception tasks</span></div></div>
+</div></section>
+<section class="section" id="abstract" aria-labelledby="abstract-title"><div class="container">
+  <h2 id="abstract-title">Abstract</h2>
+  <div class="abstract-text"><p>Reliable visual perception under adverse weather remains a critical challenge for autonomous systems. Rain, in particular, degrades RGB camera performance due to Mie scattering and windshield distortions. In this study, we conduct a measurement-driven analysis comparing Short-Wave Infrared (SWIR) and RGB imaging under real-world rainy conditions. Using synchronized, unprocessed RGB-SWIR image pairs and 14 no-reference image quality metrics, we quantify clarity, contrast, and effective visibility. Results show SWIR provides a 29% increase in scene visibility and significantly enhances performance in object detection, segmentation, and depth estimation tasks. These measurements indicate that SWIR provides sensor-level mitigation of rain-induced degradations, improving perceptual quality and visibility under adverse conditions.</p></div>
+  <p class="abstract-label">Abstract from the published paper.</p>
+  <aside class="source-note" aria-label="Publication note"><p>The abstract above reports a 29% visibility increase. Table 2 reports condition-specific visibility estimates that do not directly match that headline percentage. The results below reproduce Table 2 without introducing a new overall visibility-gain figure.</p></aside>
+</div></section>
+<section class="section" id="method" aria-labelledby="method-title"><div class="container"><h2 id="method-title">Measurement Method</h2>
+<p>This is an <strong>empirical sensor-comparison study</strong>, not a new deraining network. It evaluates synchronized RGB–SWIR pairs captured behind a vehicle windshield during real rain. The analysis includes geometric registration, resampling, and a common field-of-view crop; no image-restoration or deraining algorithm is applied.</p><p>The collection contains <strong>620 paired daytime frames</strong>. The SWIR sensor is a Crevis HG-A130SW with a 1000–1700 nm filter; the visible sensor is a FLIR Grasshopper3. The paper evaluates image quality, estimates visibility from contrast-versus-distance regressions, and measures downstream perception using fixed pretrained models.</p><p>Downstream tests use <strong>YOLOv8</strong> for detection, <strong>DeepLabv3</strong> for segmentation, and <strong>MiDaS</strong> for monocular depth. RGB inputs are converted to grayscale for these comparisons, and the models are used without fine-tuning.</p>
+</div></section>
+<section class="section" id="visibility" aria-labelledby="visibility-title"><div class="container"><h2 id="visibility-title">Visibility Assessment</h2>
+<p>Scene visibility is estimated with the Koschmieder model, <strong>V = 3.912 / β̂</strong>, using accepted log-contrast-versus-distance regressions across five contrast definitions. The rain-intensity categories are based on visible windshield occlusion and distortion, rather than instrument-measured rainfall rates.</p><figure class="paper-figure">
+<a class="figure-link" href="static/images/visibility-assessment.png" target="_blank" rel="noopener" aria-label="Open full-size figure: Evaluated light, moderate, and heavy rain scenes. The columns show RGB, SWIR, and annotated image regions used for contrast-versus-distance analysis.">
+<picture><source srcset="static/images/visibility-assessment.webp" type="image/webp"><img src="static/images/visibility-assessment.png" alt="Evaluated light, moderate, and heavy rain scenes. The columns show RGB, SWIR, and annotated image regions used for contrast-versus-distance analysis." width="1424" height="848" loading="lazy" decoding="async"></picture></a>
+<figcaption>Evaluated light, moderate, and heavy rain scenes. The columns show RGB, SWIR, and annotated image regions used for contrast-versus-distance analysis. <span class="figure-source"><a href="static/images/visibility-assessment.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption></figure><div class="table-scroll" role="region" aria-label="Model-estimated visibility distance" tabindex="0"><table>
+<caption>Model-estimated visibility distance</caption><thead><tr><th scope="col">Imaging modality</th><th scope="col">Light rain</th><th scope="col">Moderate rain</th><th scope="col">Heavy rain</th></tr></thead><tbody><tr><th scope="row">RGB</th><td>1479.6 m</td><td>353.0 m</td><td>308.1 m</td></tr>
+<tr><th scope="row">SWIR</th><td>4869.5 m</td><td>537.7 m</td><td>454.3 m</td></tr>
+</tbody></table></div><p>These are model-based scene-visibility estimates, not directly measured object-detection ranges. The table values are reproduced as published; they are not combined with the abstract’s 29% figure.</p>
+</div></section>
+<section class="section" id="quality" aria-labelledby="quality-title"><div class="container"><h2 id="quality-title">Image Quality</h2>
+<p>The paper reports 14 measures of image clarity and quality. The table below reproduces the reported mean values; the publication also provides standard deviations and effect sizes. The arrow indicates the preferred direction where the source specifies one.</p><div class="table-scroll" role="region" aria-label="Image-quality comparison: published mean values" tabindex="0"><table>
+<caption>Image-quality comparison: published mean values</caption><thead><tr><th scope="col">Metric</th><th scope="col">RGB mean</th><th scope="col">SWIR mean</th></tr></thead><tbody><tr><th scope="row">Mean intensity</th><td>75.20</td><td>76.61</td></tr>
+<tr><th scope="row">HFContent ↑</th><td>3.957</td><td>10.197</td></tr>
+<tr><th scope="row">Laplacian variance ↑</th><td>15.20</td><td>74.57</td></tr>
+<tr><th scope="row">Brenner ↑</th><td>21.77</td><td>41.90</td></tr>
+<tr><th scope="row">SML ↑</th><td>7.78 × 10⁶</td><td>1.46 × 10⁷</td></tr>
+<tr><th scope="row">Average gradient ↑</th><td>14.02</td><td>17.55</td></tr>
+<tr><th scope="row">RMS gradient ↑</th><td>25.35</td><td>34.19</td></tr>
+<tr><th scope="row">Tenengrad ↑</th><td>719.7</td><td>1356.5</td></tr>
+<tr><th scope="row">Sobel variance ↑</th><td>10.84</td><td>28.76</td></tr>
+<tr><th scope="row">Edge density ↑</th><td>1.505</td><td>1.799</td></tr>
+<tr><th scope="row">BRISQUE ↓</th><td>2.659</td><td>2.635</td></tr>
+<tr><th scope="row">NIQE ↓</th><td>26.59</td><td>25.27</td></tr>
+<tr><th scope="row">MANIQA ↑</th><td>39.85</td><td>43.07</td></tr>
+<tr><th scope="row">CLIPIQA ↑</th><td>50.07</td><td>50.07</td></tr>
+</tbody></table></div><p>CLIPIQA has the same rounded mean for both modalities in Table 3. The paper notes that image-quality measures designed for RGB data may not fully characterize SWIR imagery.</p><details class="figure-details"><summary>View per-frame sharpness and contrast plots</summary><figure class="paper-figure">
+<a class="figure-link" href="static/images/sharpness-comparison.png" target="_blank" rel="noopener" aria-label="Open full-size figure: Per-frame RGB and SWIR comparisons for nine classical sharpness, gradient, edge, and frequency measures. Background shading indicates rain-intensity groups.">
+<picture><source srcset="static/images/sharpness-comparison.webp" type="image/webp"><img src="static/images/sharpness-comparison.png" alt="Per-frame RGB and SWIR comparisons for nine classical sharpness, gradient, edge, and frequency measures. Background shading indicates rain-intensity groups." width="2000" height="1192" loading="lazy" decoding="async"></picture></a>
+<figcaption>Per-frame RGB and SWIR comparisons for nine classical sharpness, gradient, edge, and frequency measures. Background shading indicates rain-intensity groups. <span class="figure-source"><a href="static/images/sharpness-comparison.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption></figure></details><details class="figure-details"><summary>View the published raindrop-detection examples</summary><figure class="paper-figure compact-figure">
+<a class="figure-link" href="static/images/raindrop-detections.png" target="_blank" rel="noopener" aria-label="Open full-size figure: Raindrop detections in the selected examples shown by the paper. Green boxes mark detected artifacts; the illustrated SWIR views have zero detections. This figure is not a guarantee that all SWIR scenes are free of raindrop effects.">
+<picture><source srcset="static/images/raindrop-detections.webp" type="image/webp"><img src="static/images/raindrop-detections.png" alt="Raindrop detections in the selected examples shown by the paper. Green boxes mark detected artifacts; the illustrated SWIR views have zero detections. This figure is not a guarantee that all SWIR scenes are free of raindrop effects." width="1080" height="1464" loading="lazy" decoding="async"></picture></a>
+<figcaption>Raindrop detections in the selected examples shown by the paper. Green boxes mark detected artifacts; the illustrated SWIR views have zero detections. This figure is not a guarantee that all SWIR scenes are free of raindrop effects. <span class="figure-source"><a href="static/images/raindrop-detections.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption></figure></details>
+</div></section>
+<section class="section" id="results" aria-labelledby="results-title"><div class="container"><h2 id="results-title">Downstream Perception</h2>
+<p>The following values are reproduced from the paper’s downstream-task comparison. The depth metrics retain the source’s reported scale; no unreported unit or calibration is added.</p><div class="table-scroll" role="region" aria-label="Downstream perception with fixed pretrained models" tabindex="0"><table>
+<caption>Downstream perception with fixed pretrained models</caption><thead><tr><th scope="col">Task / metric</th><th scope="col">RGB</th><th scope="col">SWIR</th></tr></thead><tbody><tr><th scope="row">Segmentation · mIoU ↑</th><td>0.8525</td><td>0.8959</td></tr>
+<tr><th scope="row">Segmentation · pixel accuracy ↑</th><td>0.9505</td><td>0.9706</td></tr>
+<tr><th scope="row">Depth · MAE ↓</th><td>13.9651</td><td>8.8677</td></tr>
+<tr><th scope="row">Depth · RMSE ↓</th><td>15.8352</td><td>12.3727</td></tr>
+<tr><th scope="row">Depth · SSIM ↑</th><td>0.0221</td><td>0.0302</td></tr>
+<tr><th scope="row">Detection · detected objects ↑</th><td>17</td><td>33</td></tr>
+<tr><th scope="row">Detection · recall ↑</th><td>0.1810</td><td>0.3431</td></tr>
+<tr><th scope="row">Detection · F1 ↑</th><td>0.2937</td><td>0.4192</td></tr>
+<tr><th scope="row">Detection · AR@10 ↑</th><td>0.1791</td><td>0.3038</td></tr>
+</tbody></table></div><figure class="paper-figure">
+<a class="figure-link" href="static/images/object-detection.png" target="_blank" rel="noopener" aria-label="Open full-size figure: Published zero-shot object-detection examples for RGB (upper row) and SWIR (lower row) under rainy conditions.">
+<picture><source srcset="static/images/object-detection.webp" type="image/webp"><img src="static/images/object-detection.png" alt="Published zero-shot object-detection examples for RGB (upper row) and SWIR (lower row) under rainy conditions." width="1396" height="572" loading="lazy" decoding="async"></picture></a>
+<figcaption>Published zero-shot object-detection examples for RGB (upper row) and SWIR (lower row) under rainy conditions. <span class="figure-source"><a href="static/images/object-detection.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption></figure><details class="figure-details"><summary>View the published depth-estimation examples</summary><figure class="paper-figure compact-figure">
+<a class="figure-link" href="static/images/depth-estimation.png" target="_blank" rel="noopener" aria-label="Open full-size figure: Monocular depth-estimation examples using RGB and SWIR views of rainy scenes.">
+<picture><source srcset="static/images/depth-estimation.webp" type="image/webp"><img src="static/images/depth-estimation.png" alt="Monocular depth-estimation examples using RGB and SWIR views of rainy scenes." width="940" height="1324" loading="lazy" decoding="async"></picture></a>
+<figcaption>Monocular depth-estimation examples using RGB and SWIR views of rainy scenes. <span class="figure-source"><a href="static/images/depth-estimation.png" target="_blank" rel="noopener">Open full-size figure</a></span></figcaption></figure></details><h3>Scope and limitations</h3><p>The evaluation focuses on sensors mounted <strong>behind a windshield</strong> and on the collected daytime data. The paper identifies direct rainfall exposure on external camera optics, low-light operation, and the absence of RGB-like color cues as important limitations or directions for further study. The findings should not be read as a validation of unrestricted all-weather operation.</p>
+</div></section>
+<section class="section" id="resources" aria-labelledby="resources-title"><div class="container"><h2 id="resources-title">Data Access</h2>
+<p>The publication states: <strong>“Data will be made available on request.”</strong> No public dataset-download or code-repository address is specified in the supplied paper.</p><p><a href="mailto:shiho@yonsei.ac.kr?subject=Data%20request%3A%20Seeing%20through%20the%20rain">Contact the corresponding author to request the data</a>.</p>
+</div></section>
+<section class="section" id="BibTeX" aria-labelledby="bibtex-title"><div class="container">
+  <h2 id="bibtex-title">BibTeX</h2>
+  <div class="citation-toolbar">
+    <button type="button" class="button" data-copy-bibtex hidden>Copy BibTeX</button>
+    <a href="citation.bib" download>Download .bib</a>
+    <a href="citation.json" download>Download CSL-JSON</a>
+    <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+  </div>
+  <pre><code id="bibtex-code">@article{yeo2026seeing,
+  title = {{Seeing through the rain: An empirical assessment of short-wave infrared imaging on enhancing autonomous vehicle perception under rainy weather}},
+  author = {Yeo, Sanghyeop and Nalcakan, Yagiz and Jin, Youngwan and Park, Incheol and Ju, Hyeongjin and Kim, Shiho},
+  journal = {Measurement},
+  volume = {259},
+  pages = {119654},
+  year = {2026},
+  doi = {10.1016/j.measurement.2025.119654},
+  url = {https://doi.org/10.1016/j.measurement.2025.119654}
+}
+</code></pre>
+  <p class="paper-reference" id="paper-reference"><strong>Original publication</strong><br>
+    Sanghyeop Yeo, Yagiz Nalcakan, Youngwan Jin, Incheol Park, Hyeongjin Ju, Shiho Kim. <cite>Seeing through the rain: An empirical assessment of short-wave infrared imaging on enhancing autonomous vehicle perception under rainy weather</cite>.
+    <span class="reference-details">Measurement, 2026. Volume 259 · Article 119654 · Available online 12 November 2025.</span>
+    <a href="https://doi.org/10.1016/j.measurement.2025.119654">DOI: 10.1016/j.measurement.2025.119654</a>
+  </p>
+</div></section>
+</main>
+<footer class="footer"><div class="container">
+  <p><a href="https://yonsei-stl.github.io/publications/">All STL publications</a> · <a href="https://stl.yonsei.ac.kr/">Seamless Trans-X Lab, Yonsei University</a></p>
+</div></footer>
+</body>
+</html>
