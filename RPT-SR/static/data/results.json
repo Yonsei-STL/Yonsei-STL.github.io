@@ -1,0 +1,509 @@
+{
+  "title": "RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution",
+  "doi": "10.1109/WACV61042.2026.00503",
+  "tables": {
+    "m3fd-x4": {
+      "source": "Table 1, PDF page 6; printed page 5189",
+      "columns": [
+        "method",
+        "lpips",
+        "musiq",
+        "maniqa",
+        "gflops",
+        "params_m"
+      ],
+      "rows": [
+        {
+          "method": "BSRGAN",
+          "lpips": "0.2372",
+          "musiq": "33.6130",
+          "maniqa": "0.1643",
+          "gflops": "297.7300",
+          "params_m": "16.7000"
+        },
+        {
+          "method": "SwinIR",
+          "lpips": "0.2070",
+          "musiq": "31.8550",
+          "maniqa": "0.1441",
+          "gflops": "861.2700",
+          "params_m": "11.9000"
+        },
+        {
+          "method": "HAT",
+          "lpips": "0.1118",
+          "musiq": "39.6269",
+          "maniqa": "0.2448",
+          "gflops": "345.6320",
+          "params_m": "20.5100"
+        },
+        {
+          "method": "HAT-s",
+          "lpips": "0.1117",
+          "musiq": "40.0702",
+          "maniqa": "0.2438",
+          "gflops": "163.3130",
+          "params_m": "9.3590"
+        },
+        {
+          "method": "DAT",
+          "lpips": "0.1084",
+          "musiq": "40.2458",
+          "maniqa": "0.2473",
+          "gflops": "245.1820",
+          "params_m": "14.8020"
+        },
+        {
+          "method": "DAT-light",
+          "lpips": "0.1586",
+          "musiq": "38.1636",
+          "maniqa": "0.2382",
+          "gflops": "9.1060",
+          "params_m": "0.6000"
+        },
+        {
+          "method": "DAT-S",
+          "lpips": "0.1148",
+          "musiq": "40.0828",
+          "maniqa": "0.2468",
+          "gflops": "186.4680",
+          "params_m": "11.2120"
+        },
+        {
+          "method": "DAT2",
+          "lpips": "0.1424",
+          "musiq": "40.2149",
+          "maniqa": "0.2488",
+          "gflops": "186.4710",
+          "params_m": "11.2120"
+        },
+        {
+          "method": "RGT",
+          "lpips": "0.1094",
+          "musiq": "41.3049",
+          "maniqa": "0.2482",
+          "gflops": "207.6040",
+          "params_m": "13.3570"
+        },
+        {
+          "method": "RGT-S",
+          "lpips": "0.1241",
+          "musiq": "39.6106",
+          "maniqa": "0.2435",
+          "gflops": "160.4810",
+          "params_m": "10.1920"
+        },
+        {
+          "method": "CAT-a2",
+          "lpips": "0.1072",
+          "musiq": "40.8421",
+          "maniqa": "0.2445",
+          "gflops": "278.9230",
+          "params_m": "16.6040"
+        },
+        {
+          "method": "CAT-a",
+          "lpips": "0.1107",
+          "musiq": "40.1292",
+          "maniqa": "0.2439",
+          "gflops": "278.9180",
+          "params_m": "16.6040"
+        },
+        {
+          "method": "CAT2",
+          "lpips": "0.1186",
+          "musiq": "39.2645",
+          "maniqa": "0.2394",
+          "gflops": "202.4670",
+          "params_m": "11.9250"
+        },
+        {
+          "method": "CAT",
+          "lpips": "0.1334",
+          "musiq": "41.7353",
+          "maniqa": "0.2473",
+          "gflops": "278.9080",
+          "params_m": "16.6040"
+        },
+        {
+          "method": "SMFANet",
+          "lpips": "0.1682",
+          "musiq": "36.6689",
+          "maniqa": "0.2345",
+          "gflops": "2.9490",
+          "params_m": "0.1970"
+        },
+        {
+          "method": "SMFANet-plus",
+          "lpips": "0.1656",
+          "musiq": "37.1501",
+          "maniqa": "0.2463",
+          "gflops": "7.4470",
+          "params_m": "0.4950"
+        },
+        {
+          "method": "SRFormer",
+          "lpips": "0.1215",
+          "musiq": "40.0070",
+          "maniqa": "0.2455",
+          "gflops": "227.4040",
+          "params_m": "10.4290"
+        },
+        {
+          "method": "SRFormer-light",
+          "lpips": "0.1739",
+          "musiq": "35.0966",
+          "maniqa": "0.2332",
+          "gflops": "14.1340",
+          "params_m": "0.8400"
+        },
+        {
+          "method": "ART",
+          "lpips": "0.1148",
+          "musiq": "39.0602",
+          "maniqa": "0.2390",
+          "gflops": "283.7570",
+          "params_m": "16.5460"
+        },
+        {
+          "method": "ART-S",
+          "lpips": "0.1801",
+          "musiq": "37.6691",
+          "maniqa": "0.2408",
+          "gflops": "203.2140",
+          "params_m": "11.8670"
+        },
+        {
+          "method": "PFT",
+          "lpips": "0.1045",
+          "musiq": "38.9887",
+          "maniqa": "0.2451",
+          "gflops": "319.1660",
+          "params_m": "19.0570"
+        },
+        {
+          "method": "PFT-light",
+          "lpips": "0.1577",
+          "musiq": "37.5897",
+          "maniqa": "0.2423",
+          "gflops": "11.3370",
+          "params_m": "0.6970"
+        },
+        {
+          "method": "ATD",
+          "lpips": "0.1357",
+          "musiq": "41.6795",
+          "maniqa": "0.2496",
+          "gflops": "310.2350",
+          "params_m": "19.8840"
+        },
+        {
+          "method": "ATD-light",
+          "lpips": "0.1625",
+          "musiq": "37.4732",
+          "maniqa": "0.2486",
+          "gflops": "11.6690",
+          "params_m": "0.6610"
+        },
+        {
+          "method": "HIT-SR",
+          "lpips": "0.1516",
+          "musiq": "38.3516",
+          "maniqa": "0.2375",
+          "gflops": "13.0660",
+          "params_m": "0.7920"
+        },
+        {
+          "method": "CoRPLE",
+          "lpips": "0.2320",
+          "musiq": "31.0734",
+          "maniqa": "0.2022",
+          "gflops": "37.5920",
+          "params_m": "0.5910"
+        },
+        {
+          "method": "RPT-SR-Light",
+          "lpips": "0.1377",
+          "musiq": "41.7372",
+          "maniqa": "0.2472",
+          "gflops": "27.5540",
+          "params_m": "3.9500"
+        },
+        {
+          "method": "RPT-SR",
+          "lpips": "0.1038",
+          "musiq": "41.8049",
+          "maniqa": "0.2621",
+          "gflops": "237.7830",
+          "params_m": "25.8300"
+        }
+      ]
+    },
+    "rasmd-tno-x4": {
+      "source": "Table 2, PDF page 7; printed page 5190",
+      "columns": [
+        "method",
+        "rasmd_lpips",
+        "tno_lpips"
+      ],
+      "rows": [
+        {
+          "method": "BSRGAN",
+          "rasmd_lpips": "0.1884",
+          "tno_lpips": "0.4095"
+        },
+        {
+          "method": "SwinIR",
+          "rasmd_lpips": "0.2415",
+          "tno_lpips": "0.4797"
+        },
+        {
+          "method": "HAT",
+          "rasmd_lpips": "0.1560",
+          "tno_lpips": "0.2475"
+        },
+        {
+          "method": "HAT-S",
+          "rasmd_lpips": "0.1603",
+          "tno_lpips": "0.2543"
+        },
+        {
+          "method": "DAT",
+          "rasmd_lpips": "0.1623",
+          "tno_lpips": "0.2534"
+        },
+        {
+          "method": "DAT-light",
+          "rasmd_lpips": "0.1650",
+          "tno_lpips": "0.3534"
+        },
+        {
+          "method": "DAT-S",
+          "rasmd_lpips": "0.1603",
+          "tno_lpips": "0.2548"
+        },
+        {
+          "method": "RGT",
+          "rasmd_lpips": "0.1638",
+          "tno_lpips": "0.2809"
+        },
+        {
+          "method": "RGT-S",
+          "rasmd_lpips": "0.1582",
+          "tno_lpips": "0.2853"
+        },
+        {
+          "method": "CAT",
+          "rasmd_lpips": "0.1559",
+          "tno_lpips": "0.3280"
+        },
+        {
+          "method": "CAT-2",
+          "rasmd_lpips": "0.1604",
+          "tno_lpips": "0.2973"
+        },
+        {
+          "method": "CAT-A",
+          "rasmd_lpips": "0.1548",
+          "tno_lpips": "0.3280"
+        },
+        {
+          "method": "CAT-A2",
+          "rasmd_lpips": "0.1577",
+          "tno_lpips": "0.3269"
+        },
+        {
+          "method": "SMFANet",
+          "rasmd_lpips": "0.1755",
+          "tno_lpips": "0.3609"
+        },
+        {
+          "method": "SMFANet-plus",
+          "rasmd_lpips": "0.1711",
+          "tno_lpips": "0.3574"
+        },
+        {
+          "method": "ART",
+          "rasmd_lpips": "0.1592",
+          "tno_lpips": "0.2536"
+        },
+        {
+          "method": "ART-S",
+          "rasmd_lpips": "0.1650",
+          "tno_lpips": "0.3374"
+        },
+        {
+          "method": "PFT",
+          "rasmd_lpips": "0.1608",
+          "tno_lpips": "0.3229"
+        },
+        {
+          "method": "PFT-light",
+          "rasmd_lpips": "0.1647",
+          "tno_lpips": "0.3440"
+        },
+        {
+          "method": "ATD",
+          "rasmd_lpips": "0.1589",
+          "tno_lpips": "0.3163"
+        },
+        {
+          "method": "ATD-light",
+          "rasmd_lpips": "0.1667",
+          "tno_lpips": "0.3431"
+        },
+        {
+          "method": "HIT-SR",
+          "rasmd_lpips": "0.1675",
+          "tno_lpips": "0.3442"
+        },
+        {
+          "method": "CoRPLE",
+          "rasmd_lpips": "0.3087",
+          "tno_lpips": "0.3671"
+        },
+        {
+          "method": "RPT-SR",
+          "rasmd_lpips": "0.1535",
+          "tno_lpips": "0.2501"
+        }
+      ]
+    },
+    "rasmd-m3fd-x2": {
+      "source": "Table 3, PDF page 7; printed page 5190",
+      "columns": [
+        "method",
+        "rasmd_lpips",
+        "m3fd_lpips"
+      ],
+      "rows": [
+        {
+          "method": "BSRGAN",
+          "rasmd_lpips": "0.1457",
+          "m3fd_lpips": "0.1314"
+        },
+        {
+          "method": "SwinIR",
+          "rasmd_lpips": "0.0354",
+          "m3fd_lpips": "0.0732"
+        },
+        {
+          "method": "HAT-S",
+          "rasmd_lpips": "0.0286",
+          "m3fd_lpips": "0.0731"
+        },
+        {
+          "method": "RGT",
+          "rasmd_lpips": "0.0383",
+          "m3fd_lpips": "0.0746"
+        },
+        {
+          "method": "RGT-S",
+          "rasmd_lpips": "0.0409",
+          "m3fd_lpips": "0.0759"
+        },
+        {
+          "method": "SMFANet",
+          "rasmd_lpips": "0.0377",
+          "m3fd_lpips": "0.0819"
+        },
+        {
+          "method": "SMFANet-plus",
+          "rasmd_lpips": "0.0355",
+          "m3fd_lpips": "0.0766"
+        },
+        {
+          "method": "ART-S",
+          "rasmd_lpips": "0.0313",
+          "m3fd_lpips": "0.0750"
+        },
+        {
+          "method": "PFT-light",
+          "rasmd_lpips": "0.0364",
+          "m3fd_lpips": "0.0759"
+        },
+        {
+          "method": "ATD-light",
+          "rasmd_lpips": "0.0359",
+          "m3fd_lpips": "0.0730"
+        },
+        {
+          "method": "HiT-SR",
+          "rasmd_lpips": "0.0347",
+          "m3fd_lpips": "0.0772"
+        },
+        {
+          "method": "CoRPLE",
+          "rasmd_lpips": "0.0373",
+          "m3fd_lpips": "0.0766"
+        },
+        {
+          "method": "RPT-SR",
+          "rasmd_lpips": "0.0285",
+          "m3fd_lpips": "0.0728"
+        }
+      ]
+    },
+    "ablation-x4": {
+      "source": "Table 4, PDF page 8; printed page 5191",
+      "columns": [
+        "method",
+        "m3fd_lpips",
+        "m3fd_musiq",
+        "m3fd_maniqa",
+        "tno_lpips",
+        "tno_musiq",
+        "tno_maniqa",
+        "rasmd_lpips",
+        "rasmd_musiq",
+        "rasmd_maniqa",
+        "gflops",
+        "params_m"
+      ],
+      "rows": [
+        {
+          "method": "Baseline",
+          "m3fd_lpips": "0.105057",
+          "m3fd_musiq": "41.2597",
+          "m3fd_maniqa": "0.26091",
+          "tno_lpips": "0.25048",
+          "tno_musiq": "36.4154",
+          "tno_maniqa": "0.24596",
+          "rasmd_lpips": "0.154442",
+          "rasmd_musiq": "44.39395",
+          "rasmd_maniqa": "0.223607",
+          "gflops": "231.366",
+          "params_m": "25.454"
+        },
+        {
+          "method": "Static",
+          "m3fd_lpips": "0.105324",
+          "m3fd_musiq": "41.6872",
+          "m3fd_maniqa": "0.26034",
+          "tno_lpips": "0.25257",
+          "tno_musiq": "38.2838",
+          "tno_maniqa": "0.24903",
+          "rasmd_lpips": "0.154457",
+          "rasmd_musiq": "44.72269",
+          "rasmd_maniqa": "0.225821",
+          "gflops": "229.100",
+          "params_m": "25.377"
+        },
+        {
+          "method": "RPT (Ours)",
+          "m3fd_lpips": "0.103793",
+          "m3fd_musiq": "41.8049",
+          "m3fd_maniqa": "0.26213",
+          "tno_lpips": "0.25014",
+          "tno_musiq": "38.5862",
+          "tno_maniqa": "0.25125",
+          "rasmd_lpips": "0.153543",
+          "rasmd_musiq": "44.91027",
+          "rasmd_maniqa": "0.226634",
+          "gflops": "237.783",
+          "params_m": "25.830"
+        }
+      ]
+    }
+  }
+}

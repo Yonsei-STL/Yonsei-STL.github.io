@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution</title>
+  <meta name="description" content="We introduce RPT-SR, a dual-token transformer that combines learned regional priors with local features for LWIR and SWIR image super-resolution.">
+  <meta name="keywords" content="RPT-SR, infrared image super-resolution, Regional Prior Attention, regional prior tokens, dual-token transformer, LWIR, SWIR, M3FD, RASMD, TNO">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="citation_title" content="RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="2026 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)">
+  <meta name="citation_firstpage" content="5184">
+  <meta name="citation_lastpage" content="5193">
+  <meta name="citation_doi" content="10.1109/WACV61042.2026.00503">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2602.15490">
+  <meta name="citation_abstract_html_url" content="https://yonsei-stl.github.io/RPT-SR/#abstract">
+  <meta name="citation_language" content="en">
+  <meta name="citation_author" content="Youngwan Jin">
+  <meta name="citation_author" content="Incheol Park">
+  <meta name="citation_author" content="Yagiz Nalcakan">
+  <meta name="citation_author" content="Hyeongjin Ju">
+  <meta name="citation_author" content="Sanghyeop Yeo">
+  <meta name="citation_author" content="Shiho Kim">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution">
+  <meta property="og:description" content="We introduce RPT-SR, a dual-token transformer that combines learned regional priors with local features for LWIR and SWIR image super-resolution.">
+  <meta property="og:url" content="https://yonsei-stl.github.io/RPT-SR/">
+  <meta property="og:site_name" content="Seamless Trans-X Lab, Yonsei University">
+  <meta property="og:image" content="https://yonsei-stl.github.io/RPT-SR/static/images/architecture.png">
+  <meta property="og:image:alt" content="Our RPT-SR architecture: a low-resolution infrared image passes through a convolutional stem, residual Regional Prior Attention blocks, and a pixel-shuffle reconstruction head. A detailed RPA module combines local tokens and regional prior tokens, with hierarchical windows shown alongside.">
+  <meta property="og:image:width" content="3030">
+  <meta property="og:image:height" content="1305">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution">
+  <meta name="twitter:description" content="We introduce RPT-SR, a dual-token transformer that combines learned regional priors with local features for LWIR and SWIR image super-resolution.">
+  <meta name="twitter:image" content="https://yonsei-stl.github.io/RPT-SR/static/images/architecture.png">
+  <meta name="twitter:image:alt" content="Our RPT-SR architecture: a low-resolution infrared image passes through a convolutional stem, residual Regional Prior Attention blocks, and a pixel-shuffle reconstruction head. A detailed RPA module combines local tokens and regional prior tokens, with hierarchical windows shown alongside.">
+  <link rel="canonical" href="https://yonsei-stl.github.io/RPT-SR/">
+  <link rel="alternate" type="application/x-bibtex" href="citation.bib" title="BibTeX citation">
+  <link rel="alternate" type="application/vnd.citationstyles.csl+json" href="citation.json" title="CSL-JSON citation">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700%7CNoto+Sans:400,600,700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/index.css">
+  <script src="static/js/index.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "@id": "https://yonsei-stl.github.io/RPT-SR/#article",
+  "headline": "RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution",
+  "name": "RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution",
+  "description": "We introduce RPT-SR, a dual-token transformer that combines learned regional priors with local features for LWIR and SWIR image super-resolution.",
+  "abstract": "We address a fundamental inefficiency in infrared image super-resolution: general-purpose models repeatedly learn spatial relationships even when cameras observe fixed or nearly static scene layouts. We propose the Regional Prior attention Transformer for infrared image Super-Resolution (RPT-SR), which explicitly encodes these persistent spatial regularities in its attention mechanism. Our dual-token framework combines learnable regional prior tokens, which retain position-specific structural information across training images, with local tokens that capture the content of each input frame. We refine these fused tokens through attention and use them to guide local reconstruction within a hierarchical window structure. We evaluate our approach on long-wave infrared (LWIR) and short-wave infrared (SWIR) datasets at ×2 and ×4 magnification. Our model achieves the strongest LPIPS, MUSIQ, and MANIQA results among the methods we compare on M3FD at ×4, along with competitive performance across RASMD and TNO. Through ablation experiments, we show that combining persistent priors with frame-specific features improves perceptual reconstruction over using either token type alone. Our approach demonstrates how scene-layout information can complement dynamic image features for infrared super-resolution.",
+  "url": "https://yonsei-stl.github.io/RPT-SR/",
+  "mainEntityOfPage": "https://yonsei-stl.github.io/RPT-SR/",
+  "sameAs": [
+    "https://doi.org/10.1109/WACV61042.2026.00503",
+    "https://arxiv.org/abs/2602.15490"
+  ],
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "DOI",
+    "value": "10.1109/WACV61042.2026.00503"
+  },
+  "inLanguage": "en",
+  "image": "https://yonsei-stl.github.io/RPT-SR/static/images/architecture.png",
+  "keywords": [
+    "RPT-SR",
+    "infrared image super-resolution",
+    "Regional Prior Attention",
+    "regional prior tokens",
+    "dual-token transformer",
+    "LWIR",
+    "SWIR",
+    "M3FD",
+    "RASMD",
+    "TNO"
+  ],
+  "datePublished": "2026",
+  "pagination": "5184–5193",
+  "publisher": {
+    "@type": "Organization",
+    "name": "IEEE"
+  },
+  "isPartOf": {
+    "@type": "CreativeWork",
+    "name": "2026 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)"
+  },
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Youngwan Jin",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Incheol Park",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Yagiz Nalcakan",
+      "url": "https://ynalcakan.github.io/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Yonsei University"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Hyeongjin Ju",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Sanghyeop Yeo",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Yonsei University"
+        },
+        {
+          "@type": "Organization",
+          "name": "BK21 Graduate Program in Intelligent Semiconductor Technology"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Shiho Kim",
+      "url": "https://stl.yonsei.ac.kr/",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Yonsei University"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#abstract">Skip to research content</a>
+<header class="hero"><div class="container">
+  <h1 class="publication-title">RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution</h1>
+  <p class="publication-venue">WACV, 2026</p>
+  <div class="publication-authors"><span class="author-block"><a href="https://stl.yonsei.ac.kr/">Youngwan Jin</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Incheol Park</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://ynalcakan.github.io/">Yagiz Nalcakan</a><sup>1</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Hyeongjin Ju</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Sanghyeop Yeo</a><sup>1,2</sup></span>,
+<span class="author-block"><a href="https://stl.yonsei.ac.kr/">Shiho Kim</a><sup>1</sup></span></div>
+  <div class="affiliations"><p><sup>1</sup>Yonsei University</p>
+<p><sup>2</sup>BK21 Graduate Program in Intelligent Semiconductor Technology</p></div>
+  <div class="publication-links"><a class="button is-normal is-rounded is-dark" href="https://doi.org/10.1109/WACV61042.2026.00503"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H6V3z"/><path d="M14 3v5h4M9 12h6M9 16h6"/></svg><span>Paper</span></a>
+<a class="button is-normal is-rounded is-dark" href="https://arxiv.org/abs/2602.15490"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H6V3z"/><path d="M14 3v5h4M9 12h6M9 16h6"/></svg><span>arXiv</span></a>
+<a class="button is-normal is-rounded is-dark" href="https://github.com/Yonsei-STL/RPT-SR"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></svg><span>Code</span></a>
+<a class="button is-normal is-rounded is-dark" href="#BibTeX"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 6H4v7h4c0 3-1 4-3 5m15-12h-6v7h4c0 3-1 4-3 5"/></svg><span>BibTeX</span></a></div>
+  <nav class="page-nav" aria-label="Page sections"><a href="#abstract">Abstract</a> <a href="#method">Method</a> <a href="#experiments">Experiments</a> <a href="#results">Results</a> <a href="#ablation">Ablation</a> <a href="#resources">Resources</a></nav>
+</div></header>
+<main>
+<section class="teaser" aria-label="Research overview"><div class="container">
+  <figure class="paper-figure">
+  <a class="figure-link" href="static/images/architecture.png" target="_blank" rel="noopener" aria-label="Open full-size architecture figure in a new tab">
+    <picture><source srcset="static/images/architecture.webp" type="image/webp"><img src="static/images/architecture.png" alt="Our RPT-SR architecture: a low-resolution infrared image passes through a convolutional stem, residual Regional Prior Attention blocks, and a pixel-shuffle reconstruction head. A detailed RPA module combines local tokens and regional prior tokens, with hierarchical windows shown alongside." width="3030" height="1305" fetchpriority="high" decoding="async"></picture>
+  </a>
+  <figcaption>Our RPT-SR architecture combines shallow feature extraction, Regional Prior Attention blocks, and a reconstruction head. We fuse learnable regional prior tokens with input-dependent local tokens to guide reconstruction across progressively larger attention windows.</figcaption>
+</figure>
+  <div class="facts" aria-label="Our results at a glance"><div class="fact"><span class="fact-value">0.1038</span><span class="fact-label">M3FD ×4 · LPIPS ↓</span></div><div class="fact"><span class="fact-value">0.1535</span><span class="fact-label">RASMD ×4 · LPIPS ↓</span></div><div class="fact"><span class="fact-value">×2 / ×4</span><span class="fact-label">LWIR and SWIR super-resolution</span></div></div>
+</div></section>
+<section class="section" id="abstract" aria-labelledby="abstract-title"><div class="container"><h2 id="abstract-title">Abstract</h2>
+<div class="abstract-text"><p>We address a fundamental inefficiency in infrared image super-resolution: general-purpose models repeatedly learn spatial relationships even when cameras observe fixed or nearly static scene layouts. We propose the Regional Prior attention Transformer for infrared image Super-Resolution (RPT-SR), which explicitly encodes these persistent spatial regularities in its attention mechanism. Our dual-token framework combines learnable regional prior tokens, which retain position-specific structural information across training images, with local tokens that capture the content of each input frame. We refine these fused tokens through attention and use them to guide local reconstruction within a hierarchical window structure. We evaluate our approach on long-wave infrared (LWIR) and short-wave infrared (SWIR) datasets at ×2 and ×4 magnification. Our model achieves the strongest LPIPS, MUSIQ, and MANIQA results among the methods we compare on M3FD at ×4, along with competitive performance across RASMD and TNO. Through ablation experiments, we show that combining persistent priors with frame-specific features improves perceptual reconstruction over using either token type alone. Our approach demonstrates how scene-layout information can complement dynamic image features for infrared super-resolution.</p></div>
+</div></section>
+<section class="section" id="method" aria-labelledby="method-title"><div class="container"><h2 id="method-title">Regional Prior Attention</h2>
+<p>We exploit the spatial regularities of fixed-viewpoint infrared scenes. In forward-facing driving images, for example, roads, buildings, and sky tend to occupy recurring regions. Rather than asking our model to rediscover these relationships in every input, we encode them as a learnable, position-specific memory.</p><figure class="paper-figure compact-figure">
+  <a class="figure-link" href="static/images/attention-mechanisms.png" target="_blank" rel="noopener" aria-label="Open full-size attention mechanisms figure in a new tab">
+    <picture><source srcset="static/images/attention-mechanisms.webp" type="image/webp"><img src="static/images/attention-mechanisms.png" alt="Our comparison of global self-attention, window self-attention, and Regional Prior Attention. The regional prior tokens are learned over training epochs and paired with local tokens at each layer." width="1596" height="1558" loading="lazy" decoding="async"></picture>
+  </a>
+  <figcaption>We combine the flexibility of local image features with a persistent memory of scene layout. Our Regional Prior Attention uses both token types, unlike global self-attention or window attention alone.</figcaption>
+</figure><h3>Regional priors that persist across images</h3><p>We assign learnable regional prior tokens to macro-window locations and share them across training images. We keep a separate set in each layer, allowing our attention blocks to learn structural regularities at different depths. These tokens are model parameters, not stored video frames.</p>
+<h3>Local features that adapt to each input</h3><p>We generate local tokens from the current feature map using a 1×1 channel projection, a depth-wise 3×3 convolution, and average pooling. We then concatenate each local token with its regional prior along the channel dimension, combining frame-specific evidence with persistent spatial context.</p>
+<h3>Global guidance, local reconstruction</h3><p>We first exchange information among the fused tokens through self-attention. We then redistribute them to their corresponding windows and apply attention jointly with the window tokens. Our hierarchical window schedule expands the spatial context in deeper layers, while residual paths and a pixel-shuffle head produce the high-resolution output.</p>
+</div></section>
+<section class="section" id="experiments" aria-labelledby="experiments-title"><div class="container"><h2 id="experiments-title">Experimental Setup</h2>
+<p>We evaluate infrared super-resolution across two spectral domains. We train on our M3FD and RASMD splits and use TNO to assess cross-dataset generalization in the LWIR domain.</p><div class="table-scroll" role="region" aria-labelledby="datasets-caption" tabindex="0"><table id="datasets"><caption id="datasets-caption">Our dataset splits</caption><thead><tr><th scope="col">Dataset</th><th scope="col">Spectrum</th><th scope="col">Training images</th><th scope="col">Test images</th><th scope="col">Evaluation role</th></tr></thead><tbody><tr><th scope="row">M3FD</th><td>LWIR</td><td>182</td><td>38</td><td>Training and evaluation</td></tr>
+<tr><th scope="row">TNO</th><td>LWIR</td><td>—</td><td>37</td><td>Cross-dataset evaluation</td></tr>
+<tr><th scope="row">RASMD</th><td>SWIR</td><td>3,696</td><td>498</td><td>Training and evaluation</td></tr></tbody></table></div><p>We construct low-resolution inputs by bicubic downsampling from 512×512 high-resolution patches: 128×128 inputs for ×4 reconstruction and 256×256 inputs for ×2. We run our ×4 experiments on an NVIDIA RTX 4090 and our ×2 experiments on an NVIDIA A6000.</p><h3>Model configuration</h3><p>We use four Regional Prior Attention blocks with four transformer layers per block. Our full model uses 240 channels, six attention heads, and window sizes of 8×8, 16×16, 16×16, and 32×32. For RPT-SR-Light, we use 80 channels, four heads, and windows of 8×8, 8×8, 16×16, and 16×16.</p><p>We use one fused token per attention window and train for 100,000 iterations. To accelerate the learning of regional priors, we apply a 50× learning-rate multiplier to their parameters.</p>
+</div></section>
+<section class="section" id="results" aria-labelledby="results-title"><div class="container"><h2 id="results-title">Results</h2>
+<p>We evaluate perceptual similarity with LPIPS and no-reference image quality with MUSIQ and MANIQA. Lower LPIPS is better; higher MUSIQ and MANIQA are better. On M3FD at ×4, we achieve the best value for all three quality metrics among the methods we compare.</p><figure class="paper-figure">
+  <a class="figure-link" href="static/images/qualitative-comparison.png" target="_blank" rel="noopener" aria-label="Open full-size qualitative comparison figure in a new tab">
+    <picture><source srcset="static/images/qualitative-comparison.webp" type="image/webp"><img src="static/images/qualitative-comparison.png" alt="Our qualitative comparison on four M3FD infrared scenes at four-times super-resolution. Each panel shows the full scene and crops labeled HR, LR, CoRPLE, SwinIR, BSRGAN, HiT, PFT, and Ours." width="4654" height="1902" loading="lazy" decoding="async"></picture>
+  </a>
+  <figcaption>Our ×4 reconstructions on M3FD preserve fine structures in pedestrians, building facades, and distant objects. We compare our outputs with high-resolution references, low-resolution inputs, and competing super-resolution methods.</figcaption>
+</figure><h3>M3FD · ×4 super-resolution</h3><div class="table-scroll" role="region" aria-labelledby="selected-m3fd-x4-caption" tabindex="0"><table id="selected-m3fd-x4"><caption id="selected-m3fd-x4-caption">Our comparison with selected methods on M3FD at ×4</caption><thead><tr><th scope="col">Method</th><th scope="col">LPIPS ↓</th><th scope="col">MUSIQ ↑</th><th scope="col">MANIQA ↑</th><th scope="col">FLOPs (G) ↓</th><th scope="col">Params (M) ↓</th></tr></thead><tbody><tr><th scope="row">SwinIR</th><td>0.2070</td><td>31.8550</td><td>0.1441</td><td>861.2700</td><td>11.9000</td></tr>
+<tr><th scope="row">HAT</th><td>0.1118</td><td>39.6269</td><td>0.2448</td><td>345.6320</td><td>20.5100</td></tr>
+<tr><th scope="row">DAT</th><td>0.1084</td><td>40.2458</td><td>0.2473</td><td>245.1820</td><td>14.8020</td></tr>
+<tr><th scope="row">RGT</th><td>0.1094</td><td>41.3049</td><td>0.2482</td><td>207.6040</td><td>13.3570</td></tr>
+<tr><th scope="row">CAT-a2</th><td>0.1072</td><td>40.8421</td><td>0.2445</td><td>278.9230</td><td>16.6040</td></tr>
+<tr><th scope="row">PFT</th><td>0.1045</td><td>38.9887</td><td>0.2451</td><td>319.1660</td><td>19.0570</td></tr>
+<tr class="ours"><th scope="row"><strong>RPT-SR-Light</strong></th><td>0.1377</td><td>41.7372</td><td>0.2472</td><td>27.5540</td><td>3.9500</td></tr>
+<tr class="ours"><th scope="row"><strong>RPT-SR</strong></th><td><strong>0.1038</strong></td><td><strong>41.8049</strong></td><td><strong>0.2621</strong></td><td>237.7830</td><td>25.8300</td></tr></tbody></table></div><details class="figure-details"><summary>All 28 methods on M3FD at ×4</summary>
+<div class="table-scroll" role="region" aria-labelledby="full-m3fd-x4-caption" tabindex="0"><table id="full-m3fd-x4"><caption id="full-m3fd-x4-caption">Our full M3FD ×4 comparison</caption><thead><tr><th scope="col">Method</th><th scope="col">LPIPS ↓</th><th scope="col">MUSIQ ↑</th><th scope="col">MANIQA ↑</th><th scope="col">FLOPs (G) ↓</th><th scope="col">Params (M) ↓</th></tr></thead><tbody><tr><th scope="row">BSRGAN</th><td>0.2372</td><td>33.6130</td><td>0.1643</td><td>297.7300</td><td>16.7000</td></tr>
+<tr><th scope="row">SwinIR</th><td>0.2070</td><td>31.8550</td><td>0.1441</td><td>861.2700</td><td>11.9000</td></tr>
+<tr><th scope="row">HAT</th><td>0.1118</td><td>39.6269</td><td>0.2448</td><td>345.6320</td><td>20.5100</td></tr>
+<tr><th scope="row">HAT-s</th><td>0.1117</td><td>40.0702</td><td>0.2438</td><td>163.3130</td><td>9.3590</td></tr>
+<tr><th scope="row">DAT</th><td>0.1084</td><td>40.2458</td><td>0.2473</td><td>245.1820</td><td>14.8020</td></tr>
+<tr><th scope="row">DAT-light</th><td>0.1586</td><td>38.1636</td><td>0.2382</td><td>9.1060</td><td>0.6000</td></tr>
+<tr><th scope="row">DAT-S</th><td>0.1148</td><td>40.0828</td><td>0.2468</td><td>186.4680</td><td>11.2120</td></tr>
+<tr><th scope="row">DAT2</th><td>0.1424</td><td>40.2149</td><td>0.2488</td><td>186.4710</td><td>11.2120</td></tr>
+<tr><th scope="row">RGT</th><td>0.1094</td><td>41.3049</td><td>0.2482</td><td>207.6040</td><td>13.3570</td></tr>
+<tr><th scope="row">RGT-S</th><td>0.1241</td><td>39.6106</td><td>0.2435</td><td>160.4810</td><td>10.1920</td></tr>
+<tr><th scope="row">CAT-a2</th><td>0.1072</td><td>40.8421</td><td>0.2445</td><td>278.9230</td><td>16.6040</td></tr>
+<tr><th scope="row">CAT-a</th><td>0.1107</td><td>40.1292</td><td>0.2439</td><td>278.9180</td><td>16.6040</td></tr>
+<tr><th scope="row">CAT2</th><td>0.1186</td><td>39.2645</td><td>0.2394</td><td>202.4670</td><td>11.9250</td></tr>
+<tr><th scope="row">CAT</th><td>0.1334</td><td>41.7353</td><td>0.2473</td><td>278.9080</td><td>16.6040</td></tr>
+<tr><th scope="row">SMFANet</th><td>0.1682</td><td>36.6689</td><td>0.2345</td><td><strong>2.9490</strong></td><td><strong>0.1970</strong></td></tr>
+<tr><th scope="row">SMFANet-plus</th><td>0.1656</td><td>37.1501</td><td>0.2463</td><td>7.4470</td><td>0.4950</td></tr>
+<tr><th scope="row">SRFormer</th><td>0.1215</td><td>40.0070</td><td>0.2455</td><td>227.4040</td><td>10.4290</td></tr>
+<tr><th scope="row">SRFormer-light</th><td>0.1739</td><td>35.0966</td><td>0.2332</td><td>14.1340</td><td>0.8400</td></tr>
+<tr><th scope="row">ART</th><td>0.1148</td><td>39.0602</td><td>0.2390</td><td>283.7570</td><td>16.5460</td></tr>
+<tr><th scope="row">ART-S</th><td>0.1801</td><td>37.6691</td><td>0.2408</td><td>203.2140</td><td>11.8670</td></tr>
+<tr><th scope="row">PFT</th><td>0.1045</td><td>38.9887</td><td>0.2451</td><td>319.1660</td><td>19.0570</td></tr>
+<tr><th scope="row">PFT-light</th><td>0.1577</td><td>37.5897</td><td>0.2423</td><td>11.3370</td><td>0.6970</td></tr>
+<tr><th scope="row">ATD</th><td>0.1357</td><td>41.6795</td><td>0.2496</td><td>310.2350</td><td>19.8840</td></tr>
+<tr><th scope="row">ATD-light</th><td>0.1625</td><td>37.4732</td><td>0.2486</td><td>11.6690</td><td>0.6610</td></tr>
+<tr><th scope="row">HIT-SR</th><td>0.1516</td><td>38.3516</td><td>0.2375</td><td>13.0660</td><td>0.7920</td></tr>
+<tr><th scope="row">CoRPLE</th><td>0.2320</td><td>31.0734</td><td>0.2022</td><td>37.5920</td><td>0.5910</td></tr>
+<tr class="ours"><th scope="row"><strong>RPT-SR-Light</strong></th><td>0.1377</td><td>41.7372</td><td>0.2472</td><td>27.5540</td><td>3.9500</td></tr>
+<tr class="ours"><th scope="row"><strong>RPT-SR</strong></th><td><strong>0.1038</strong></td><td><strong>41.8049</strong></td><td><strong>0.2621</strong></td><td>237.7830</td><td>25.8300</td></tr></tbody></table></div>
+</details><h3>Across datasets and scales</h3><p>We obtain the lowest LPIPS among the compared methods on RASMD at ×4 and on both RASMD and M3FD at ×2. On the cross-dataset TNO evaluation at ×4, we achieve 0.2501 LPIPS, compared with 0.2475 for HAT. We see benefits from our dual-token design across the LWIR and SWIR evaluations, while TNO remains a challenging cross-dataset setting.</p><div class="table-scroll" role="region" aria-labelledby="cross-dataset-caption" tabindex="0"><table id="cross-dataset"><caption id="cross-dataset-caption">Our LPIPS results across datasets and scales · lower is better</caption><thead><tr><th scope="col">Dataset</th><th scope="col">Scale</th><th scope="col">RPT-SR</th><th scope="col">Best competing method</th><th scope="col">Competing LPIPS</th></tr></thead><tbody><tr><th scope="row">RASMD (SWIR)</th><td>×4</td><td>0.1535</td><td>CAT-A</td><td>0.1548</td></tr>
+<tr><th scope="row">TNO (LWIR)</th><td>×4</td><td>0.2501</td><td>HAT</td><td>0.2475</td></tr>
+<tr><th scope="row">RASMD (SWIR)</th><td>×2</td><td>0.0285</td><td>HAT-S</td><td>0.0286</td></tr>
+<tr><th scope="row">M3FD (LWIR)</th><td>×2</td><td>0.0728</td><td>ATD-light</td><td>0.0730</td></tr></tbody></table></div><details class="figure-details"><summary>All 24 methods on RASMD and TNO at ×4</summary>
+<div class="table-scroll" role="region" aria-labelledby="full-rasmd-tno-x4-caption" tabindex="0"><table id="full-rasmd-tno-x4"><caption id="full-rasmd-tno-x4-caption">Our full RASMD and TNO ×4 comparison</caption><thead><tr><th scope="col">Method</th><th scope="col">RASMD LPIPS ↓</th><th scope="col">TNO LPIPS ↓</th></tr></thead><tbody><tr><th scope="row">BSRGAN</th><td>0.1884</td><td>0.4095</td></tr>
+<tr><th scope="row">SwinIR</th><td>0.2415</td><td>0.4797</td></tr>
+<tr><th scope="row">HAT</th><td>0.1560</td><td><strong>0.2475</strong></td></tr>
+<tr><th scope="row">HAT-S</th><td>0.1603</td><td>0.2543</td></tr>
+<tr><th scope="row">DAT</th><td>0.1623</td><td>0.2534</td></tr>
+<tr><th scope="row">DAT-light</th><td>0.1650</td><td>0.3534</td></tr>
+<tr><th scope="row">DAT-S</th><td>0.1603</td><td>0.2548</td></tr>
+<tr><th scope="row">RGT</th><td>0.1638</td><td>0.2809</td></tr>
+<tr><th scope="row">RGT-S</th><td>0.1582</td><td>0.2853</td></tr>
+<tr><th scope="row">CAT</th><td>0.1559</td><td>0.3280</td></tr>
+<tr><th scope="row">CAT-2</th><td>0.1604</td><td>0.2973</td></tr>
+<tr><th scope="row">CAT-A</th><td>0.1548</td><td>0.3280</td></tr>
+<tr><th scope="row">CAT-A2</th><td>0.1577</td><td>0.3269</td></tr>
+<tr><th scope="row">SMFANet</th><td>0.1755</td><td>0.3609</td></tr>
+<tr><th scope="row">SMFANet-plus</th><td>0.1711</td><td>0.3574</td></tr>
+<tr><th scope="row">ART</th><td>0.1592</td><td>0.2536</td></tr>
+<tr><th scope="row">ART-S</th><td>0.1650</td><td>0.3374</td></tr>
+<tr><th scope="row">PFT</th><td>0.1608</td><td>0.3229</td></tr>
+<tr><th scope="row">PFT-light</th><td>0.1647</td><td>0.3440</td></tr>
+<tr><th scope="row">ATD</th><td>0.1589</td><td>0.3163</td></tr>
+<tr><th scope="row">ATD-light</th><td>0.1667</td><td>0.3431</td></tr>
+<tr><th scope="row">HIT-SR</th><td>0.1675</td><td>0.3442</td></tr>
+<tr><th scope="row">CoRPLE</th><td>0.3087</td><td>0.3671</td></tr>
+<tr class="ours"><th scope="row"><strong>RPT-SR</strong></th><td><strong>0.1535</strong></td><td>0.2501</td></tr></tbody></table></div>
+</details><details class="figure-details"><summary>All 13 methods on RASMD and M3FD at ×2</summary>
+<div class="table-scroll" role="region" aria-labelledby="full-rasmd-m3fd-x2-caption" tabindex="0"><table id="full-rasmd-m3fd-x2"><caption id="full-rasmd-m3fd-x2-caption">Our full RASMD and M3FD ×2 comparison</caption><thead><tr><th scope="col">Method</th><th scope="col">RASMD LPIPS ↓</th><th scope="col">M3FD LPIPS ↓</th></tr></thead><tbody><tr><th scope="row">BSRGAN</th><td>0.1457</td><td>0.1314</td></tr>
+<tr><th scope="row">SwinIR</th><td>0.0354</td><td>0.0732</td></tr>
+<tr><th scope="row">HAT-S</th><td>0.0286</td><td>0.0731</td></tr>
+<tr><th scope="row">RGT</th><td>0.0383</td><td>0.0746</td></tr>
+<tr><th scope="row">RGT-S</th><td>0.0409</td><td>0.0759</td></tr>
+<tr><th scope="row">SMFANet</th><td>0.0377</td><td>0.0819</td></tr>
+<tr><th scope="row">SMFANet-plus</th><td>0.0355</td><td>0.0766</td></tr>
+<tr><th scope="row">ART-S</th><td>0.0313</td><td>0.0750</td></tr>
+<tr><th scope="row">PFT-light</th><td>0.0364</td><td>0.0759</td></tr>
+<tr><th scope="row">ATD-light</th><td>0.0359</td><td>0.0730</td></tr>
+<tr><th scope="row">HiT-SR</th><td>0.0347</td><td>0.0772</td></tr>
+<tr><th scope="row">CoRPLE</th><td>0.0373</td><td>0.0766</td></tr>
+<tr class="ours"><th scope="row"><strong>RPT-SR</strong></th><td><strong>0.0285</strong></td><td><strong>0.0728</strong></td></tr></tbody></table></div>
+</details><p class="results-download"><a href="static/data/results.json" download>Download results as JSON</a></p>
+</div></section>
+<section class="section" id="ablation" aria-labelledby="ablation-title"><div class="container"><h2 id="ablation-title">Ablation Study</h2>
+<p>We isolate the contribution of each token type by comparing a local-only baseline, a static-prior-only variant, and our fused model. We achieve the best LPIPS, MUSIQ, and MANIQA values across all three datasets when we use both regional priors and local tokens.</p><figure class="paper-figure compact-figure">
+  <a class="figure-link" href="static/images/attention-maps.png" target="_blank" rel="noopener" aria-label="Open full-size attention maps figure in a new tab">
+    <picture><source srcset="static/images/attention-maps.webp" type="image/webp"><img src="static/images/attention-maps.png" alt="Our attention maps for three variants: local-only Baseline on the left, static-prior-only Static in the center, and our fused model on the right." width="1343" height="531" loading="lazy" decoding="async"></picture>
+  </a>
+  <figcaption>We visualize attention at our final RPA layer on the M3FD test set. Our local-only baseline emphasizes a broad horizontal band, while the static-only variant produces diffuse patterns. With both token types, we concentrate attention on structured scene content, including vehicles and pedestrians.</figcaption>
+</figure><div class="table-scroll" role="region" aria-labelledby="ablation-m3fd-caption" tabindex="0"><table id="ablation-m3fd"><caption id="ablation-m3fd-caption">Our M3FD ×4 ablation</caption><thead><tr><th scope="col">Token configuration</th><th scope="col">LPIPS ↓</th><th scope="col">MUSIQ ↑</th><th scope="col">MANIQA ↑</th></tr></thead><tbody><tr><th scope="row">Local only</th><td>0.105057</td><td>41.2597</td><td>0.26091</td></tr>
+<tr><th scope="row">Static prior only</th><td>0.105324</td><td>41.6872</td><td>0.26034</td></tr>
+<tr class="ours"><th scope="row"><strong>RPT-SR (both)</strong></th><td><strong>0.103793</strong></td><td><strong>41.8049</strong></td><td><strong>0.26213</strong></td></tr></tbody></table></div><div class="table-scroll" role="region" aria-labelledby="ablation-tno-caption" tabindex="0"><table id="ablation-tno"><caption id="ablation-tno-caption">Our TNO ×4 ablation</caption><thead><tr><th scope="col">Token configuration</th><th scope="col">LPIPS ↓</th><th scope="col">MUSIQ ↑</th><th scope="col">MANIQA ↑</th></tr></thead><tbody><tr><th scope="row">Local only</th><td>0.25048</td><td>36.4154</td><td>0.24596</td></tr>
+<tr><th scope="row">Static prior only</th><td>0.25257</td><td>38.2838</td><td>0.24903</td></tr>
+<tr class="ours"><th scope="row"><strong>RPT-SR (both)</strong></th><td><strong>0.25014</strong></td><td><strong>38.5862</strong></td><td><strong>0.25125</strong></td></tr></tbody></table></div><div class="table-scroll" role="region" aria-labelledby="ablation-rasmd-caption" tabindex="0"><table id="ablation-rasmd"><caption id="ablation-rasmd-caption">Our RASMD ×4 ablation</caption><thead><tr><th scope="col">Token configuration</th><th scope="col">LPIPS ↓</th><th scope="col">MUSIQ ↑</th><th scope="col">MANIQA ↑</th></tr></thead><tbody><tr><th scope="row">Local only</th><td>0.154442</td><td>44.39395</td><td>0.223607</td></tr>
+<tr><th scope="row">Static prior only</th><td>0.154457</td><td>44.72269</td><td>0.225821</td></tr>
+<tr class="ours"><th scope="row"><strong>RPT-SR (both)</strong></th><td><strong>0.153543</strong></td><td><strong>44.91027</strong></td><td><strong>0.226634</strong></td></tr></tbody></table></div><p>We increase computation from 231.366 to 237.783 GFLOPs and model size from 25.454 to 25.830 million parameters relative to our local-only baseline. We treat this as a trade-off between model size and perceptual reconstruction quality.</p><div class="table-scroll" role="region" aria-labelledby="ablation-cost-caption" tabindex="0"><table id="ablation-cost"><caption id="ablation-cost-caption">Our ablation configurations and computational cost</caption><thead><tr><th scope="col">Token configuration</th><th scope="col">FLOPs (G)</th><th scope="col">Params (M)</th></tr></thead><tbody><tr><th scope="row">Local only</th><td>231.366</td><td>25.454</td></tr>
+<tr><th scope="row">Static prior only</th><td>229.100</td><td>25.377</td></tr>
+<tr class="ours"><th scope="row"><strong>RPT-SR (both)</strong></th><td>237.783</td><td>25.830</td></tr></tbody></table></div>
+</div></section>
+<section class="section" id="resources" aria-labelledby="resources-title"><div class="container"><h2 id="resources-title">Resources</h2>
+<p>We provide our implementation and configuration files in our <a href="https://github.com/Yonsei-STL/RPT-SR">GitHub repository</a>. Our article is available through <a href="https://doi.org/10.1109/WACV61042.2026.00503">IEEE Xplore</a>, with an open manuscript on <a href="https://arxiv.org/abs/2602.15490">arXiv</a>. For our SWIR experiments, we use the <a href="https://yonsei-stl.github.io/RASMD/">RASMD dataset</a>.</p><h3>Scope and future work</h3><p>We target fixed or nearly static viewpoints with recurring spatial structure, and our experiments use synthetic bicubic downsampling. We plan to compress the learned priors and extend our regional-prior mechanism to additional restoration tasks, including video super-resolution.</p>
+</div></section>
+<section class="section" id="BibTeX" aria-labelledby="BibTeX-title"><div class="container"><h2 id="BibTeX-title">BibTeX</h2>
+<div class="citation-toolbar">
+      <button type="button" class="button" data-copy-bibtex hidden>Copy BibTeX</button>
+      <a href="citation.bib" download>Download .bib</a>
+      <a href="citation.json" download>Download CSL-JSON</a>
+      <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+    </div>
+    <pre><code id="bibtex-code">@inproceedings{jin2026rptsr,
+  title = {{RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution}},
+  author = {Jin, Youngwan and Park, Incheol and Nalcakan, Yagiz and Ju, Hyeongjin and Yeo, Sanghyeop and Kim, Shiho},
+  booktitle = {2026 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  pages = {5184--5193},
+  year = {2026},
+  publisher = {IEEE},
+  doi = {10.1109/WACV61042.2026.00503},
+  url = {https://doi.org/10.1109/WACV61042.2026.00503}
+}
+</code></pre>
+    <p class="paper-reference" id="paper-reference">Youngwan Jin, Incheol Park, Yagiz Nalcakan, Hyeongjin Ju, Sanghyeop Yeo, Shiho Kim. <cite>RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution</cite>.
+      <span class="reference-details">2026 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), pp. 5184–5193, 2026.</span>
+      <a href="https://doi.org/10.1109/WACV61042.2026.00503">DOI: 10.1109/WACV61042.2026.00503</a>
+    </p>
+</div></section>
+</main>
+<footer class="footer"><div class="container">
+  <p><a href="https://yonsei-stl.github.io/">All STL publications</a> · <a href="https://stl.yonsei.ac.kr/">Seamless Trans-X Lab, Yonsei University</a></p>
+</div></footer>
+</body>
+</html>

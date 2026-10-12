@@ -1,0 +1,161 @@
+/* Static project-page styles. Visual reference: STL's RASMD / Pix2Next pages.
+   No build system, CSS framework, icon font, or JavaScript is needed for reading. */
+:root {
+  color-scheme: light;
+  --ink: #363636;
+  --body: #4a4a4a;
+  --muted: #686868;
+  --link: #0875b2;
+  --line: #e8e8e8;
+  --soft: #f7f7f7;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--body);
+  font-family: 'Google Sans', 'Noto Sans', Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible, summary:focus-visible,
+[tabindex]:focus-visible { outline: 3px solid var(--link); outline-offset: 4px; }
+p { margin: 0 0 1.2rem; }
+strong { font-weight: 700; color: var(--ink); }
+img { display: block; max-width: 100%; height: auto; }
+button, input { font: inherit; }
+[hidden] { display: none !important; }
+.container { width: min(960px, calc(100% - 3rem)); margin-inline: auto; }
+.skip-link { position: absolute; top: -100px; left: 1rem; padding: .6rem 1rem; background: #fff; z-index: 10; }
+.skip-link:focus { top: .75rem; }
+.hero { padding: 3rem 0 1.3rem; text-align: center; }
+.publication-title {
+  margin: 0 auto 1.2rem;
+  font-size: clamp(2.1rem, 4.2vw, 4rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.12;
+  letter-spacing: -.035em;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+.publication-venue { margin: 0 0 1.35rem; font-size: 1.28rem; font-weight: 500; color: #666; }
+.publication-authors { font-size: 1.3rem; line-height: 1.7; margin-bottom: .85rem; }
+.author-block { display: inline-block; white-space: nowrap; }
+.author-block sup { font-size: .62em; margin-left: .15em; vertical-align: super; }
+.affiliations { font-size: 1.03rem; line-height: 1.65; max-width: 800px; margin: 0 auto; }
+.affiliations p { margin: .1rem 0; }
+.affiliations sup { font-size: .7em; margin-right: .25rem; }
+.author-notes { font-size: .83rem; color: var(--muted); margin: .7rem 0 0; }
+.publication-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .65rem; margin: 1.3rem auto; }
+.button {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  min-height: 42px; border: 1px solid var(--ink); border-radius: 999px;
+  padding: .4rem 1.15rem; background: var(--ink); color: #fff;
+  font-size: 1rem; line-height: 1.4; cursor: pointer;
+  text-decoration: none; transition: background-color .15s;
+}
+.button:hover { background: #202020; color: #fff; text-decoration: none; }
+.button svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.page-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: .25rem 1.1rem; font-size: .9rem; margin: .6rem 0 .3rem; }
+.page-nav a { padding-block: .35rem; }
+.teaser { padding: .7rem 0 0; }
+.paper-figure { margin: 1.8rem 0 2.2rem; }
+.teaser .paper-figure { margin: 0; }
+.figure-link { display: block; cursor: zoom-in; }
+.figure-link img { margin-inline: auto; width: 100%; }
+figure picture { display: block; }
+figcaption { margin-top: .9rem; text-align: left; font-size: .91rem; line-height: 1.65; color: var(--body); }
+.compact-figure { width: min(100%, 620px); margin-inline: auto; }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 2rem 0 0; padding: 1.25rem 0; text-align: center; }
+.fact + .fact { border-left: 1px solid var(--line); }
+.fact-value { display: block; color: var(--ink); font-size: 1.8rem; font-weight: 700; line-height: 1.25; }
+.fact-label { display: block; margin-top: .35rem; font-size: .87rem; line-height: 1.45; }
+.section { padding: 2.6rem 0; border-bottom: 1px solid var(--line); }
+.section h2 { margin: 0 0 1.5rem; font-size: 2rem; font-weight: 600; text-align: center; line-height: 1.25; letter-spacing: -.025em; color: var(--body); }
+.section h3 { font-size: 1.3rem; font-weight: 600; line-height: 1.4; color: var(--ink); margin: 1.9rem 0 .8rem; }
+.section h3:first-child { margin-top: 0; }
+.abstract-text { text-align: justify; hyphens: auto; }
+.abstract-text p { margin-bottom: .7rem; }
+.table-scroll { width: 100%; max-width: 100%; overflow-x: auto; margin: 1.2rem 0 1.4rem; -webkit-overflow-scrolling: touch; }
+table { border-collapse: collapse; width: 100%; text-align: right; font-size: .9rem; font-variant-numeric: tabular-nums; line-height: 1.55; }
+caption { caption-side: top; text-align: left; color: var(--body); font-size: .93rem; margin-bottom: .6rem; font-weight: 500; }
+caption span { font-weight: 400; display: block; }
+th, td { border-bottom: 1px solid var(--line); padding: .7rem .8rem; white-space: nowrap; }
+thead th { color: var(--ink); font-weight: 600; border-top: 2px solid #777; border-bottom: 1px solid #999; background: #fafafa; }
+th:first-child, td:first-child { text-align: left; }
+tbody th { font-weight: 500; color: var(--ink); }
+tbody tr:last-child th, tbody tr:last-child td { border-bottom: 2px solid #999; }
+tbody tr:hover { background: #fafafa; }
+.figure-details { border-top: 1px solid var(--line); padding: .8rem 0; }
+.figure-details summary { color: var(--link); cursor: pointer; font-size: .95rem; }
+.figure-details[open] summary { margin-bottom: 1rem; }
+.figure-details .paper-figure { margin-top: .8rem; margin-bottom: 1rem; }
+.citation-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem 1rem; margin-bottom: .9rem; font-size: .88rem; }
+.citation-toolbar .button { min-height: 36px; font-size: .85rem; padding: .35rem .9rem; }
+.copy-status { font-size: .82rem; color: var(--muted); }
+pre { margin: 0; padding: 1.4rem; border-radius: 3px; background: #f5f5f5; font-size: .82rem; line-height: 1.75; overflow-x: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+code { font-family: ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; }
+.paper-reference { margin: 1.3rem 0 0; font-size: .87rem; line-height: 1.7; overflow-wrap: anywhere; }
+.paper-reference .reference-details { display: block; color: var(--muted); margin: .25rem 0; }
+.footer { padding: 2rem 0 2.5rem; text-align: center; font-size: .87rem; background: #fafafa; }
+.footer p { margin: .3rem 0; }
+@media (max-width: 768px) {
+  body { font-size: 16px; line-height: 1.7; }
+  .container { width: calc(100% - 2rem); }
+  .hero { padding-top: 2rem; }
+  .publication-title { font-size: clamp(1.85rem, 6.8vw, 2.5rem); line-height: 1.17; letter-spacing: -.025em; }
+  .publication-venue { font-size: 1.1rem; margin-bottom: 1.1rem; }
+  .publication-authors { font-size: 1.06rem; }
+  .affiliations { font-size: .92rem; }
+  .publication-links { gap: .5rem; }
+  .page-nav { gap: .2rem .9rem; }
+  .section { padding: 2rem 0; }
+  .section h2 { font-size: 1.7rem; }
+  .section h3 { font-size: 1.16rem; }
+  .abstract-text { text-align: left; hyphens: none; }
+  .facts { gap: .45rem; margin-top: 1.6rem; }
+  .fact { padding-inline: .2rem; }
+  .fact-value { font-size: 1.38rem; }
+  .fact-label { font-size: .76rem; }
+  .fact-source { font-size: .68rem; }
+  th, td { padding: .6rem; }
+  table { font-size: .82rem; }
+  figcaption { font-size: .84rem; }
+  .paper-figure { margin: 1.4rem 0 1.7rem; }
+  .compact-figure { margin-inline: auto; }
+}
+@media (max-width: 380px) {
+  .publication-title { font-size: 1.8rem; }
+  .fact-value { font-size: 1.2rem; }
+  .facts { gap: .25rem; }
+  .fact-label { font-size: .72rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+@media print {
+  body { font-size: 10pt; }
+  .container { width: 100%; }
+  .hero { padding-top: 0; }
+  .publication-title { font-size: 22pt; }
+  .publication-links, .page-nav, .citation-toolbar, .skip-link { display: none; }
+  .section { padding-block: 1.2rem; }
+  figure, table { break-inside: avoid; }
+  .table-scroll { overflow: visible; }
+  table { font-size: 8pt; }
+  .footer { background: white; }
+}
+/* RPT-SR table enhancements within the existing STL visual language. */
+tr.ours { background: #f3f8fb; }
+tbody tr.ours:hover { background: #eaf3f9; }
+.results-download { margin: 1.1rem 0 0; font-size: .9rem; }
+.table-scroll:focus-visible { outline-offset: 2px; }
+.figure-details summary { padding-block: .25rem; }
+@media print { .results-download { display: none; } }
+

@@ -1,0 +1,43 @@
+{
+  "id": "RPT-SR",
+  "type": "paper-conference",
+  "title": "RPT-SR: Regional Prior attention Transformer for infrared image Super-Resolution",
+  "container-title": "2026 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+  "publisher": "IEEE",
+  "author": [
+    {
+      "given": "Youngwan",
+      "family": "Jin"
+    },
+    {
+      "given": "Incheol",
+      "family": "Park"
+    },
+    {
+      "given": "Yagiz",
+      "family": "Nalcakan"
+    },
+    {
+      "given": "Hyeongjin",
+      "family": "Ju"
+    },
+    {
+      "given": "Sanghyeop",
+      "family": "Yeo"
+    },
+    {
+      "given": "Shiho",
+      "family": "Kim"
+    }
+  ],
+  "issued": {
+    "date-parts": [
+      [
+        2026
+      ]
+    ]
+  },
+  "page": "5184-5193",
+  "DOI": "10.1109/WACV61042.2026.00503",
+  "URL": "https://doi.org/10.1109/WACV61042.2026.00503"
+}
